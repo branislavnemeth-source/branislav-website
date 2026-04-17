@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="sk" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows 11 – Sprievodca, Tipy a Rady | BranislavIT</title>
+  <meta name="description" content="Kompletný sprievodca Windows 11. Prechod z Windows 10, nové funkcie, tipy a triky, bezpečnosť a zaujímavosti zo sveta IT.">
+  <meta property="og:title" content="Windows 11 – Sprievodca, Tipy a Rady | BranislavIT">
+  <meta property="og:description" content="Všetko o Windows 11 — prechod z Win 10, tipy, triky a IT novinky po slovensky.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='45' height='45' rx='6' fill='%230078d4'/><rect x='55' width='45' height='45' rx='6' fill='%230078d4' opacity='.8'/><rect y='55' width='45' height='45' rx='6' fill='%230078d4' opacity='.6'/><rect x='55' y='55' width='45' height='45' rx='6' fill='%230078d4' opacity='.4'/></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="BranislavIT logo">
+        <rect width="16" height="16" rx="3" fill="#0078d4"/>
+        <rect x="20" width="16" height="16" rx="3" fill="#0078d4" opacity=".75"/>
+        <rect y="20" width="16" height="16" rx="3" fill="#0078d4" opacity=".55"/>
+        <rect x="20" y="20" width="16" height="16" rx="3" fill="#7c3aed"/>
+      </svg>
+      <div class="nav-logo-text">BranislavIT<span>Windows & AI Blog</span></div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">🏠 Domov</a></li>
+      <li><a href="windows11.html" class="active">🪟 Windows 11</a></li>
+      <li><a href="ai.html">🤖 AI</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Prepnúť tému"></button>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile">
+    <a href="index.html">🏠 Domov</a>
+    <a href="windows11.html" class="active">🪟 Windows 11</a>
+    <a href="ai.html">🤖 AI</a>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<section style="background: linear-gradient(135deg, color-mix(in oklab, var(--color-win11) 8%, var(--color-bg)), var(--color-bg)); padding: clamp(3rem, 6vw, 5rem) 1.5rem; border-bottom: 1px solid var(--color-divider);">
+  <div class="container">
+    <div class="hero-badge" style="margin-bottom: 1.25rem;">
+      <span class="dot"></span> Windows 10 — podpora skončila 14. 10. 2025
+    </div>
+    <h1 style="font-size: var(--text-2xl); font-family: var(--font-display); font-weight: 800; margin-bottom: 1rem; color: var(--color-text);">
+      🪟 Windows 11 — všetko čo potrebuješ vedieť
+    </h1>
+    <p style="font-size: var(--text-lg); color: var(--color-text-muted); max-width: 60ch;">Prechod z Windows 10, nové funkcie, tipy, triky a bezpečnostné rady. Kompletný sprievodca po slovensky.</p>
+  </div>
+</section>
+
+<!-- TAB NAVIGATION -->
+<section class="section">
+  <div class="container">
+    <div class="tab-nav" role="tablist">
+      <button class="tab-btn active" data-tab="tab-win10" role="tab" aria-selected="true">⚠️ Koniec Win 10</button>
+      <button class="tab-btn" data-tab="tab-prechod" role="tab">🔄 Prechod na Win 11</button>
+      <button class="tab-btn" data-tab="tab-funkcie" role="tab">✨ Nové funkcie</button>
+      <button class="tab-btn" data-tab="tab-tipy" role="tab">💡 Tipy & Rady</button>
+      <button class="tab-btn" data-tab="tab-bezpecnost" role="tab">🔐 Bezpečnosť</button>
+      <button class="tab-btn" data-tab="tab-it-zaujimavosti" role="tab">💻 IT Zaujímavosti</button>
+    </div>
+
+    <!-- TAB: Koniec Windows 10 -->
+    <div class="tab-panel active" id="tab-win10" id="win10-koniec" role="tabpanel">
+      <div class="articles-grid featured fade-in">
+        <article class="card card-featured">
+          <div class="card-img" style="background: linear-gradient(135deg, #ff4444 0%, #cc2222 100%); color: white;">⚠️</div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag" style="background:#ffeeee;color:#cc2222;">⚠️ Dôležité</span>
+              <span class="card-date">Aktuálne</span>
+            </div>
+            <h2 class="card-title">Windows 10 je mŕtvy — čo teraz?</h2>
+            <div class="article-body" style="font-size: var(--text-sm);">
+              <p>Microsoft ukončil pravidelnú podporu Windows 10 (verzia 22H2) dňa <strong>14. októbra 2025</strong>. Čo to konkrétne znamená pre bežného používateľa?</p>
+              <ul>
+                <li>❌ Žiadne ďalšie bezpečnostné aktualizácie</li>
+                <li>❌ Žiadne opravy kritických zraniteľností</li>
+                <li>❌ Žiadna technická podpora od Microsoftu</li>
+                <li>✅ Windows 10 naďalej funguje — ale na vlastné riziko</li>
+              </ul>
+              <div class="callout" style="margin-top: 1rem;">
+                <strong>💡 Čo hrozí?</strong> Počítač bez bezpečnostných aktualizácií sa stáva ľahkým cieľom pre vírusy, ransomware a hackerov. Každý deň sa objavujú nové hrozby.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-win11">🪟 Win 11</span></div>
+            <h3 class="card-title">Je môj počítač kompatibilný?</h3>
+            <p class="card-excerpt">Windows 11 vyžaduje TPM 2.0 čip, 64-bitový procesor a minimálne 4 GB RAM. Ako zistiť, či tvoj PC spĺňa podmienky?</p>
+            <div class="article-body" style="font-size: var(--text-sm); margin-top: 0.75rem;">
+              <p><strong>Minimálne požiadavky Windows 11:</strong></p>
+              <ul>
+                <li>Procesor: 1 GHz, 2+ jadrá, 64-bit kompatibilný</li>
+                <li>RAM: 4 GB</li>
+                <li>Úložisko: 64 GB</li>
+                <li>TPM 2.0 (dôležité!)</li>
+                <li>DirectX 12 kompatibilná grafika</li>
+              </ul>
+              <p style="margin-top: 0.75rem;">Stiahni si <strong>PC Health Check</strong> od Microsoftu — bezplatne otestuje kompatibilitu.</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.gamers-outlet.net/en?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="sponsored noopener" class="card-read-more">🛒 Kúp licenciu Win 11 →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-tip">💡 Tip</span></div>
+            <h3 class="card-title">Čo ak môj PC nepodporuje Win 11?</h3>
+            <p class="card-excerpt">Starší počítač bez TPM 2.0? Máš niekoľko možností od inštalácie Linuxu po nákup nového PC.</p>
+            <div class="article-body" style="font-size: var(--text-sm); margin-top: 0.75rem;">
+              <ul>
+                <li><strong>Možnosť 1:</strong> Neoficiálna inštalácia Win 11 (nie odporúčané)</li>
+                <li><strong>Možnosť 2:</strong> Prechod na Linux (Ubuntu, Mint)</li>
+                <li><strong>Možnosť 3:</strong> Nový PC alebo upgrade hardvéru</li>
+                <li><strong>Možnosť 4:</strong> Platiť za Extended Security Updates</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Affiliate: Gamers Outlet -->
+      <div class="affiliate-banner fade-in" style="margin-top: 2rem;">
+        <div class="affiliate-banner-content">
+          <div class="affiliate-banner-label">🛒 Potrebuješ licenciu Windows 11?</div>
+          <h3 class="affiliate-banner-title">Gamers Outlet — originálny softvér za výhodné ceny</h3>
+          <p class="affiliate-banner-text">Windows 11 Home, Pro, Microsoft Office a ďalší softvér. Okamžité doručenie licencie emailom.</p>
+        </div>
+        <div class="affiliate-banner-cta">
+          <a href="https://www.gamers-outlet.net/en?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="sponsored noopener" class="btn btn-primary">Zobraziť ponuku →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: Prechod na Windows 11 -->
+    <div class="tab-panel" id="tab-prechod" role="tabpanel">
+      <div class="section-header" style="text-align:left; margin-bottom: 2rem;">
+        <h2 class="section-title" style="text-align:left;">🔄 Ako prejsť na Windows 11 — krok za krokom</h2>
+      </div>
+      <div class="tips-grid fade-in">
+        <div class="tip-card">
+          <div class="tip-icon" style="font-size: 1.5rem; width: 44px; height: 44px;">1️⃣</div>
+          <h4 class="tip-title">Skontroluj kompatibilitu</h4>
+          <p class="tip-text">Stiahni si nástroj PC Health Check z webu Microsoft. Spusti ho a pozri, či tvoj počítač spĺňa požiadavky Windows 11.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon" style="font-size: 1.5rem; width: 44px; height: 44px;">2️⃣</div>
+          <h4 class="tip-title">Zálohuj dáta</h4>
+          <p class="tip-text">Pred akýmkoľvek upgradom zálohu dokumenty, fotky a dôležité súbory na externý disk alebo OneDrive.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon" style="font-size: 1.5rem; width: 44px; height: 44px;">3️⃣</div>
+          <h4 class="tip-title">Spusti Windows Update</h4>
+          <p class="tip-text">Na Windows 10 otvor Nastavenia → Windows Update → Zobraziť voliteľné aktualizácie. Nájdeš tam ponuku na upgrade.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon" style="font-size: 1.5rem; width: 44px; height: 44px;">4️⃣</div>
+          <h4 class="tip-title">Inštalácia (1–2 hod.)</h4>
+          <p class="tip-text">Upgrade trvá 1-2 hodiny. Počítač sa niekoľkokrát reštartuje. Nič nerob, len čakaj — všetko sa deje automaticky.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon" style="font-size: 1.5rem; width: 44px; height: 44px;">5️⃣</div>
+          <h4 class="tip-title">Nastavenie a aktivácia</h4>
+          <p class="tip-text">Po inštalácii prihlás sa Microsoft účtom. Windows 11 sa automaticky aktivuje ak si mal aktivovaný Windows 10.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon" style="font-size: 1.5rem; width: 44px; height: 44px;">6️⃣</div>
+          <h4 class="tip-title">Aktualizácie a ovládače</h4>
+          <p class="tip-text">Po inštalácii spusti Windows Update a stiahni všetky aktualizácie. Skontroluj aj webstránku výrobcu pre najnovšie ovládače.</p>
+        </div>
+      </div>
+
+      <div class="affiliate-banner fade-in" style="margin-top: 2rem;">
+        <div class="affiliate-banner-content">
+          <div class="affiliate-banner-label">💡 Potrebuješ nový PC?</div>
+          <h3 class="affiliate-banner-title">MerkuryMarket.sk — výber elektroniky za skvelé ceny</h3>
+          <p class="affiliate-banner-text">Notebooky, počítače a príslušenstvo. Nájdi zariadenie kompatibilné s Windows 11.</p>
+        </div>
+        <div class="affiliate-banner-cta">
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fmerkurymarket.sk" target="_blank" rel="sponsored noopener" class="btn btn-primary">Pozrieť ponuku →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: Nové funkcie -->
+    <div class="tab-panel" id="tab-funkcie" role="tabpanel">
+      <div class="section-header" style="text-align:left; margin-bottom: 2rem;">
+        <h2 class="section-title" style="text-align:left;" id="funkcie">✨ Čo nové prináša Windows 11</h2>
+      </div>
+      <div class="articles-grid fade-in">
+        <article class="card">
+          <div class="card-img" style="font-size: 3rem;">🏗️</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-win11">Design</span></div>
+            <h3 class="card-title">Nový dizajn — centrovaný Štart a Taskbar</h3>
+            <p class="card-excerpt">Windows 11 prináša úplne prepracovaný vizuál — zaoblené rohy, priehľadné efekty (Mica Material), centrované ikony a moderný Štart menu.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img" style="font-size: 3rem;">📐</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-win11">Produktivita</span></div>
+            <h3 class="card-title">Snap Layouts — multitasking na novej úrovni</h3>
+            <p class="card-excerpt">Stlač Win+Z alebo hover nad tlačidlo maximalizácie a vyber rozloženie viacerých okien. Snap Groups si pamätá tvoje rozloženia.</p>
+            <div class="callout" style="margin-top: 0.75rem;">
+              <strong>Skratky:</strong> Win+Z (Layouts), Win+← → ↑ ↓ (Snap), Win+Ctrl+D (nová plocha)
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img" style="font-size: 3rem;">🤖</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-ai">🤖 AI</span></div>
+            <h3 class="card-title" id="copilot">Copilot — AI priamo v OS</h3>
+            <p class="card-excerpt">Windows 11 obsahuje zabudovaný AI asistent Copilot. Otvor ho skratkou Win+C a pýtaj sa čokoľvek, vytváraj obsah alebo zmeň nastavenia hlasom.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img" style="font-size: 3rem;">📱</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-win11">Android</span></div>
+            <h3 class="card-title">Android aplikácie na Windows 11</h3>
+            <p class="card-excerpt">Cez Windows Subsystem for Android môžeš spúšťať Android aplikácie priamo na ploche Windows 11 bez emulátora.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img" style="font-size: 3rem;">🎮</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-it">Gaming</span></div>
+            <h3 class="card-title">DirectStorage a Auto HDR pre hráčov</h3>
+            <p class="card-excerpt">DirectStorage skracuje časy načítania hier na NVMe diskoch. Auto HDR automaticky pridáva HDR do starých hier.</p>
+            <a href="https://www.gamers-outlet.net/en?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="sponsored noopener" class="btn btn-primary" style="margin-top: 1rem; font-size: var(--text-xs);">🎮 Softvér pre hráčov</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img" style="font-size: 3rem;">🔊</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-win11">Komunikácia</span></div>
+            <h3 class="card-title">Microsoft Teams integrovaný v Taskbare</h3>
+            <p class="card-excerpt">Chat, videohovory a spolupráca priamo z panela úloh. Volaj priateľom a kolegom bez otvárania plnej aplikácie.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- TAB: Tipy a Rady -->
+    <div class="tab-panel" id="tab-tipy" role="tabpanel">
+      <div class="section-header" style="text-align:left; margin-bottom: 2rem;">
+        <h2 class="section-title" style="text-align:left;" id="tipy">💡 Top tipy pre Windows 11</h2>
+      </div>
+      <div class="tips-grid fade-in">
+        <div class="tip-card">
+          <div class="tip-icon">⌨️</div>
+          <h4 class="tip-title">Win + Z — Snap Layouts</h4>
+          <p class="tip-text">Okamžite zobrazí možnosti usporiadania okien. Vyber rozloženie a klikni kde chceš umiestniť okno.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">🖥️</div>
+          <h4 class="tip-title">Virtuálne plochy (Win+Ctrl+D)</h4>
+          <p class="tip-text">Vytvor samostatné plochy pre prácu, zábavu a projekty. Prepínaj medzi nimi skratkou Win+Ctrl+←→.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">🔍</div>
+          <h4 class="tip-title">PowerToys — skryté nástroje</h4>
+          <p class="tip-text">Microsoft PowerToys je bezplatná sada nástrojov — správca okien, náhľad obrázkov, FancyZones a oveľa viac.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">📋</div>
+          <h4 class="tip-title">Schránka s históriou (Win+V)</h4>
+          <p class="tip-text">Windows 11 si pamätá posledných 25 kopírovaných položiek. Skratkou Win+V zobrazíš celú históriu schránky.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">🎤</div>
+          <h4 class="tip-title">Diktovanie textu (Win+H)</h4>
+          <p class="tip-text">Hovor a Windows prepisuje. Funguje takmer všade — v textových poliach, Word, emailoch. Aj s interpunkciou.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">🌙</div>
+          <h4 class="tip-title">Focus Session — bez rušenia</h4>
+          <p class="tip-text">V aplikácii Hodiny nájdeš Focus Sessions. Nastaví časovač, stlmí notifikácie a pomôže ti sústrediť sa.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">⚡</div>
+          <h4 class="tip-title">Rýchle nastavenia (Win+A)</h4>
+          <p class="tip-text">Rýchly prístup k Wi-Fi, Bluetooth, úspora batérie, jas a hlasitosť z jediného panela.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">📸</div>
+          <h4 class="tip-title">Snipping Tool (Win+Shift+S)</h4>
+          <p class="tip-text">Snímaj obrazovku ľubovoľného tvaru — obdĺžnik, okno, celá plocha, alebo voľný výber. S anotáciami.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">🔧</div>
+          <h4 class="tip-title">Správca úloh (Ctrl+Shift+Esc)</h4>
+          <p class="tip-text">Prepracovaný Správca úloh v Windows 11 zobrazí detailné grafy využitia CPU, RAM, GPU a siete.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: Bezpečnosť -->
+    <div class="tab-panel" id="tab-bezpecnost" role="tabpanel">
+      <div class="section-header" style="text-align:left; margin-bottom: 2rem;">
+        <h2 class="section-title" style="text-align:left;" id="bezpecnost">🔐 Bezpečnosť vo Windows 11</h2>
+      </div>
+      <div class="articles-grid fade-in">
+        <article class="card card-featured">
+          <div class="card-img" style="background: linear-gradient(135deg, #0d3349, #0078d4); color: white; font-size: 4rem;">🛡️</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag" style="background:#e0f0ff;color:#0078d4;">🛡️ Bezpečnosť</span></div>
+            <h2 class="card-title">Prečo je Windows 11 bezpečnejší ako Windows 10</h2>
+            <div class="article-body" style="font-size: var(--text-sm);">
+              <p>Windows 11 bol od základov navrhnutý s bezpečnosťou na prvom mieste. TPM 2.0 požiadavka nie je len formalita — ide o zásadnú bezpečnostnú vrstvu.</p>
+              <ul>
+                <li><strong>TPM 2.0</strong> — šifruje kľúče a certifikáty priamo v hardvéri</li>
+                <li><strong>Secure Boot</strong> — zabraňuje načítaniu neoverených programov pri štarte</li>
+                <li><strong>Windows Hello</strong> — biometrické prihlásenie namiesto hesla</li>
+                <li><strong>Microsoft Defender</strong> — zabudovaný antivírus s AI ochranou</li>
+                <li><strong>Smart App Control</strong> — blokuje podozrivé aplikácie automaticky</li>
+              </ul>
+              <div class="callout">
+                <strong>💡 Dôležité:</strong> Bez bezpečnostných aktualizácií (Windows 10 po okt. 2025) sú nové zraniteľnosti trvalo neopravené. Každý mesiac vychádza "Patch Tuesday" — nové opravy, ktoré Win 10 už nedostane.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-tip">💡 Tip</span></div>
+            <h3 class="card-title">5 krokov k bezpečnému Windows 11</h3>
+            <div class="article-body" style="font-size: var(--text-sm); margin-top: 0.5rem;">
+              <ol>
+                <li>Zapni <strong>Windows Update</strong> (automaticky)</li>
+                <li>Nastav <strong>Windows Hello</strong> (tvár alebo PIN)</li>
+                <li>Skontroluj <strong>Microsoft Defender</strong> je aktívny</li>
+                <li>Zapni <strong>BitLocker</strong> šifrovanie disku</li>
+                <li>Používaj <strong>dvojfaktorové overenie</strong> Microsoft účtu</li>
+              </ol>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-it">💻 Phishing</span></div>
+            <h3 class="card-title">Ako rozpoznať phishing v roku 2026</h3>
+            <div class="article-body" style="font-size: var(--text-sm); margin-top: 0.5rem;">
+              <p>AI generované phishingové emaily sú dnes takmer nerozoznateľné od originálu. Základné pravidlá:</p>
+              <ul>
+                <li>Nikdy neklikaj na link v nečakanom emaile</li>
+                <li>Skontroluj adresu odosielateľa</li>
+                <li>Dávaj pozor na naliehavé výzvy ("Tvoj účet bude zmazaný!")</li>
+                <li>Použi správca hesiel — nezdieľaj heslá</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- TAB: IT Zaujímavosti -->
+    <div class="tab-panel" id="tab-it-zaujimavosti" role="tabpanel">
+      <div class="section-header" style="text-align:left; margin-bottom: 2rem;">
+        <h2 class="section-title" style="text-align:left;">💻 Zaujímavosti zo sveta IT</h2>
+      </div>
+      <div class="articles-grid fade-in">
+        <article class="card">
+          <div class="card-img" style="font-size: 3rem; background: linear-gradient(135deg, var(--color-surface-offset), var(--color-surface-2));">🚀</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-it">💻 IT Trend</span><span class="card-date">2026</span></div>
+            <h3 class="card-title">Kvantové počítače — blízka budúcnosť?</h3>
+            <p class="card-excerpt">Google a IBM predstavili kvantové procesory s tisíckami qubitov. Čo to znamená pre šifrovanie a bezpečnosť?</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img" style="font-size: 3rem;">📡</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-it">💻 Sieť</span></div>
+            <h3 class="card-title">Wi-Fi 7 — rýchlosť ako optika</h3>
+            <p class="card-excerpt">Nový štandard Wi-Fi 7 (802.11be) dosahuje rýchlosti až 46 Gbps. Čo to prináša pre domácich používateľov?</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img" style="font-size: 3rem;">🔋</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-tip">💡 Zaujímavé</span></div>
+            <h3 class="card-title">ARM procesory preberajú dominanciu</h3>
+            <p class="card-excerpt">Qualcomm Snapdragon X Elite a Apple M-série dokazujú, že ARM = efektivita. Windows on ARM sa stáva realitou.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img" style="font-size: 3rem;">📺</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-it">📡 Streaming</span></div>
+            <h3 class="card-title">SledovanieTV.sk — TV všade a na každom zariadení</h3>
+            <p class="card-excerpt">Sleduj slovenské a zahraničné kanály online — na PC, mobile aj SmartTV. Bez anténneho príjmu.</p>
+            <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fssledovanietv.sk" target="_blank" rel="sponsored noopener" class="btn btn-primary" style="margin-top: 1rem; font-size: var(--text-xs);">📺 Vyskúšaj →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img" style="font-size: 3rem;">🛒</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-it">🛍 E-shop</span></div>
+            <h3 class="card-title">Allegro.sk — nákupná platforma na vzostupe</h3>
+            <p class="card-excerpt">Allegro expanduje do SR a ponúka milióny produktov od overených predajcov. Alternatíva k Amazon pre SK/CZ trh.</p>
+            <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fallegro.sk" target="_blank" rel="sponsored noopener" class="card-read-more" style="display:inline-block;margin-top:0.75rem;">Navštíviť →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img" style="font-size: 3rem;">📱</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag tag-it">📱 Mobily</span></div>
+            <h3 class="card-title">Mobilego.sk — všetko pre tvoj smartfón</h3>
+            <p class="card-excerpt">Kryty, ochranné sklá, powerbanky, slúchadlá. Najväčší výber príslušenstva na slovenskom trhu.</p>
+            <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fmobilego.sk" target="_blank" rel="sponsored noopener" class="card-read-more" style="display:inline-block;margin-top:0.75rem;">Navštíviť →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- NOVY CLANOK: 17.04.2026 -->
+    <div style="margin-top: 2.5rem;" class="fade-in">
+      <h3 style="font-size: var(--text-lg); font-family: var(--font-display); font-weight: 700; margin-bottom: 1.5rem;">Novy clanok &mdash; 17. aprila 2026</h3>
+      <div class="articles-grid">
+        <article class="card" style="grid-column: span 3;">
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag tag-it">IT Bezpecnost</span>
+              <span class="card-date">17. aprila 2026</span>
+            </div>
+            <h3 class="card-title">Kybernetická bezpecnost v roku 2026: ako chranit svoj Windows 11 pocitac</h3>
+            <div class="article-body" style="font-size: var(--text-sm);">
+              <p>Kyberneticke hrozby su v roku 2026 sofistikovanejsie ako kedykolvek predtym. Umelá inteligencia sa dostala aj do ruk kyberzlocinov &mdash; AI generuje presvedcive phishingove emaily, automatizuje utok na heslá a dokaze obist zakladne bezpecnostne filtre. Windows 11 na to reaguje radom vstavanych nástrojov, no ich samotna pritomnost nestaci. Musís ich aj spravne nastavit a pouzivat.</p>
+
+              <h3>Preco je Windows 11 bezpecnejsi nez Windows 10</h3>
+              <p>Jednym z hlavnych dovodov prechodu na Windows 11 je vyzadovany cipset <strong>TPM 2.0</strong> (Trusted Platform Module). Tento hardverovy bezpecnostny prvok sifuje sifrovacie kluce, certifikaty a heslá priamo v procesore &mdash; nie v operacnej pamati, odkial ich moze malware odcitat. Kombinacia TPM 2.0 so <strong>Secure Boot</strong> zarucuje, ze pocitac pri startovani nenaciata ziadny neovereny kod.</p>
+              <p>Dalsim klucom je <strong>Windows Hello</strong> &mdash; biometricke prihlasovanie pomocou tváre alebo odtlacku prsta. Eliminuje klasicke heslo, ktore je najcastejsim cielom utokov. Ak ste heslo este neprestali pouzivat, cas je teraz.</p>
+
+              <h3>Microsoft Defender: podceñovany, no výkonny</h3>
+              <p>Mnozi pouzivatelia este stale instaluju platene antiviry, hoci vstavaný <strong>Microsoft Defender</strong> vo Windows 11 dosahuje v nezavislych testoch (AV-TEST, SE Labs) porovnatelne alebo lepsie vysledky ako platene riesenia. V roku 2025 dosiahol Defender 100 % detekciu v kategorii rozsirenycj hrozieb v teste AV-TEST.</p>
+              <p>Dolezite nastavenia Defendera, ktore casto budu vypnute:</p>
+              <ul>
+                <li><strong>Ochrana pred ransomwarom</strong> &mdash; v nastaveniach Defender zapni &ldquo;Controlled folder access&rdquo;. Blokuje neautorizovane zapisovanie do doležitych priecinkov.</li>
+                <li><strong>Cloud-based protection</strong> &mdash; zapni cloud analyzu &mdash; Defender posle podozrive subory na analyzu do cloudu v reálnom case.</li>
+                <li><strong>Automatic sample submission</strong> &mdash; pomaha Microsoftu zlepšovat detekciu novych hrozieb.</li>
+              </ul>
+
+              <h3>Päat krokov k bezpecnejsiemu Windows 11 uz dnes</h3>
+              <p>Bez ohlädu na to, ci ste domaci pouzivatel alebo mala firma, tychto pät krokov výrazne znizi riziko uspecsneho utoku:</p>
+              <ul>
+                <li><strong>Automaticke aktualizacie zapnute.</strong> Microsoft vydava bezpecnostne opravy každy druhy utorok v mesiaci (&ldquo;Patch Tuesday&rdquo;). Manualne aktualizacie su casto zabudnute &mdash; automatizacia je jedine spolvahliave riesenie.</li>
+                <li><strong>Pouzivaj spravcu hesiel.</strong> Jedine spravne heslo je nahodne generovane a unikatne pre každu sluzbu. Bitwarden, 1Password alebo vstavaný správca v Edge postacia.</li>
+                <li><strong>Dvojfaktorove overenie (2FA) na vsetkych dolezitych uctoch.</strong> Email, bankovy ucet, Microsoft ucet &mdash; 2FA zastavi 99 % automatizovanych utokov aj pri uniku hesla.</li>
+                <li><strong>Pravidelna zaloha dat.</strong> Pravidlo 3-2-1: tri kopie dat, na dvoch roznych typoch ulozisk, jedna ulozena mimo domu alebo v cloude (OneDrive, Google Drive).</li>
+                <li><strong>Ostrazitost pri linkoch a prilobach.</strong> AI generovane phishingove spravy su dnes takmer nerozoznatelne od originalov. Nikdy neklikaj na link v neocekanom emaily &mdash; otvor stranku priamo v prehliadaci.</li>
+              </ul>
+
+              <h3>BitLocker: sifrovanie disku pre každeho</h3>
+              <p><strong>BitLocker</strong> je vstavaný nastroj Windows 11 Pro na sifrovanie celeho disku. Ak bol vas notebook ukradnuty alebo strateny, zlodej bez spravneho PIN kodu neziska z disku žiadne data. Aktivacia trva 5 minut: Nastavenia &rarr; Ochrana osobnych udajov a bezpecnost &rarr; Sifrovanie zariadenia.</p>
+              <p>Pre domacu pouzivatelov a male firmy, ktore hladaju spolahlive a cenovo dostupne softverove riesenia, odporucame <a href="https://www.gamers-outlet.net/en?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="sponsored noopener"><strong>Gamers Outlet</strong></a> &mdash; originalne licencie Windows 11 Pro s okamzitym dorucenim, za zlomok maloobchodnej ceny. Windows 11 Pro obsahuje BitLocker, ktory Home verzia nema.</p>
+
+              <h3>Co robit pri podozreni na napadnutie</h3>
+              <p>Ak mate podozrenie, ze vas pocitac bol kompromitovany, postupujte rychlo:</p>
+              <ul>
+                <li>Odpojte pocitac od internetu (vytiahnite sietovy kabel alebo vypnite Wi-Fi)</li>
+                <li>Spustite uplnu kontrolu Defenderom v offline reżime (Windows Security &rarr; Virus protection &rarr; Scan options &rarr; Microsoft Defender Offline scan)</li>
+                <li>Zmente heslá na vsetkych dolezitych uctoch z ineho zariadenia</li>
+                <li>Skontrolujte bankove a platobne ucty</li>
+                <li>Ak podozrenie trvá, zalozte data a preinstálujte Windows 11 nanovo</li>
+              </ul>
+
+              <h3>Záver</h3>
+              <p>Bezpecnost nie je jednorazova akcia, ale kontinualny proces. Windows 11 poskytnuje solidny zaklad &mdash; TPM 2.0, Defender, Secure Boot, BitLocker &mdash; ale vysledok zavisi od toho, ci tieto nastroje realne pouzivate. Investicia casu do spravneho nastavenia sa vracia v podobe pokoja a ochraneneho majetku. Zacinat treba uz dnes.</p>
+
+              <div class="callout">
+                <strong>Rychly check:</strong> Otvorte Windows Security &mdash; ak vidite zelene zaklikatka pri vsetkych polozkach (Virus protection, Firewall, Account protection, Device security),ste na dobrej ceste.
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-read-more">17. aprila 2026</span>
+            <span class="card-tag tag-it">IT Bezpecnost</span>
+          </div>
+        </article>
+      </div>
+    </div>
+    <!-- END NOVY CLANOK -->
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom: 0;">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:28px;height:28px;">
+            <rect width="16" height="16" rx="3" fill="#0078d4"/>
+            <rect x="20" width="16" height="16" rx="3" fill="#0078d4" opacity=".75"/>
+            <rect y="20" width="16" height="16" rx="3" fill="#0078d4" opacity=".55"/>
+            <rect x="20" y="20" width="16" height="16" rx="3" fill="#7c3aed"/>
+          </svg>
+          <span class="nav-logo-text">BranislavIT</span>
+        </a>
+        <p>Blog o Windows 11, AI nástrojoch a IT technológiách. Nové články každý týždeň po slovensky.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Windows 11</h4>
+        <ul role="list">
+          <li><a href="#tab-win10" onclick="document.querySelector('[data-tab=tab-win10]').click()">Koniec Windows 10</a></li>
+          <li><a href="#tab-prechod" onclick="document.querySelector('[data-tab=tab-prechod]').click()">Prechod na Win 11</a></li>
+          <li><a href="#tab-funkcie" onclick="document.querySelector('[data-tab=tab-funkcie]').click()">Nové funkcie</a></li>
+          <li><a href="#tab-tipy" onclick="document.querySelector('[data-tab=tab-tipy]').click()">Tipy a rady</a></li>
+          <li><a href="#tab-bezpecnost" onclick="document.querySelector('[data-tab=tab-bezpecnost]').click()">Bezpečnosť</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>AI Nástroje</h4>
+        <ul role="list">
+          <li><a href="ai.html#co-je-ai">Čo je AI?</a></li>
+          <li><a href="ai.html#prompty">Tvorba promptov</a></li>
+          <li><a href="ai.html#obrazky">AI obrázky</a></li>
+          <li><a href="ai.html#kling">Kling AI videá</a></li>
+          <li><a href="ai.html#publer">AI & Publer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Odporúčame</h4>
+        <ul role="list">
+          <li><a href="https://www.gamers-outlet.net/en?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="sponsored noopener">Gamers Outlet 🎮</a></li>
+          <li><a href="https://pro.klingai.com/h5-app/invitation?code=7B6SBWEWKXVS" target="_blank" rel="sponsored noopener">Kling AI 🎬</a></li>
+          <li><a href="https://publer.com/Branislav" target="_blank" rel="sponsored noopener">Publer 📅</a></li>
+          <li><a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fmobilego.sk" target="_blank" rel="sponsored noopener">Mobilego.sk 📱</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="current-year">2026</span> BranislavIT – branislav.website</p>
+      <p class="footer-disclaimer">Niektoré odkazy sú affiliate linky (Dognet, Gamers Outlet, Kling AI, Publer). Nákupom cez tieto odkazy podporíš tento blog bez extra nákladov pre teba.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
