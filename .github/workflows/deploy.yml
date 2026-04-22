@@ -23,6 +23,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 65002
           local_path: ./*
-          remote_path: /home/${{ secrets.FTP_USERNAME }}/public_html/
+          remote_path: /home/${{ secrets.FTP_USERNAME }}/domains/branislav.website/public_html/
           sftp_only: true
           args: '-o StrictHostKeyChecking=no'
