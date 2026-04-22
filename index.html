@@ -4,18 +4,204 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BranislavIT | Windows a Office licencie, Windows 11 a AI</title>
-  <meta name="description" content="Windows a Office licencie, tipy pre Windows 11 a AI nástroje na jednom mieste. Rýchly výber licencií, odporúčané produkty a praktické návody po slovensky." />
-  <meta property="og:title" content="BranislavIT | Licencie, Windows 11 a AI" />
-  <meta property="og:description" content="Čistejšia komerčná homepage zameraná na Windows a Office licencie, s podporou obsahu o Windows 11 a AI nástrojoch." />
+  <meta name="description" content="Originálne Windows a Office licencie za výhodné ceny. Okamžitá dodávka emailom, overená aktivácia. Tipy pre Windows 11 a AI nástroje po slovensky." />
+  <meta property="og:title" content="BranislavIT | Windows & Office licencie za výhodné ceny" />
+  <meta property="og:description" content="Originálne aktivačné kľúče Windows 11 a Microsoft Office. Okamžitá dodávka, overená kvalita." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://branislav.website" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='45' height='45' rx='6' fill='%230078d4'/><rect x='55' width='45' height='45' rx='6' fill='%230078d4' opacity='.8'/><rect y='55' width='45' height='45' rx='6' fill='%230078d4' opacity='.6'/><rect x='55' y='55' width='45' height='45' rx='6' fill='%2344c38a'/></svg>" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4124785228904294" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── URGENCY TOP BAR ── */
+    .urgency-bar {
+      background: linear-gradient(90deg, #0d47a1 0%, #1565c0 50%, #0d47a1 100%);
+      color: #fff;
+      text-align: center;
+      padding: 0.65rem 1rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .urgency-bar a { color: #7ee8ff; text-decoration: underline; }
+    .urgency-bar a:hover { color: #b3f0ff; }
+
+    /* ── NAV LICENCIE HIGHLIGHT ── */
+    .nav-licencie {
+      background: var(--color-store, #0078d4) !important;
+      color: #fff !important;
+      padding: 0.32rem 0.9rem !important;
+      border-radius: 6px;
+      font-weight: 700 !important;
+    }
+    .nav-licencie:hover {
+      background: var(--color-store-hover, #005fa3) !important;
+      color: #fff !important;
+    }
+
+    /* ── SOCIAL PROOF STRIP ── */
+    .proof-strip {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 1.4rem 1rem;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .proof-strip-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.1rem;
+    }
+    .proof-strip-num {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--color-store, #0078d4);
+      line-height: 1;
+      font-family: var(--font-display);
+    }
+    .proof-strip-label {
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    /* ── PRODUCT CARDS (Licencie) ── */
+    .lic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .lic-card {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: 14px;
+      padding: 1.5rem 1.3rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      position: relative;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+    .lic-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+      border-color: var(--color-store, #0078d4);
+    }
+    .lic-card-badge {
+      position: absolute;
+      top: -11px;
+      left: 1.1rem;
+      background: #e65100;
+      color: #fff;
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+    }
+    .lic-card-icon { font-size: 1.9rem; line-height: 1; }
+    .lic-card-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      font-family: var(--font-display);
+      margin: 0;
+    }
+    .lic-card-desc {
+      font-size: 0.81rem;
+      color: var(--color-text-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .lic-card-price {
+      margin-top: auto;
+      padding-top: 0.65rem;
+      border-top: 1px solid var(--color-divider);
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .lic-price-from { font-size: 0.7rem; color: var(--color-text-muted); }
+    .lic-price-val {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--color-store, #0078d4);
+      font-family: var(--font-display);
+    }
+    .lic-price-old {
+      font-size: 0.8rem;
+      color: var(--color-text-faint);
+      text-decoration: line-through;
+    }
+    .lic-card-cta {
+      display: block;
+      text-align: center;
+      background: var(--color-store, #0078d4);
+      color: #fff !important;
+      font-weight: 700;
+      font-size: 0.87rem;
+      padding: 0.58rem 1rem;
+      border-radius: 8px;
+      text-decoration: none !important;
+      margin-top: 0.4rem;
+      transition: background 0.18s, transform 0.15s;
+    }
+    .lic-card-cta:hover {
+      background: var(--color-store-hover, #005fa3) !important;
+      transform: translateY(-1px);
+    }
+
+    /* ── LICENCIE SECTION WRAPPER ── */
+    .licencie-section {
+      background: linear-gradient(180deg, color-mix(in oklab, var(--color-store, #0078d4) 5%, var(--color-bg)) 0%, var(--color-bg) 100%);
+      border-top: 3px solid var(--color-store, #0078d4);
+      padding: clamp(3rem, 7vw, 5rem) 0 3rem;
+    }
+
+    .licencie-trust-row {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+    .licencie-trust-row span {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* ── FINAL CTA – store color override ── */
+    .cta-store-section {
+      background: linear-gradient(135deg, var(--color-store, #0078d4) 0%, color-mix(in oklab, var(--color-store, #0078d4) 70%, #000) 100%);
+    }
+
+    @media (max-width: 640px) {
+      .lic-grid { grid-template-columns: 1fr; }
+      .proof-strip { gap: 1.2rem; }
+      .licencie-trust-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
   <script src="js/main.js" defer></script>
 </head>
 <body>
   <a class="sr-only" href="#main-content">Preskočiť na obsah</a>
 
+  <!-- URGENCY BAR -->
+  <div class="urgency-bar">
+    ⚠️ Windows 10 stráca podporu — <a href="licencie.html">Zisti ako prejsť na Windows 11 s originálnou licenciou →</a>
+  </div>
+
+  <!-- HEADER -->
   <header class="site-header">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">
@@ -29,7 +215,7 @@
       </a>
       <ul class="nav-links" role="list">
         <li><a href="index.html" class="active">Domov</a></li>
-        <li><a href="licencie.html">Licencie</a></li>
+        <li><a href="licencie.html" class="nav-licencie">🔑 Licencie</a></li>
         <li><a href="windows11.html">Windows 11</a></li>
         <li><a href="ai.html">AI</a></li>
       </ul>
@@ -42,29 +228,31 @@
     </div>
     <nav class="nav-mobile" aria-label="Mobilná navigácia">
       <a href="index.html" class="active">Domov</a>
-      <a href="licencie.html">Licencie</a>
+      <a href="licencie.html" style="color:var(--color-store,#0078d4);font-weight:700;">🔑 Licencie</a>
       <a href="windows11.html">Windows 11</a>
       <a href="ai.html">AI</a>
     </nav>
   </header>
 
   <main id="main-content">
+
+    <!-- HERO -->
     <section class="commerce-hero">
       <div class="hero-bg"></div>
       <div class="hero-grid-pattern"></div>
       <div class="commerce-shell">
         <div class="commerce-copy">
-          <div class="hero-badge store-badge"><span class="dot"></span> Nová sekcia s licenciami je online</div>
-          <h1 class="commerce-title">Windows a Office licencie <span class="highlight-store">rýchlo, prehľadne</span> a bez chaosu</h1>
-          <p class="commerce-subtitle">Homepage som prerobil tak, aby jasne smerovala návštevníkov do sekcie Licencie. Stále tu nájdu aj obsah o Windows 11 a AI, ale hlavná pozornosť ide na produkty a affiliate ponuku.</p>
+          <div class="hero-badge store-badge"><span class="dot"></span> Originálne licencie za výhodné ceny</div>
+          <h1 class="commerce-title">Windows & Office licencie <span class="highlight-store">za zlomok ceny</span></h1>
+          <p class="commerce-subtitle">100% originálne aktivačné kľúče pre Windows 11 a Microsoft Office. Okamžitá dodávka emailom, overená aktivácia.</p>
           <div class="commerce-ctas">
-            <a href="licencie.html" class="btn btn-store">Otvoriť sekciu Licencie</a>
-            <a href="#top-produkty" class="btn btn-secondary">Najprv pozrieť výber</a>
+            <a href="licencie.html" class="btn btn-store">🔑 Zobraziť licencie</a>
+            <a href="windows11.html" class="btn btn-secondary">🪟 Win 11 sprievodca</a>
           </div>
           <div class="commerce-proof">
-            <div class="proof-item"><strong>Windows 11</strong><span>Home aj Pro výber</span></div>
-            <div class="proof-item"><strong>Office</strong><span>Škola, domov aj firma</span></div>
-            <div class="proof-item"><strong>AI + blog</strong><span>Obsah zostáva ako podpora predaja</span></div>
+            <div class="proof-item"><strong>Windows 11</strong><span>Home aj Pro</span></div>
+            <div class="proof-item"><strong>Office 2021/2024</strong><span>Doživotná licencia</span></div>
+            <div class="proof-item"><strong>⚡ Do 1 hodiny</strong><span>Dodávka emailom</span></div>
           </div>
         </div>
 
@@ -72,30 +260,30 @@
           <div class="commerce-panel-head">
             <span class="panel-kicker">Rýchly vstup</span>
             <h2>Najčastejší výber</h2>
-            <p>Klikni rovno tam, kam chceš posielať traffic z homepage.</p>
+            <p>Klikni rovno na produkt, ktorý hľadáš.</p>
           </div>
           <div class="quick-offers">
-            <a class="quick-offer featured" href="licencie.html">
+            <a class="quick-offer featured" href="licencie.html#win11">
               <div>
-                <span class="quick-label">Hlavná CTA</span>
-                <strong>Licencie Windows a Office</strong>
-                <p>Filtrovanie, radenie a produktové karty.</p>
+                <span class="quick-label">Bestseller</span>
+                <strong>Windows 11 Home / Pro</strong>
+                <p>Originálny kľúč, okamžitý download.</p>
               </div>
               <span class="quick-arrow">→</span>
             </a>
-            <a class="quick-offer" href="windows11.html">
+            <a class="quick-offer" href="licencie.html#office">
               <div>
-                <span class="quick-label">Obsahový funnel</span>
-                <strong>Windows 11 sprievodca</strong>
-                <p>Články, tipy a prechod z Windows 10.</p>
+                <span class="quick-label">Populárne</span>
+                <strong>Office 2021 / 2024</strong>
+                <p>Word, Excel, PowerPoint bez predplatného.</p>
               </div>
               <span class="quick-arrow">→</span>
             </a>
-            <a class="quick-offer" href="ai.html">
+            <a class="quick-offer" href="licencie.html#bundle">
               <div>
-                <span class="quick-label">Doplnkový obsah</span>
-                <strong>AI nástroje a workflow</strong>
-                <p>Publer, Kling AI a produktivita.</p>
+                <span class="quick-label">Najvýhodnejšie</span>
+                <strong>Windows + Office balík</strong>
+                <p>OS aj kancelársky balík spolu lacnejšie.</p>
               </div>
               <span class="quick-arrow">→</span>
             </a>
@@ -104,121 +292,240 @@
       </div>
     </section>
 
-    <section class="commerce-strip">
+    <!-- SOCIAL PROOF STRIP -->
+    <div class="proof-strip">
+      <div class="proof-strip-item">
+        <span class="proof-strip-num">⭐ 4.9</span>
+        <span class="proof-strip-label">Hodnotenie zákazníkov</span>
+      </div>
+      <div class="proof-strip-item">
+        <span class="proof-strip-num">10 000+</span>
+        <span class="proof-strip-label">Predaných licencií</span>
+      </div>
+      <div class="proof-strip-item">
+        <span class="proof-strip-num">⚡ &lt;1 hod</span>
+        <span class="proof-strip-label">Dodávka emailom</span>
+      </div>
+      <div class="proof-strip-item">
+        <span class="proof-strip-num">🔒 100%</span>
+        <span class="proof-strip-label">Originálne kľúče</span>
+      </div>
+    </div>
+
+    <!-- LICENCIE PRODUCT CARDS -->
+    <section class="licencie-section" id="produkty">
       <div class="container">
-        <div class="commerce-strip-grid">
-          <div class="commerce-strip-item fade-in"><strong>1 hlavný cieľ</strong><span>návštevnosť do Licencie</span></div>
-          <div class="commerce-strip-item fade-in"><strong>Affiliate model</strong><span>Gamers Outlet ostáva centrum ponuky</span></div>
-          <div class="commerce-strip-item fade-in"><strong>Obsah stále pomáha</strong><span>Windows 11 a AI budujú dôveru</span></div>
+        <div class="section-header section-header-left fade-in" style="text-align:left; margin-bottom: var(--space-8);">
+          <div class="section-eyebrow store-color">🔑 Licencie</div>
+          <h2 class="section-title">Originálne Windows & Office licencie</h2>
+          <p class="section-subtitle" style="margin:0; max-width:58ch;">Aktivačné kľúče pre Windows 11 a Microsoft Office za výhodné ceny. Okamžitá dodávka, 100% funkčné.</p>
+        </div>
+
+        <div class="lic-grid fade-in">
+          <div class="lic-card">
+            <span class="lic-card-badge">Bestseller</span>
+            <div class="lic-card-icon">🪟</div>
+            <p class="lic-card-name">Windows 11 Home</p>
+            <p class="lic-card-desc">Ideálny pre domáce použitie. Plná aktivácia, okamžitý download kľúča.</p>
+            <div class="lic-card-price">
+              <span class="lic-price-from">od</span>
+              <span class="lic-price-val">5,99 €</span>
+              <span class="lic-price-old">~200 €</span>
+            </div>
+            <a href="licencie.html#win11-home" class="lic-card-cta">Kúpiť teraz →</a>
+          </div>
+
+          <div class="lic-card">
+            <div class="lic-card-icon">🖥️</div>
+            <p class="lic-card-name">Windows 11 Pro</p>
+            <p class="lic-card-desc">Pre firmy a pokročilých užívateľov. BitLocker, Remote Desktop, Group Policy.</p>
+            <div class="lic-card-price">
+              <span class="lic-price-from">od</span>
+              <span class="lic-price-val">8,99 €</span>
+              <span class="lic-price-old">~280 €</span>
+            </div>
+            <a href="licencie.html#win11-pro" class="lic-card-cta">Kúpiť teraz →</a>
+          </div>
+
+          <div class="lic-card">
+            <span class="lic-card-badge">Populárne</span>
+            <div class="lic-card-icon">📊</div>
+            <p class="lic-card-name">Office 2021</p>
+            <p class="lic-card-desc">Word, Excel, PowerPoint, Outlook. Doživotná licencia, bez predplatného.</p>
+            <div class="lic-card-price">
+              <span class="lic-price-from">od</span>
+              <span class="lic-price-val">19,99 €</span>
+              <span class="lic-price-old">~350 €</span>
+            </div>
+            <a href="licencie.html#office2021" class="lic-card-cta">Kúpiť teraz →</a>
+          </div>
+
+          <div class="lic-card">
+            <div class="lic-card-icon">🆕</div>
+            <p class="lic-card-name">Office 2024</p>
+            <p class="lic-card-desc">Najnovší balík Office s AI funkciami. Doživotná licencia bez mesačných poplatkov.</p>
+            <div class="lic-card-price">
+              <span class="lic-price-from">od</span>
+              <span class="lic-price-val">29,99 €</span>
+              <span class="lic-price-old">~440 €</span>
+            </div>
+            <a href="licencie.html#office2024" class="lic-card-cta">Kúpiť teraz →</a>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;" class="fade-in">
+          <a href="licencie.html" class="btn btn-store" style="font-size:1rem; padding: 0.85rem 2rem;">🔑 Všetky licencie a ceny</a>
+          <div class="licencie-trust-row">
+            <span>🔒 Bezpečná platba</span>
+            <span>⚡ Dodávka do 1 hodiny</span>
+            <span>🇸🇰 Slovenská podpora</span>
+            <span>✅ Originálne kľúče</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="top-produkty">
+    <!-- STATS BAR -->
+    <div class="stats-bar">
       <div class="container">
-        <div class="section-header fade-in section-header-left">
-          <div class="section-eyebrow store-color">Hlavný obchodný blok</div>
-          <h2 class="section-title">Najlepšie miesto na klik z homepage</h2>
-          <p class="section-subtitle">Namiesto roztriešteného blogového úvodu má nová homepage jasný komerčný funnel: najprv produkty, potom podporný obsah.</p>
-        </div>
-
-        <div class="homepage-offers-grid fade-in">
-          <article class="homepage-offer-card homepage-offer-main">
-            <div class="homepage-offer-badge">Primárna sekcia</div>
-            <h3>Licencie Windows a Office</h3>
-            <p>Nová predajná podstránka so zvýraznenými produktmi, kategóriami, hľadaním a radením. Toto je hlavný cieľ návštevnosti z homepage.</p>
-            <ul role="list" class="homepage-offer-list">
-              <li>Windows 11 Home a Pro</li>
-              <li>Microsoft Office balíky</li>
-              <li>Balíky systém + Office</li>
-            </ul>
-            <div class="homepage-offer-actions">
-              <a href="licencie.html" class="btn btn-store">Prejsť na Licencie</a>
-              <a href="https://www.gamers-outlet.net/en?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="sponsored noopener noreferrer" class="card-read-more">Gamers Outlet</a>
-            </div>
-          </article>
-
-          <article class="homepage-offer-card">
-            <div class="homepage-offer-badge secondary">Obsah podporujúci predaj</div>
-            <h3>Windows 11 články</h3>
-            <p>Obsah o konci Windows 10, bezpečnosti, tipech a prechode na nový systém zostáva silným trust prvkom.</p>
-            <div class="homepage-mini-links">
-              <a href="windows11.html#win10-koniec">Koniec Windows 10</a>
-              <a href="windows11.html#bezpecnost">Bezpečnosť vo Windows 11</a>
-              <a href="windows11.html#tipy">Tipy a triky</a>
-            </div>
-          </article>
-
-          <article class="homepage-offer-card">
-            <div class="homepage-offer-badge secondary">Doplnkový monetizačný obsah</div>
-            <h3>AI workflow a nástroje</h3>
-            <p>AI stránka ďalej funguje ako druhý pilier webu, ale už nesúťaží s hlavnou komerčnou sekciou na homepage.</p>
-            <div class="homepage-mini-links">
-              <a href="ai.html#kling">Kling AI video</a>
-              <a href="ai.html#publer">Publer a social media</a>
-              <a href="ai.html#prompty">Prompting</a>
-            </div>
-          </article>
+        <div class="stats-grid">
+          <div class="stat-item fade-in">
+            <strong>14. okt. 2025</strong>
+            <span>Koniec Windows 10 podpory</span>
+          </div>
+          <div class="stat-item fade-in">
+            <strong>400M+</strong>
+            <span>Zariadení s Windows 11</span>
+          </div>
+          <div class="stat-item fade-in">
+            <strong>2×</strong>
+            <span>Nové články týždenne</span>
+          </div>
+          <div class="stat-item fade-in">
+            <strong>100%</strong>
+            <span>Zadarmo čítanie</span>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="section" style="padding-top:0;">
+    <!-- AFFILIATE / GAMERS OUTLET BANNER -->
+    <section class="section" style="padding-top: 0;">
       <div class="container">
-        <div class="affiliate-banner fade-in store-banner homepage-banner-priority">
+        <div class="affiliate-banner fade-in store-banner">
           <div class="affiliate-banner-content">
-            <div class="affiliate-banner-label">Hlavné monetizačné miesto</div>
-            <h3 class="affiliate-banner-title">Kliky z homepage smeruj priamo na Licencie, nie na náhodné články</h3>
-            <p class="affiliate-banner-text">Tento blok som presunul vyššie a spravil ho jednoznačnejší. Cieľom je, aby návštevník už na prvej obrazovke chápal, že hlavná hodnota webu je výber licencií a prepojený obsah.</p>
+            <div class="affiliate-banner-label">🎮 Odporúčaný obchod</div>
+            <h3 class="affiliate-banner-title">Gamers Outlet — originálny software za skvelé ceny</h3>
+            <p class="affiliate-banner-text">Overený obchod s originálnymi licenciami Windows 11, Office a ďalším softvérom. Skvelá voľba pri prechode na Windows 11.</p>
           </div>
           <div class="affiliate-banner-cta">
-            <a href="licencie.html" class="btn btn-store">Otvoriť Licencie</a>
+            <a href="https://www.gamers-outlet.net/en?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="sponsored noopener noreferrer" class="btn btn-store">🛒 Zobraziť ponuku</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section homepage-support-section">
+    <!-- WINDOWS 11 TIPS -->
+    <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider);">
       <div class="container">
-        <div class="section-header fade-in section-header-left compact">
-          <div class="section-eyebrow">Podporný obsah</div>
-          <h2 class="section-title">Obsah, ktorý pomáha konverzii</h2>
+        <div class="section-header fade-in">
+          <div class="section-eyebrow">🪟 Windows 11</div>
+          <h2 class="section-title">Rýchle tipy pre Windows 11</h2>
+          <p class="section-subtitle">Skratky, triky a nastavenia ktoré uľahčia každodenné používanie</p>
         </div>
-        <div class="support-content-grid fade-in">
-          <article class="support-card">
-            <span class="card-tag tag-win11">Windows 11</span>
-            <h3>Prečo Windows 10 končí a čo robiť ďalej</h3>
-            <p>Silný vstupný článok, z ktorého sa dá návštevník prekliknúť na vhodnú licenciu alebo upgrade riešenie.</p>
-            <a href="windows11.html#win10-koniec" class="card-read-more">Čítať článok</a>
-          </article>
-          <article class="support-card">
-            <span class="card-tag tag-ai">AI</span>
-            <h3>AI workflow pre obsah a marketing</h3>
-            <p>Publer a Kling AI ostávajú dobrým sekundárnym príjmom, ale homepage ich už radí až za hlavnú ponuku licencií.</p>
-            <a href="ai.html#publer" class="card-read-more ai">Otvoriť AI sekciu</a>
-          </article>
-          <article class="support-card support-card-store">
-            <span class="card-tag tag-it">Licencie</span>
-            <h3>Windows a Office produkty na jednom mieste</h3>
-            <p>Ak chceš maximálne tlačiť traffic do novej sekcie, tento blok môžeš ďalej rozširovať o bestsellery a ceny.</p>
-            <a href="licencie.html" class="card-read-more">Prejsť na ponuku</a>
-          </article>
+        <div class="tips-grid">
+          <div class="tip-card fade-in">
+            <div class="tip-icon">⌨️</div>
+            <h4 class="tip-title">Win + Z — Snap Layouts</h4>
+            <p class="tip-text">Rýchle usporiadanie okien do grid rozložení. Stlač Win+Z na akomkoľvek okne a vyber rozloženie.</p>
+            <a href="windows11.html#tipy" class="card-read-more">Viac tipov →</a>
+          </div>
+          <div class="tip-card fade-in">
+            <div class="tip-icon">🖥️</div>
+            <h4 class="tip-title">Virtuálne plochy</h4>
+            <p class="tip-text">Vytvor si viacero pracovných plôch pre prácu, zábavu a projekty — Win+Ctrl+D.</p>
+            <a href="windows11.html#tipy" class="card-read-more">Viac tipov →</a>
+          </div>
+          <div class="tip-card fade-in">
+            <div class="tip-icon">🤖</div>
+            <h4 class="tip-title">Copilot v Windows 11</h4>
+            <p class="tip-text">Zabudovaný AI asistent pre odpovede, tvorbu textu a pomoc s nastaveniami priamo v OS.</p>
+            <a href="windows11.html#copilot" class="card-read-more">Čítať viac →</a>
+          </div>
+          <div class="tip-card fade-in">
+            <div class="tip-icon">🔐</div>
+            <h4 class="tip-title">Windows Hello + PIN</h4>
+            <p class="tip-text">Bezpečnejšie prihlasovanie cez tvár, odtlačok alebo krátky PIN miesto hesla.</p>
+            <a href="windows11.html#bezpecnost" class="card-read-more">Čítať viac →</a>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- AI PREVIEW -->
     <section class="section">
       <div class="container">
-        <div class="cta-section fade-in store-cta homepage-final-cta">
-          <h2>Hlavný smer webu: Licencie ako produkt, obsah ako podpora</h2>
-          <p>Táto verzia homepage je čistejšia, menej blogová a viac komerčná. Návštevníka vedie priamo do sekcie Licencie a až potom ho rozvetvuje do Windows 11 a AI tém.</p>
-          <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; position:relative; z-index:1;">
-            <a href="licencie.html" class="btn btn-white">Prejsť na Licencie</a>
-            <a href="windows11.html" class="btn" style="background: rgba(255,255,255,0.16); color: white; border: 1px solid rgba(255,255,255,0.28);">Windows 11 obsah</a>
+        <div class="section-header fade-in">
+          <div class="section-eyebrow ai-color">🤖 AI Nástroje</div>
+          <h2 class="section-title">AI — tvorba obsahu budúcnosti</h2>
+          <p class="section-subtitle">Obrázky, videá, texty a reklama pomocou umelej inteligencie. Jednoduchšie než si myslíš.</p>
+        </div>
+        <div class="articles-grid fade-in">
+          <article class="card ai-card">
+            <div class="card-img" style="font-size:3rem; background: linear-gradient(135deg, color-mix(in oklab, #7c3aed 15%, var(--color-surface-offset)), var(--color-surface-offset));">🎨</div>
+            <div class="card-body">
+              <div class="card-meta"><span class="card-tag tag-ai">🤖 AI</span></div>
+              <h3 class="card-title">Tvorba obrázkov pomocou AI</h3>
+              <p class="card-excerpt">Midjourney, DALL-E — ako písať prompty pre skvelé výsledky bez dizajnérskych znalostí.</p>
+            </div>
+            <div class="card-footer"><a href="ai.html#obrazky" class="card-read-more ai">Čítať →</a></div>
+          </article>
+          <article class="card ai-card">
+            <div class="card-img" style="font-size:3rem; background: linear-gradient(135deg, color-mix(in oklab, #7c3aed 15%, var(--color-surface-offset)), var(--color-surface-offset));">🎬</div>
+            <div class="card-body">
+              <div class="card-meta"><span class="card-tag tag-ai">🤖 AI</span></div>
+              <h3 class="card-title">AI videá s Kling AI</h3>
+              <p class="card-excerpt">Profesionálne marketingové videá z jediného textového popisu.</p>
+            </div>
+            <div class="card-footer"><a href="ai.html#kling" class="card-read-more ai">Čítať →</a></div>
+          </article>
+          <article class="card ai-card">
+            <div class="card-img" style="font-size:3rem; background: linear-gradient(135deg, color-mix(in oklab, #7c3aed 15%, var(--color-surface-offset)), var(--color-surface-offset));">📅</div>
+            <div class="card-body">
+              <div class="card-meta"><span class="card-tag tag-ai">🤖 AI</span></div>
+              <h3 class="card-title">Publer — social media s AI</h3>
+              <p class="card-excerpt">Plánuj príspevky na Facebook, Instagram, TikTok a YouTube automaticky.</p>
+            </div>
+            <div class="card-footer"><a href="ai.html#publer" class="card-read-more ai">Čítať →</a></div>
+          </article>
+        </div>
+        <div class="affiliate-banner ai-banner fade-in" style="margin-top: var(--space-10);">
+          <div class="affiliate-banner-content">
+            <div class="affiliate-banner-label">📅 Odporúčaný nástroj</div>
+            <h3 class="affiliate-banner-title">Publer — plánuj social media s AI</h3>
+            <p class="affiliate-banner-text">Plánuj príspevky na Facebook, Instagram, TikTok a YouTube automaticky. AI ti pomôže vytvárať obsah rýchlejšie.</p>
+          </div>
+          <div class="affiliate-banner-cta">
+            <a href="https://publer.com/Branislav" target="_blank" rel="sponsored noopener" class="btn btn-ai">🚀 Vyskúšaj Publer</a>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- FINAL CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-section cta-store-section fade-in">
+          <h2>Potrebuješ licenciu na Windows 11 alebo Office?</h2>
+          <p>Originálne aktivačné kľúče za zlomok bežnej ceny. Okamžitá dodávka emailom, overená aktivácia.</p>
+          <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; position:relative; z-index:1;">
+            <a href="licencie.html" class="btn btn-white">🔑 Zobraziť licencie</a>
+            <a href="windows11.html" class="btn" style="background:rgba(255,255,255,0.16);color:white;border:1px solid rgba(255,255,255,0.3);">🪟 Win 11 sprievodca</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -234,38 +541,39 @@
             </svg>
             <span class="nav-logo-text">BranislavIT</span>
           </a>
-          <p>Windows, Office licencie, Windows 11 tipy a AI nástroje po slovensky. Homepage je teraz prioritne nastavená na produktový funnel. </p>
+          <p>Originálne Windows a Office licencie za výhodné ceny. Windows 11 tipy a AI nástroje po slovensky.</p>
         </div>
         <div class="footer-col">
-          <h4>Licencie</h4>
+          <h4>🔑 Licencie</h4>
           <ul role="list">
             <li><a href="licencie.html">Všetky licencie</a></li>
-            <li><a href="licencie.html#produkty">Windows 11</a></li>
-            <li><a href="licencie.html#produkty">Office</a></li>
-            <li><a href="https://www.gamers-outlet.net/en?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="sponsored noopener noreferrer">Gamers Outlet</a></li>
+            <li><a href="licencie.html#win11-home">Windows 11 Home</a></li>
+            <li><a href="licencie.html#win11-pro">Windows 11 Pro</a></li>
+            <li><a href="licencie.html#office2021">Office 2021</a></li>
+            <li><a href="licencie.html#office2024">Office 2024</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Obsah</h4>
+          <h4>Windows 11</h4>
           <ul role="list">
-            <li><a href="windows11.html">Windows 11</a></li>
-            <li><a href="ai.html">AI nástroje</a></li>
+            <li><a href="windows11.html#win10-koniec">Koniec Windows 10</a></li>
+            <li><a href="windows11.html#prechod">Ako prejsť na Win 11</a></li>
+            <li><a href="windows11.html#tipy">Tipy a triky</a></li>
             <li><a href="windows11.html#bezpecnost">Bezpečnosť</a></li>
-            <li><a href="ai.html#publer">Publer</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Funnel</h4>
+          <h4>AI Nástroje</h4>
           <ul role="list">
-            <li><a href="licencie.html">Hlavná CTA</a></li>
-            <li><a href="#top-produkty">Top produkty</a></li>
-            <li><a href="windows11.html#win10-koniec">Prechod z Win 10</a></li>
-            <li><a href="ai.html#kling">AI workflow</a></li>
+            <li><a href="ai.html#co-je-ai">Čo je AI?</a></li>
+            <li><a href="ai.html#obrazky">AI obrázky</a></li>
+            <li><a href="ai.html#kling">Kling AI videá</a></li>
+            <li><a href="ai.html#publer">AI & Publer</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p><span id="current-year">2026</span> BranislavIT · branislav.website</p>
+        <p>© <span id="current-year">2026</span> BranislavIT · branislav.website</p>
         <p class="footer-disclaimer">Niektoré odkazy na tejto stránke sú affiliate linky. Ak nakúpiš cez tieto odkazy, môžem dostať províziu bez dodatočných nákladov pre teba.</p>
       </div>
     </div>
