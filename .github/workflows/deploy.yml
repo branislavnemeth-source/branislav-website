@@ -1,4 +1,4 @@
-name: Deploy na Hostinger (FTP)
+name: Deploy na Hostinger (SFTP)
 
 on:
   push:
@@ -9,22 +9,19 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: FTP Deploy → branislav.website
+    name: SFTP Deploy → branislav.website
 
     steps:
       - name: Checkout repozitára
         uses: actions/checkout@v4
 
-      - name: Deploy cez FTP na Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy cez SFTP na Hostinger
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: public_html/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            .github/**
+          local_path: ./*
+          remote_path: /public_html/
+          sftp_only: true
+          args: '-o StrictHostKeyChecking=no'
