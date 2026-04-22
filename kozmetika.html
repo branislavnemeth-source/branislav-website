@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="sk" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prírodná kozmetika | BranislavIT</title>
+  <meta name="description" content="Objavte kolekciu poctivej, ručne vyrábanej prírodnej kozmetiky a bylinných kvapiek zo srdca Kopaníc. Rodinná výroba, slovenské suroviny, bez testovania na zvieratách." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='45' height='45' rx='6' fill='%230078d4'/><rect x='55' width='45' height='45' rx='6' fill='%230078d4' opacity='.8'/><rect y='55' width='45' height='45' rx='6' fill='%230078d4' opacity='.6'/><rect x='55' y='55' width='45' height='45' rx='6' fill='%2344c38a'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/main.js" defer></script>
+  <style>
+    /* ══════════════════════════════════════════════
+       KOZMETIKA PAGE — INLINE CSS
+       All critical CSS embedded; overrides cached live style.css
+       ══════════════════════════════════════════════ */
+
+    /* CSS variable patch */
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f4f6fb;
+      --border: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-secondary: #64748b;
+      /* Kozmetika brand palette */
+      --koz-green:    #2d6a4f;
+      --koz-green2:   #40916c;
+      --koz-green3:   #74c69d;
+      --koz-green-lt: #d8f3dc;
+      --koz-green-pale: #f0faf3;
+      --koz-cream:    #faf8f2;
+      --koz-beige:    #f2ede3;
+      --koz-beige2:   #e8e0d0;
+      --koz-text:     #1e2d1f;
+      --koz-muted:    #5a6b5c;
+      --koz-border:   #d4e8d8;
+      --koz-shadow:   0 2px 12px rgba(45,106,79,.08);
+      --koz-shadow-md: 0 6px 28px rgba(45,106,79,.12);
+      --koz-shadow-lg: 0 16px 56px rgba(45,106,79,.16);
+    }
+    [data-theme="dark"] {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --border: #334155;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --koz-cream:     #111b14;
+      --koz-beige:     #162018;
+      --koz-text:      #e8f5eb;
+      --koz-muted:     #8aaa8e;
+      --koz-border:    #2a4533;
+      --koz-green-pale: #0e1f14;
+    }
+
+    /* Body override for cream bg on this page */
+    body { background: var(--koz-cream); }
+    [data-theme="dark"] body { background: #0b1410; }
+
+    /* ── Announcement bar ── */
+    .koz-announce {
+      background: var(--koz-green);
+      color: #fff;
+      text-align: center;
+      padding: .5rem 1rem;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .01em;
+    }
+
+    /* ── Hero ── */
+    .koz-hero {
+      background: var(--koz-cream);
+      padding: 4rem 1.5rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .koz-hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -80px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, var(--koz-green-lt) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .koz-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--koz-beige) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .koz-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 720px) {
+      .koz-hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .koz-hero-card-wrap { display: none; }
+    }
+    .koz-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      background: var(--koz-green-pale);
+      border: 1px solid var(--koz-border);
+      color: var(--koz-green);
+      font-size: .73rem;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      padding: .28rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .85rem;
+    }
+    .koz-hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--koz-text);
+      line-height: 1.2;
+      margin: 0 0 1rem;
+    }
+    .koz-hero h1 em {
+      font-style: italic;
+      color: var(--koz-green2);
+    }
+    .koz-hero-sub {
+      font-size: 1rem;
+      color: var(--koz-muted);
+      line-height: 1.65;
+      margin: 0 0 1.75rem;
+      max-width: 420px;
+    }
+    .koz-hero-btns {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .koz-btn-primary {
+      background: var(--koz-green);
+      color: #fff;
+      padding: .75rem 1.6rem;
+      border-radius: 999px;
+      font-size: .92rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(45,106,79,.3);
+      transition: all .18s;
+      white-space: nowrap;
+    }
+    .koz-btn-primary:hover { background: var(--koz-green2); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(45,106,79,.35); }
+    .koz-btn-secondary {
+      background: transparent;
+      color: var(--koz-green);
+      padding: .7rem 1.5rem;
+      border-radius: 999px;
+      border: 2px solid var(--koz-green-lt);
+      font-size: .92rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .18s;
+    }
+    .koz-btn-secondary:hover { border-color: var(--koz-green3); background: var(--koz-green-pale); }
+    .koz-hero-trust {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .koz-trust-item {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--koz-muted);
+    }
+
+    /* Hero card */
+    .koz-hero-card-wrap { display: flex; justify-content: center; align-items: center; }
+    .koz-hero-card {
+      background: #fff;
+      border: 1px solid var(--koz-border);
+      border-radius: 22px;
+      padding: 1.25rem;
+      box-shadow: var(--koz-shadow-lg);
+      max-width: 280px;
+      width: 100%;
+    }
+    [data-theme="dark"] .koz-hero-card { background: #1a2e1e; border-color: #2a4533; }
+    .koz-hero-card-img {
+      background: linear-gradient(135deg, #d8f3dc, #95d5b2);
+      border-radius: 14px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .koz-hero-card-tag {
+      position: absolute;
+      top: .6rem; left: .6rem;
+      background: rgba(255,255,255,.9);
+      color: var(--koz-green);
+      font-size: .65rem;
+      font-weight: 700;
+      padding: .2rem .55rem;
+      border-radius: 999px;
+    }
+    .koz-hero-card-badge {
+      position: absolute;
+      top: .6rem; right: .6rem;
+      background: var(--koz-green);
+      color: #fff;
+      font-size: .65rem;
+      font-weight: 700;
+      padding: .2rem .55rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+    .koz-hero-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--koz-text);
+      margin: 0 0 .35rem;
+    }
+    .koz-hero-card p {
+      font-size: .78rem;
+      color: var(--koz-muted);
+      margin: 0 0 1rem;
+      line-height: 1.5;
+    }
+    .koz-hero-card a {
+      display: block;
+      text-align: center;
+      background: var(--koz-green);
+      color: #fff;
+      padding: .55rem 1rem;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .koz-hero-card a:hover { background: var(--koz-green2); }
+
+    /* ── Trust bar ── */
+    .koz-trust-bar {
+      background: var(--koz-green);
+      padding: 1.5rem 1.5rem;
+    }
+    .koz-trust-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+    .koz-trust-box {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      color: rgba(255,255,255,.9);
+    }
+    .koz-trust-box-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .koz-trust-box-title { font-size: .88rem; font-weight: 700; color: #fff; margin: 0 0 .15rem; }
+    .koz-trust-box-desc { font-size: .78rem; color: rgba(255,255,255,.72); margin: 0; line-height: 1.45; }
+
+    /* ── Section label style ── */
+    .koz-section-label {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--koz-green2);
+      margin-bottom: .5rem;
+    }
+    .koz-section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      font-weight: 700;
+      color: var(--koz-text);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+    .koz-section-title em { font-style: italic; color: var(--koz-green2); }
+    .koz-section-sub {
+      font-size: .92rem;
+      color: var(--koz-muted);
+      line-height: 1.6;
+      max-width: 560px;
+      margin: 0;
+    }
+
+    /* ── Categories ── */
+    .koz-categories {
+      padding: 4rem 1.5rem;
+      background: var(--koz-beige);
+    }
+    [data-theme="dark"] .koz-categories { background: #0e1a11; }
+    .koz-categories-inner { max-width: 1100px; margin: 0 auto; }
+    .koz-cat-header { text-align: center; margin-bottom: 2.25rem; }
+    .koz-cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+    .koz-cat-card {
+      background: #fff;
+      border: 1px solid var(--koz-border);
+      border-radius: 14px;
+      padding: 1.35rem 1rem;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      transition: all .18s;
+      box-shadow: var(--koz-shadow);
+    }
+    [data-theme="dark"] .koz-cat-card { background: #162018; border-color: #2a4533; }
+    .koz-cat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--koz-shadow-md);
+      border-color: var(--koz-green3);
+    }
+    .koz-cat-icon { font-size: 2rem; }
+    .koz-cat-name {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--koz-text);
+    }
+    .koz-cat-desc {
+      font-size: .73rem;
+      color: var(--koz-muted);
+      line-height: 1.4;
+    }
+
+    /* ── Products ── */
+    .koz-products {
+      padding: 4rem 1.5rem;
+      background: var(--koz-cream);
+    }
+    [data-theme="dark"] .koz-products { background: #0b1410; }
+    .koz-products-inner { max-width: 1100px; margin: 0 auto; }
+    .koz-prod-header { text-align: center; margin-bottom: 2.5rem; }
+    .koz-prod-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .koz-prod-card {
+      background: #fff;
+      border: 1px solid var(--koz-border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--koz-shadow);
+      transition: all .2s;
+    }
+    [data-theme="dark"] .koz-prod-card { background: #162018; border-color: #2a4533; }
+    .koz-prod-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--koz-shadow-md);
+      border-color: var(--koz-green3);
+    }
+    .koz-prod-img {
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+    }
+    .koz-prod-badge {
+      position: absolute;
+      top: .65rem; left: .65rem;
+      font-size: .67rem;
+      font-weight: 700;
+      padding: .22rem .6rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .koz-badge--bestseller { background: var(--koz-green); color: #fff; }
+    .koz-badge--novinka    { background: #e07b2a; color: #fff; }
+    .koz-badge--oblibeny   { background: #8b5c1a; color: #fff; }
+    .koz-prod-body { padding: .9rem 1rem .5rem; flex: 1; }
+    .koz-prod-name {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--koz-text);
+      margin: 0 0 .4rem;
+      line-height: 1.3;
+    }
+    .koz-prod-desc {
+      font-size: .78rem;
+      color: var(--koz-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .koz-prod-footer {
+      padding: .8rem 1rem;
+      border-top: 1px solid var(--koz-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .5rem;
+    }
+    [data-theme="dark"] .koz-prod-footer { border-color: #2a4533; }
+    .koz-prod-price {
+      font-size: .78rem;
+      color: var(--koz-muted);
+      font-style: italic;
+    }
+    .koz-prod-btn {
+      background: var(--koz-green);
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 700;
+      padding: .38rem .9rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background .15s;
+      white-space: nowrap;
+    }
+    .koz-prod-btn:hover { background: var(--koz-green2); }
+
+    /* ── Why us ── */
+    .koz-why {
+      padding: 4rem 1.5rem;
+      background: var(--koz-beige);
+    }
+    [data-theme="dark"] .koz-why { background: #0e1a11; }
+    .koz-why-inner { max-width: 1100px; margin: 0 auto; }
+    .koz-why-header { text-align: center; margin-bottom: 2.5rem; }
+    .koz-why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.25rem;
+    }
+    .koz-why-card {
+      background: #fff;
+      border: 1px solid var(--koz-border);
+      border-radius: 14px;
+      padding: 1.4rem 1.35rem;
+      box-shadow: var(--koz-shadow);
+      transition: all .18s;
+    }
+    [data-theme="dark"] .koz-why-card { background: #162018; border-color: #2a4533; }
+    .koz-why-card:hover { transform: translateY(-3px); box-shadow: var(--koz-shadow-md); border-color: var(--koz-green3); }
+    .koz-why-icon { font-size: 1.8rem; margin-bottom: .65rem; }
+    .koz-why-title {
+      font-size: .92rem;
+      font-weight: 700;
+      color: var(--koz-text);
+      margin: 0 0 .35rem;
+    }
+    .koz-why-desc {
+      font-size: .8rem;
+      color: var(--koz-muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ── Story ── */
+    .koz-story {
+      padding: 4rem 1.5rem;
+      background: var(--koz-cream);
+    }
+    [data-theme="dark"] .koz-story { background: #0b1410; }
+    .koz-story-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 700px) { .koz-story-inner { grid-template-columns: 1fr; } }
+    .koz-story-text p {
+      font-size: .92rem;
+      color: var(--koz-muted);
+      line-height: 1.75;
+      margin: 0 0 1rem;
+    }
+    .koz-story-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      background: var(--koz-green);
+      border-radius: 14px;
+      padding: 1.5rem 1rem;
+    }
+    .koz-stat { text-align: center; }
+    .koz-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      display: block;
+      line-height: 1;
+      margin-bottom: .25rem;
+    }
+    .koz-stat-label {
+      font-size: .72rem;
+      color: rgba(255,255,255,.78);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    /* ── Reviews ── */
+    .koz-reviews {
+      padding: 4rem 1.5rem;
+      background: var(--koz-beige);
+    }
+    [data-theme="dark"] .koz-reviews { background: #0e1a11; }
+    .koz-reviews-inner { max-width: 1100px; margin: 0 auto; }
+    .koz-reviews-header { text-align: center; margin-bottom: 2.5rem; }
+    .koz-reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.25rem;
+    }
+    .koz-review-card {
+      background: #fff;
+      border: 1px solid var(--koz-border);
+      border-radius: 14px;
+      padding: 1.4rem 1.35rem;
+      box-shadow: var(--koz-shadow);
+    }
+    [data-theme="dark"] .koz-review-card { background: #162018; border-color: #2a4533; }
+    .koz-review-stars { font-size: .88rem; color: #f59e0b; margin-bottom: .65rem; }
+    .koz-review-text {
+      font-size: .84rem;
+      color: var(--koz-text);
+      line-height: 1.6;
+      margin: 0 0 .9rem;
+      font-style: italic;
+    }
+    .koz-review-author {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--koz-text);
+    }
+    .koz-review-source {
+      font-size: .72rem;
+      color: var(--koz-muted);
+    }
+
+    /* ── Final CTA ── */
+    .koz-cta-section {
+      padding: 4rem 1.5rem;
+      background: var(--koz-green);
+      text-align: center;
+    }
+    .koz-cta-inner { max-width: 620px; margin: 0 auto; }
+    .koz-cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 .75rem;
+      line-height: 1.25;
+    }
+    .koz-cta-title em { font-style: italic; color: var(--koz-green-lt); }
+    .koz-cta-sub {
+      font-size: .92rem;
+      color: rgba(255,255,255,.8);
+      line-height: 1.6;
+      margin: 0 0 1.75rem;
+    }
+    .koz-btn-white {
+      background: #fff;
+      color: var(--koz-green);
+      padding: .75rem 1.75rem;
+      border-radius: 999px;
+      font-size: .92rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 16px rgba(0,0,0,.15);
+      transition: all .18s;
+    }
+    .koz-btn-white:hover { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(0,0,0,.18); }
+    .koz-cta-note {
+      font-size: .75rem;
+      color: rgba(255,255,255,.6);
+      margin-top: .85rem;
+    }
+
+    /* ── Affiliate note ── */
+    .koz-affiliate-note {
+      max-width: 1100px;
+      margin: 0 auto 1.5rem;
+      padding: 0 1.5rem;
+    }
+    .koz-affiliate-inner {
+      background: var(--koz-green-pale);
+      border: 1px solid var(--koz-border);
+      border-radius: 12px;
+      padding: .85rem 1.1rem;
+      font-size: .78rem;
+      color: var(--koz-muted);
+      line-height: 1.55;
+    }
+    [data-theme="dark"] .koz-affiliate-inner { background: #0e1f14; border-color: #2a4533; }
+    .koz-affiliate-inner a { color: var(--koz-green2); font-weight: 600; text-decoration: none; }
+    .koz-affiliate-inner a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#main-content">Preskočiť na obsah</a>
+
+  <!-- ── Announcement bar ── -->
+  <div class="koz-announce" role="banner">
+    🚚 Doprava ZDARMA nad 60 € &bull; Expedícia do 48 hodín &bull; Bez testovania na zvieratách 🌿
+  </div>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="BranislavIT logo" width="32" height="32">
+          <rect width="17" height="17" rx="3" fill="#0078d4"/>
+          <rect x="19" width="17" height="17" rx="3" fill="#0078d4" opacity=".8"/>
+          <rect y="19" width="17" height="17" rx="3" fill="#0078d4" opacity=".6"/>
+          <rect x="19" y="19" width="17" height="17" rx="3" fill="#44c38a"/>
+        </svg>
+        <span class="nav-logo-text">BranislavIT</span>
+      </a>
+      <nav class="main-nav" aria-label="Hlavná navigácia">
+        <a href="index.html" class="nav-link">Domov</a>
+        <a href="licencie.html" class="nav-link">🔑 Licencie</a>
+        <a href="kozmetika.html" class="nav-link nav-link--active">🌿 Kozmetika</a>
+        <a href="windows11.html" class="nav-link">Windows 11</a>
+        <a href="ai.html" class="nav-link">AI nástroje</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Prepnúť tému">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ── HERO ── -->
+    <section class="koz-hero" aria-labelledby="koz-hero-title">
+      <div class="koz-hero-inner">
+        <div class="koz-hero-text">
+          <div class="koz-hero-badge">🌿 Slovenská prírodná kozmetika</div>
+          <h1 id="koz-hero-title">Starostlivosť o pleť, ktorú <em>príroda</em> schválila</h1>
+          <p class="koz-hero-sub">Poctivá, ručne vyrábaná kozmetika a bylinné kvapky zo srdca Kopaníc. Rodinná výroba, slovenské suroviny, každý produkt s dušou.</p>
+          <div class="koz-hero-btns">
+            <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-btn-primary">Objaviť celú kolekciu →</a>
+            <a href="#kategorie" class="koz-btn-secondary">Čo ponúkame</a>
+          </div>
+          <div class="koz-hero-trust">
+            <span class="koz-trust-item">⭐ 99% spokojnosť</span>
+            <span class="koz-trust-item">🇸🇰 Vyrobené na Slovensku</span>
+            <span class="koz-trust-item">🐰 Cruelty-free</span>
+          </div>
+        </div>
+        <div class="koz-hero-card-wrap">
+          <div class="koz-hero-card">
+            <div class="koz-hero-card-img">
+              <span class="koz-hero-card-tag">🌿 Ručne vyrobené</span>
+              <span class="koz-hero-card-badge">BESTSELLER</span>
+              🌸
+            </div>
+            <h3>Pleťové sérum Magic Nature</h3>
+            <p>Ľahké hydratačné sérum s prírodnými extraktmi pre žiarivú a zdravú pleť každý deň.</p>
+            <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer">Kúpiť teraz →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TRUST BAR ── -->
+    <div class="koz-trust-bar" aria-label="Výhody nakupovania">
+      <div class="koz-trust-bar-inner">
+        <div class="koz-trust-box">
+          <span class="koz-trust-box-icon">🚚</span>
+          <div>
+            <p class="koz-trust-box-title">Doprava ZDARMA</p>
+            <p class="koz-trust-box-desc">Pri objednávke nad 60 €, GLS alebo Zásielkovňa</p>
+          </div>
+        </div>
+        <div class="koz-trust-box">
+          <span class="koz-trust-box-icon">⚡</span>
+          <div>
+            <p class="koz-trust-box-title">Rýchla expedícia</p>
+            <p class="koz-trust-box-desc">Odosielame do 48 hodín, pri objednávke do 14:00 ten istý deň</p>
+          </div>
+        </div>
+        <div class="koz-trust-box">
+          <span class="koz-trust-box-icon">🏭</span>
+          <div>
+            <p class="koz-trust-box-title">Malé šarže</p>
+            <p class="koz-trust-box-desc">Výroba v akreditovanej výrobni v Trenčíne pre maximálnu čerstvosť</p>
+          </div>
+        </div>
+        <div class="koz-trust-box">
+          <span class="koz-trust-box-icon">🌍</span>
+          <div>
+            <p class="koz-trust-box-title">Doručenie do EU</p>
+            <p class="koz-trust-box-desc">Posielame do Česka a celej Európy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CATEGORIES ── -->
+    <section class="koz-categories" id="kategorie" aria-labelledby="koz-cat-title">
+      <div class="koz-categories-inner">
+        <div class="koz-cat-header">
+          <p class="koz-section-label">Čo nájdete v obchode</p>
+          <h2 class="koz-section-title" id="koz-cat-title">Starostlivosť pre každú <em>potrebu</em></h2>
+          <p class="koz-section-sub">Od pleťových sér cez bylinné tinktúry až po vlasovú starostlivosť — všetko prírodné, ručne vyrobené a overené zákazníkmi.</p>
+        </div>
+        <div class="koz-cat-grid">
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-cat-card">
+            <span class="koz-cat-icon">✨</span>
+            <span class="koz-cat-name">Pleť</span>
+            <span class="koz-cat-desc">Séra, krémy, toniká, masky a čistenie pleti pre všetky typy pokožky.</span>
+          </a>
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-cat-card">
+            <span class="koz-cat-icon">🌿</span>
+            <span class="koz-cat-name">Bylinné tinktúry</span>
+            <span class="koz-cat-desc">Jednozložkové tinktúry, gemmoterapia a bylinné kvapky z tradičných receptúr.</span>
+          </a>
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-cat-card">
+            <span class="koz-cat-icon">💆</span>
+            <span class="koz-cat-name">Telo</span>
+            <span class="koz-cat-desc">Telové oleje, balzamy a výživné prípravky pre hodvábne jemnú pokožku.</span>
+          </a>
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-cat-card">
+            <span class="koz-cat-icon">💇</span>
+            <span class="koz-cat-name">Vlasy</span>
+            <span class="koz-cat-desc">Prírodné šampóny, vlasové séra a sady pre silné a zdravé vlasy.</span>
+          </a>
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-cat-card">
+            <span class="koz-cat-icon">☀️</span>
+            <span class="koz-cat-name">Opaľovanie</span>
+            <span class="koz-cat-desc">Prírodná ochrana pred slnkom a produkty po opaľovaní s prírodnými extraktmi.</span>
+          </a>
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-cat-card">
+            <span class="koz-cat-icon">🫧</span>
+            <span class="koz-cat-name">Čistenie &amp; Líčenie</span>
+            <span class="koz-cat-desc">Odličovacie oleje, čistiace balzamy a gély pre dokonale čistú pleť.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PRODUCTS ── -->
+    <section class="koz-products" aria-labelledby="koz-prod-title">
+      <div class="koz-products-inner">
+        <div class="koz-prod-header">
+          <p class="koz-section-label">Obľúbené produkty</p>
+          <h2 class="koz-section-title" id="koz-prod-title">Bestsellery, ktoré <em>milujú zákazníci</em></h2>
+          <p class="koz-section-sub">Najpopulárnejšie produkty overené stovkami spokojných zákazníčok. Každý ručne vyrobený s dôrazom na kvalitu.</p>
+        </div>
+        <div class="koz-prod-grid">
+
+          <!-- Product 1 -->
+          <article class="koz-prod-card">
+            <div class="koz-prod-img" style="background:linear-gradient(135deg,#d8f3dc,#95d5b2)">
+              <span class="koz-prod-badge koz-badge--bestseller">BESTSELLER</span>
+              🌸
+            </div>
+            <div class="koz-prod-body">
+              <h3 class="koz-prod-name">Pleťové sérum Magic Nature</h3>
+              <p class="koz-prod-desc">Ľahké hydratačné sérum pre každodenné použitie. Dodáva pleti žiarivosť a hydratáciu bez mastného pocitu.</p>
+            </div>
+            <div class="koz-prod-footer">
+              <span class="koz-prod-price">Cena na panakeia.sk</span>
+              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
+            </div>
+          </article>
+
+          <!-- Product 2 -->
+          <article class="koz-prod-card">
+            <div class="koz-prod-img" style="background:linear-gradient(135deg,#fde8d8,#f4b896)">
+              <span class="koz-prod-badge koz-badge--novinka">NOVINKA</span>
+              🌼
+            </div>
+            <div class="koz-prod-body">
+              <h3 class="koz-prod-name">PDRN Phyto Exosome sérum</h3>
+              <p class="koz-prod-desc">Inovatívne sérum s PDRN technológiou pre hlbokú regeneráciu a obnovu pleti. Viditeľné výsledky už po 6 týždňoch.</p>
+            </div>
+            <div class="koz-prod-footer">
+              <span class="koz-prod-price">Cena na panakeia.sk</span>
+              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
+            </div>
+          </article>
+
+          <!-- Product 3 -->
+          <article class="koz-prod-card">
+            <div class="koz-prod-img" style="background:linear-gradient(135deg,#e8f4fd,#b8d8f0)">
+              🍯
+            </div>
+            <div class="koz-prod-body">
+              <h3 class="koz-prod-name">Šípkový očný balzam</h3>
+              <p class="koz-prod-desc">Jemný balzam pre citlivú oblasť okolo očí so šípkovým olejom. Redukuje unavený vzhľad a jemné linky.</p>
+            </div>
+            <div class="koz-prod-footer">
+              <span class="koz-prod-price">Cena na panakeia.sk</span>
+              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
+            </div>
+          </article>
+
+          <!-- Product 4 -->
+          <article class="koz-prod-card">
+            <div class="koz-prod-img" style="background:linear-gradient(135deg,#fdf3d8,#f0d896)">
+              <span class="koz-prod-badge koz-badge--oblibeny">OBLÍBENÝ</span>
+              🌾
+            </div>
+            <div class="koz-prod-body">
+              <h3 class="koz-prod-name">Set Regebasil — vlasová starostlivosť</h3>
+              <p class="koz-prod-desc">Kompletná sada z chmeľu a lopúchu pre silné, zdravé vlasy. Šampón, sérum a tonikum v jednom balení.</p>
+            </div>
+            <div class="koz-prod-footer">
+              <span class="koz-prod-price">Cena na panakeia.sk</span>
+              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
+            </div>
+          </article>
+
+          <!-- Product 5 -->
+          <article class="koz-prod-card">
+            <div class="koz-prod-img" style="background:linear-gradient(135deg,#f3d8f4,#d896e8)">
+              🌺
+            </div>
+            <div class="koz-prod-body">
+              <h3 class="koz-prod-name">Kopaničiarska žehlička s vitamínom C</h3>
+              <p class="koz-prod-desc">Rozjasňujúci krém s vitamínom C inšpirovaný kopaničiarskymi bylinkárkami. Zjednocuje tón pleti.</p>
+            </div>
+            <div class="koz-prod-footer">
+              <span class="koz-prod-price">Cena na panakeia.sk</span>
+              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
+            </div>
+          </article>
+
+          <!-- Product 6 -->
+          <article class="koz-prod-card">
+            <div class="koz-prod-img" style="background:linear-gradient(135deg,#d8f3dc,#c7f4d4)">
+              🌱
+            </div>
+            <div class="koz-prod-body">
+              <h3 class="koz-prod-name">Bylinné tinktúry — kolekcia</h3>
+              <p class="koz-prod-desc">Tradičné bylinné tinktúry vyrobené macerovaním. Žihľava, Ceres, gemmoterapia a ďalšie overené receptúry.</p>
+            </div>
+            <div class="koz-prod-footer">
+              <span class="koz-prod-price">Cena na panakeia.sk</span>
+              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Affiliate note ── -->
+    <div class="koz-affiliate-note">
+      <div class="koz-affiliate-inner">
+        <strong>Upozornenie:</strong> Táto stránka obsahuje affiliate odkaz na <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer">panakeia.sk</a> (sieť Dognet). Po kliknutí na tlačidlo „Kúpiť teraz" budete presmerovaní na stránku obchodu, kde prebehne objednávka a platba. BranislavIT môže dostať odmenu bez dodatočných nákladov pre vás.
+      </div>
+    </div>
+
+    <!-- ── WHY US ── -->
+    <section class="koz-why" aria-labelledby="koz-why-title">
+      <div class="koz-why-inner">
+        <div class="koz-why-header">
+          <p class="koz-section-label">Prečo si vybrať nás</p>
+          <h2 class="koz-section-title" id="koz-why-title">Kozmetika s <em>hodnotami</em></h2>
+          <p class="koz-section-sub">Nie sme veľká fabrika. Sme rodina, ktorá verí, že starostlivosť o telo má byť poctivá, prírodná a etická.</p>
+        </div>
+        <div class="koz-why-grid">
+          <div class="koz-why-card">
+            <div class="koz-why-icon">🏡</div>
+            <p class="koz-why-title">Rodinná výroba</p>
+            <p class="koz-why-desc">Každý produkt je vyrobený v malých šaržiach v akreditovanej výrobni v Trenčíne. Žiadna masová produkcia — len poctivá práca.</p>
+          </div>
+          <div class="koz-why-card">
+            <div class="koz-why-icon">🌿</div>
+            <p class="koz-why-title">100% prírodné zloženie</p>
+            <p class="koz-why-desc">Používame len prírodné suroviny primárne z Európy. Žiadne zbytočné chemikálie, farbivá ani parabény.</p>
+          </div>
+          <div class="koz-why-card">
+            <div class="koz-why-icon">🐰</div>
+            <p class="koz-why-title">Cruelty-free</p>
+            <p class="koz-why-desc">Ani naše produkty, ani suroviny nie sú testované na zvieratách. Krásu tvoríme eticky a s rešpektom k prírode.</p>
+          </div>
+          <div class="koz-why-card">
+            <div class="koz-why-icon">🇸🇰</div>
+            <p class="koz-why-title">Slovenský produkt</p>
+            <p class="koz-why-desc">Hrdosť na slovenské tradície a bylinárstvo Kopaníc. Podporujeme lokálnych dodávateľov surovín, kde to ide.</p>
+          </div>
+          <div class="koz-why-card">
+            <div class="koz-why-icon">⚗️</div>
+            <p class="koz-why-title">Akreditovaná výroba</p>
+            <p class="koz-why-desc">Všetky produkty vznikajú v certifikovanej výrobni podľa prísnych európskych noriem kvality a bezpečnosti.</p>
+          </div>
+          <div class="koz-why-card">
+            <div class="koz-why-icon">📞</div>
+            <p class="koz-why-title">Poradenstvo s výberom</p>
+            <p class="koz-why-desc">S každým nákupom vám ochotne poradíme, ako si vybrať správny produkt. Sme tu pre vás telefonicky aj e-mailom.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STORY ── -->
+    <section class="koz-story" aria-labelledby="koz-story-title">
+      <div class="koz-story-inner">
+        <div class="koz-story-text">
+          <p class="koz-section-label">Náš príbeh</p>
+          <h2 class="koz-section-title" id="koz-story-title">Kozmetika zo <em>srdca Kopaníc</em></h2>
+          <p>Všetko začalo ako rodinný projekt s jednoduchou myšlienkou: vytvárať kozmetiku, ktorú by sme s radosťou dali vlastnej rodine. Prírodné, poctivé, bez zbytočných kompromisov.</p>
+          <p>Inšpiráciu čerpáme z bohatej tradície bylinárstva z Kopaníc — regiónu, kde príroda a ľudia žijú v harmónii od nepamäti. Každý produkt nesie kúsok tohto dedičstva.</p>
+          <p>Dnes vyrábame v akreditovanej výrobni v Trenčíne, no ducha rodinnej firmy si stráži každý, kto sa na produkte podieľa.</p>
+        </div>
+        <div>
+          <div class="koz-story-stats">
+            <div class="koz-stat">
+              <span class="koz-stat-num">99%</span>
+              <span class="koz-stat-label">Spokojnosť zákazníkov</span>
+            </div>
+            <div class="koz-stat">
+              <span class="koz-stat-num">48h</span>
+              <span class="koz-stat-label">Max. expedícia</span>
+            </div>
+            <div class="koz-stat">
+              <span class="koz-stat-num">100%</span>
+              <span class="koz-stat-label">Prírodné zloženie</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── REVIEWS ── -->
+    <section class="koz-reviews" aria-labelledby="koz-reviews-title">
+      <div class="koz-reviews-inner">
+        <div class="koz-reviews-header">
+          <p class="koz-section-label">Reálne skúsenosti</p>
+          <h2 class="koz-section-title" id="koz-reviews-title">Čo hovoria naše <em>zákazníčky</em></h2>
+          <p class="koz-section-sub">Overené recenzie od skutočných zákazníčok, ktoré denno-denne používajú naše produkty.</p>
+        </div>
+        <div class="koz-reviews-grid">
+          <div class="koz-review-card">
+            <div class="koz-review-stars">★★★★★</div>
+            <p class="koz-review-text">„Konečne prírodná kozmetika, ktorá skutočne funguje. Pleťové sérum používam už 3 mesiace a moja pleť nikdy nevyzerala lepšie. Odporúčam každému!"</p>
+            <p class="koz-review-author">👩 Martina K.</p>
+            <p class="koz-review-source">Overená zákazníčka · Heureka</p>
+          </div>
+          <div class="koz-review-card">
+            <div class="koz-review-stars">★★★★★</div>
+            <p class="koz-review-text">„Bylinné tinktúry sú fenomenálne. Cítiť, že sú vyrobené s dôrazom na kvalitu — nie len marketingový produkt. Budem sa vracať."</p>
+            <p class="koz-review-author">🧘 Zuzana M.</p>
+            <p class="koz-review-source">Overená zákazníčka</p>
+          </div>
+          <div class="koz-review-card">
+            <div class="koz-review-stars">★★★★★</div>
+            <p class="koz-review-text">„Môj šípkový očný balzam je každodenný rituál. Jemný, voňavý, účinný. Zákaznícky servis bol tiež výborný — poradili mi s výberom produktu."</p>
+            <p class="koz-review-author">🌸 Jana P.</p>
+            <p class="koz-review-source">Overená zákazníčka</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FINAL CTA ── -->
+    <section class="koz-cta-section" aria-labelledby="koz-cta-title">
+      <div class="koz-cta-inner">
+        <h2 class="koz-cta-title" id="koz-cta-title">Vyskúšajte <em>prírodnú kozmetiku</em>, ktorá to myslí vážne</h2>
+        <p class="koz-cta-sub">Celá kolekcia poctivej, ručne vyrábanej kozmetiky a bylinných kvapiek. Expedícia do 48 hodín, doprava zdarma nad 60 €.</p>
+        <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-btn-white">Prejsť do obchodu →</a>
+        <p class="koz-cta-note">Po kliknutí budete presmerovaní na stránku obchodu panakeia.sk</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 BranislavIT – Ing. Branislav Németh | IČO: 5148744 | Trenčín, SR</p>
+      <nav class="footer-nav" aria-label="Právne informácie">
+        <a href="privacy-policy.html">Ochrana súkromia</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
