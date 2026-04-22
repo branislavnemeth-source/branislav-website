@@ -3,43 +3,421 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Licencie | BranislavIT</title>
-  <meta name="description" content="Originálne licencie Windows a MS Office za výhodné ceny. BranislavIT – Ing. Branislav Németh, Trenčín." />
+  <title>Licencie Windows &amp; MS Office | BranislavIT</title>
+  <meta name="description" content="Originálne licencie Windows a MS Office za výhodné ceny. Digitálne kľúče, okamžitá aktivácia. BranislavIT – Ing. Branislav Németh, Trenčín." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='45' height='45' rx='6' fill='%230078d4'/><rect x='55' width='45' height='45' rx='6' fill='%230078d4' opacity='.8'/><rect y='55' width='45' height='45' rx='6' fill='%230078d4' opacity='.6'/><rect x='55' y='55' width='45' height='45' rx='6' fill='%2344c38a'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/main.js" defer></script>
   <style>
-    /* ── Licencie page inline styles ── */
-    .lic-hero{padding:3rem 1.5rem 2rem;text-align:center;background:var(--bg-secondary,#f4f6fb);border-bottom:1px solid var(--border,#e2e8f0)}
-    .lic-hero h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:var(--text-primary,#0f172a);margin:0 0 .5rem}
-    .lic-hero p{color:var(--text-secondary,#64748b);font-size:.95rem;margin:0}
-    .lic-toolbar{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;padding:1.25rem 1.5rem;background:var(--bg-primary,#fff);border-bottom:1px solid var(--border,#e2e8f0);position:sticky;top:60px;z-index:10}
-    .lic-tabs{display:flex;gap:.35rem;flex-wrap:wrap}
-    .tab-btn{padding:.4rem .9rem;border-radius:999px;border:1.5px solid var(--border,#e2e8f0);background:transparent;font-size:.82rem;font-weight:600;cursor:pointer;color:var(--text-secondary,#64748b);transition:all .15s}
-    .tab-btn.active,.tab-btn:hover{background:#0078d4;color:#fff;border-color:#0078d4}
-    .lic-search{flex:1;min-width:160px;padding:.4rem .8rem;border:1.5px solid var(--border,#e2e8f0);border-radius:8px;font-size:.88rem;background:var(--bg-primary,#fff);color:var(--text-primary,#0f172a)}
-    .lic-sort{padding:.4rem .7rem;border:1.5px solid var(--border,#e2e8f0);border-radius:8px;font-size:.85rem;background:var(--bg-primary,#fff);color:var(--text-primary,#0f172a)}
-    .lic-grid-wrap{max-width:1200px;margin:0 auto;padding:2rem 1.5rem}
-    .lic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.25rem}
-    .lic-card{background:var(--bg-primary,#fff);border:1px solid var(--border,#e2e8f0);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .15s}
-    .lic-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.1);transform:translateY(-2px)}
-    .lic-card-img{position:relative;aspect-ratio:3/5;overflow:hidden;background:var(--bg-secondary,#f4f6fb);display:flex;align-items:center;justify-content:center}
-    .lic-card-img img{width:100%;height:100%;object-fit:cover}
-    .lic-badge{position:absolute;top:.5rem;left:.5rem;font-size:.7rem;font-weight:700;padding:.2rem .5rem;border-radius:999px;text-transform:uppercase}
-    .lic-badge--win{background:#0078d4;color:#fff}
-    .lic-badge--off{background:#d83b01;color:#fff}
-    .lic-card-body{padding:.85rem;flex:1}
-    .lic-card-name{font-size:.82rem;font-weight:600;color:var(--text-primary,#0f172a);margin:0 0 .4rem;line-height:1.3}
-    .lic-card-desc{font-size:.75rem;color:var(--text-secondary,#64748b);margin:0;line-height:1.4}
-    .lic-card-footer{padding:.75rem .85rem;border-top:1px solid var(--border,#e2e8f0);display:flex;align-items:center;justify-content:space-between}
-    .lic-card-price{font-size:1rem;font-weight:700;color:#0078d4}
-    .lic-buy-btn{background:#44c38a;color:#fff;font-size:.8rem;font-weight:700;padding:.35rem .8rem;border-radius:8px;text-decoration:none;transition:background .15s}
-    .lic-buy-btn:hover{background:#2fa06e}
-    .lic-note{max-width:1200px;margin:0 auto 2rem;padding:0 1.5rem}
-    .lic-note-card{background:var(--bg-secondary,#f4f6fb);border:1px solid var(--border,#e2e8f0);border-radius:10px;padding:1rem 1.25rem;font-size:.83rem;color:var(--text-secondary,#64748b);line-height:1.5}
-    .lic-note-card a{color:#0078d4}
-    .no-results{display:none;text-align:center;padding:3rem 1.5rem;color:var(--text-secondary,#64748b)}
-    .no-results.hidden{display:none}
+    /* ══════════════════════════════════════════════
+       INLINE CSS — overrides cached live style.css
+       ══════════════════════════════════════════════ */
+
+    /* CSS variable patch for pages that may miss them */
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f4f6fb;
+      --border: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-secondary: #64748b;
+      --color-store: #44c38a;
+      --color-store-hover: #2da66e;
+    }
+    [data-theme="dark"] {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --border: #334155;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --color-store: #57d39a;
+      --color-store-hover: #75dfac;
+    }
+
+    /* ── Hero ── */
+    .lic-hero {
+      padding: 3.5rem 1.5rem 2.5rem;
+      text-align: center;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f2d4a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .lic-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(0,120,212,.18) 0%, transparent 70%),
+                  radial-gradient(ellipse at 20% 80%, rgba(68,195,138,.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .lic-hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    .lic-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: rgba(68,195,138,.15);
+      border: 1px solid rgba(68,195,138,.35);
+      color: #44c38a;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .3rem .8rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+    .lic-hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 .75rem;
+      line-height: 1.15;
+    }
+    .lic-hero p {
+      color: rgba(255,255,255,.72);
+      font-size: 1rem;
+      margin: 0 0 1.75rem;
+      line-height: 1.6;
+    }
+    .lic-hero-cta {
+      display: flex;
+      gap: .75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .lic-hero-cta a {
+      padding: .6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: .9rem;
+      text-decoration: none;
+      transition: all .15s;
+    }
+    .lic-hero-cta .btn-win {
+      background: #0078d4;
+      color: #fff;
+    }
+    .lic-hero-cta .btn-win:hover { background: #005a9e; }
+    .lic-hero-cta .btn-off {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,.4);
+      color: #fff;
+    }
+    .lic-hero-cta .btn-off:hover { background: rgba(255,255,255,.08); }
+    .lic-trust-strip {
+      display: flex;
+      gap: 1.25rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .lic-trust-item {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .8rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.85);
+    }
+    .lic-trust-item .ti-icon {
+      font-size: 1rem;
+    }
+
+    /* ── Toolbar ── */
+    .lic-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background: var(--bg-primary, #fff);
+      border-bottom: 1px solid var(--border, #e2e8f0);
+      position: sticky;
+      top: 60px;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .lic-tabs { display: flex; gap: .35rem; flex-wrap: wrap; }
+    .tab-btn {
+      padding: .38rem .9rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--border, #e2e8f0);
+      background: transparent;
+      font-size: .82rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-secondary, #64748b);
+      transition: all .15s;
+      font-family: inherit;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: #0078d4;
+      color: #fff;
+      border-color: #0078d4;
+    }
+    .tab-btn[data-cat="windows"].active,
+    .tab-btn[data-cat="windows"]:hover {
+      background: #0078d4;
+      border-color: #0078d4;
+    }
+    .tab-btn[data-cat="office"].active,
+    .tab-btn[data-cat="office"]:hover {
+      background: #d83b01;
+      border-color: #d83b01;
+    }
+    .lic-search {
+      flex: 1;
+      min-width: 160px;
+      padding: .4rem .85rem;
+      border: 1.5px solid var(--border, #e2e8f0);
+      border-radius: 8px;
+      font-size: .88rem;
+      background: var(--bg-primary, #fff);
+      color: var(--text-primary, #0f172a);
+      font-family: inherit;
+      outline: none;
+      transition: border-color .15s;
+    }
+    .lic-search:focus { border-color: #0078d4; }
+    .lic-sort {
+      padding: .4rem .7rem;
+      border: 1.5px solid var(--border, #e2e8f0);
+      border-radius: 8px;
+      font-size: .85rem;
+      background: var(--bg-primary, #fff);
+      color: var(--text-primary, #0f172a);
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .lic-count {
+      margin-left: auto;
+      font-size: .78rem;
+      color: var(--text-secondary, #64748b);
+      font-weight: 500;
+    }
+
+    /* ── Section headers ── */
+    .lic-section-header {
+      max-width: 1200px;
+      margin: 2rem auto .5rem;
+      padding: 0 1.5rem;
+    }
+    .lic-section-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary, #0f172a);
+      margin: 0 0 .15rem;
+    }
+    .lic-section-header p {
+      font-size: .82rem;
+      color: var(--text-secondary, #64748b);
+      margin: 0;
+    }
+
+    /* ── Grid ── */
+    .lic-grid-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: .75rem 1.5rem 2.5rem;
+    }
+    .lic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1.1rem;
+    }
+    .lic-card {
+      background: var(--bg-primary, #fff);
+      border: 1px solid var(--border, #e2e8f0);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .2s, transform .15s;
+      cursor: pointer;
+    }
+    .lic-card:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,.12);
+      transform: translateY(-3px);
+    }
+    .lic-card-img {
+      position: relative;
+      aspect-ratio: 3/5;
+      overflow: hidden;
+      background: var(--bg-secondary, #f4f6fb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lic-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .lic-card-img-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      gap: .5rem;
+    }
+    .lic-card-img-placeholder .lic-picon {
+      font-size: 2.5rem;
+      opacity: .6;
+    }
+    .lic-badge {
+      position: absolute;
+      top: .5rem;
+      left: .5rem;
+      font-size: .68rem;
+      font-weight: 700;
+      padding: .2rem .55rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .lic-badge--win { background: #0078d4; color: #fff; }
+    .lic-badge--off { background: #d83b01; color: #fff; }
+    .lic-badge--sec { background: #5c4db1; color: #fff; }
+    .lic-badge--util { background: #1a7f5a; color: #fff; }
+    .lic-card-body {
+      padding: .8rem .85rem .5rem;
+      flex: 1;
+    }
+    .lic-card-name {
+      font-size: .81rem;
+      font-weight: 600;
+      color: var(--text-primary, #0f172a);
+      margin: 0 0 .35rem;
+      line-height: 1.35;
+    }
+    .lic-card-desc {
+      font-size: .74rem;
+      color: var(--text-secondary, #64748b);
+      margin: 0;
+      line-height: 1.45;
+    }
+    .lic-card-footer {
+      padding: .7rem .85rem;
+      border-top: 1px solid var(--border, #e2e8f0);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .5rem;
+    }
+    .lic-card-price {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0078d4;
+    }
+    .lic-card-price.price-na {
+      font-size: .78rem;
+      color: var(--text-secondary, #64748b);
+      font-weight: 500;
+    }
+    .lic-buy-btn {
+      background: #44c38a;
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 700;
+      padding: .32rem .8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background .15s;
+      white-space: nowrap;
+    }
+    .lic-buy-btn:hover { background: #2da66e; }
+
+    /* ── Affiliate info box ── */
+    .lic-info-section {
+      max-width: 1200px;
+      margin: 0 auto 1.5rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .lic-info-card {
+      background: var(--bg-secondary, #f4f6fb);
+      border: 1px solid var(--border, #e2e8f0);
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      font-size: .83rem;
+      color: var(--text-secondary, #64748b);
+      line-height: 1.6;
+    }
+    .lic-info-card strong {
+      display: block;
+      color: var(--text-primary, #0f172a);
+      font-size: .88rem;
+      margin-bottom: .4rem;
+    }
+    .lic-info-card a { color: #0078d4; text-decoration: none; font-weight: 600; }
+    .lic-info-card a:hover { text-decoration: underline; }
+
+    /* ── Contact box ── */
+    .lic-contact-section {
+      max-width: 1200px;
+      margin: 0 auto 2.5rem;
+      padding: 0 1.5rem;
+    }
+    .lic-contact-card {
+      background: var(--bg-secondary, #f4f6fb);
+      border: 1px solid var(--border, #e2e8f0);
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+    }
+    .lic-contact-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary, #0f172a);
+      margin: 0 0 1rem;
+    }
+    .lic-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: .5rem 2rem;
+    }
+    .lic-contact-row {
+      display: flex;
+      flex-direction: column;
+    }
+    .lic-contact-label {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-secondary, #64748b);
+      margin-bottom: .15rem;
+    }
+    .lic-contact-value {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--text-primary, #0f172a);
+    }
+    .lic-affiliate-note {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border, #e2e8f0);
+      font-size: .8rem;
+      color: var(--text-secondary, #64748b);
+      line-height: 1.55;
+    }
+    .lic-affiliate-note a { color: #0078d4; font-weight: 600; }
+
+    /* ── No results ── */
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      color: var(--text-secondary, #64748b);
+    }
   </style>
 </head>
 <body>
@@ -58,7 +436,7 @@
       </a>
       <nav class="main-nav" aria-label="Hlavná navigácia">
         <a href="index.html" class="nav-link">Domov</a>
-        <a href="licencie.html" class="nav-link nav-link--active">Licencie</a>
+        <a href="licencie.html" class="nav-link nav-link--active">🔑 Licencie</a>
         <a href="windows11.html" class="nav-link">Windows 11</a>
         <a href="ai.html" class="nav-link">AI nástroje</a>
       </nav>
@@ -80,13 +458,28 @@
 
   <main id="main-content">
 
-    <!-- Hero -->
-    <section class="lic-hero">
-      <h1>Licencie Windows &amp; MS Office</h1>
-      <p>Originálne digitálne licencie za výhodné ceny. Affiliate partner <a href="https://www.gamers-outlet.net?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="noopener noreferrer" style="color:#0078d4;text-decoration:none;font-weight:600;">gamers-outlet.net</a></p>
+    <!-- ── Hero ── -->
+    <section class="lic-hero" aria-labelledby="lic-hero-title">
+      <div class="lic-hero-inner">
+        <div class="lic-hero-badge">
+          🔑 Originálne kľúče &middot; Okamžité doručenie
+        </div>
+        <h1 id="lic-hero-title">Licencie Windows &amp; MS Office</h1>
+        <p>Originálne digitálne kľúče za zlomok bežnej ceny.<br>Aktivácia okamžite po objednávke. Overený predajca Generaltrade.</p>
+        <div class="lic-hero-cta">
+          <a href="#sekcia-windows" class="btn-win" onclick="filterCat('windows');return true;">Pozrieť Windows</a>
+          <a href="#sekcia-office" class="btn-off" onclick="filterCat('office');return true;">Pozrieť MS Office</a>
+        </div>
+        <div class="lic-trust-strip">
+          <span class="lic-trust-item"><span class="ti-icon">🛡️</span> Originálne kľúče</span>
+          <span class="lic-trust-item"><span class="ti-icon">⚡</span> Okamžitá aktivácia</span>
+          <span class="lic-trust-item"><span class="ti-icon">🔒</span> Bezpečná platba</span>
+          <span class="lic-trust-item"><span class="ti-icon">✅</span> Overený predajca</span>
+        </div>
+      </div>
     </section>
 
-    <!-- Toolbar: tabs + search + sort -->
+    <!-- ── Toolbar ── -->
     <div class="lic-toolbar" role="search" aria-label="Filtrovanie produktov">
       <div class="lic-tabs" role="tablist" aria-label="Kategórie">
         <button class="tab-btn active" data-cat="all" role="tab" aria-selected="true">Všetky</button>
@@ -107,9 +500,10 @@
         <option value="price-desc">Cena: od najvyššej</option>
         <option value="name-asc">Názov: A–Z</option>
       </select>
+      <span class="lic-count" id="productCount" aria-live="polite"></span>
     </div>
 
-    <!-- Products grid -->
+    <!-- ── Products grid ── -->
     <div class="lic-grid-wrap">
       <div class="lic-grid" id="productsGrid" role="list" aria-live="polite" aria-label="Zoznam produktov">
         <!-- rendered by JS -->
@@ -117,10 +511,47 @@
       <p class="no-results" id="noResults" role="status">Žiadne produkty nezodpovedajú vášmu hľadaniu.</p>
     </div>
 
-    <!-- Affiliate note -->
-    <div class="lic-note">
-      <div class="lic-note-card">
-        <strong>Upozornenie:</strong> Táto stránka obsahuje affiliate odkazy na <a href="https://www.gamers-outlet.net?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="noopener noreferrer">gamers-outlet.net</a>. Pri nákupe cez tieto odkazy môžeme dostať províziu bez dodatočných nákladov pre vás. Všetky uvedené licencie sú originálne digitálne kľúče od overených predajcov.
+    <!-- ── Info boxes ── -->
+    <div class="lic-info-section">
+      <div class="lic-info-card">
+        <strong>ℹ️ Ako to funguje?</strong>
+        Po kliknutí na tlačidlo <em>Kúpiť</em> budete presmerovaní na stránku partnera <a href="https://www.gamers-outlet.net/en?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="noopener noreferrer">gamers-outlet.net</a>, kde prebehne objednávka, platba a doručenie digitálneho kľúča.
+      </div>
+      <div class="lic-info-card">
+        <strong>🔑 Čo je OEM vs. Retail kľúč?</strong>
+        <strong style="display:inline;font-size:.82rem;">OEM</strong> — viazaný na hardware, lacnejší. <strong style="display:inline;font-size:.82rem;">Retail</strong> — prenositeľný, možné opakované aktivácie na inom PC. Retail odporúčame pre väčšinu používateľov.
+      </div>
+      <div class="lic-info-card">
+        <strong>💳 Platba a doručenie</strong>
+        Platba prebieha priamo na gamers-outlet.net (karta, PayPal a ďalšie). Kľúč dostanete e-mailom okamžite po potvrdení platby.
+      </div>
+    </div>
+
+    <!-- ── Contact & Operator ── -->
+    <div class="lic-contact-section">
+      <div class="lic-contact-card">
+        <h3>📍 Kontakt &amp; Prevádzkovateľ</h3>
+        <div class="lic-contact-grid">
+          <div class="lic-contact-row">
+            <span class="lic-contact-label">Majiteľ</span>
+            <span class="lic-contact-value">Ing. Branislav Németh</span>
+          </div>
+          <div class="lic-contact-row">
+            <span class="lic-contact-label">Obchodné meno</span>
+            <span class="lic-contact-value">Generaltrade</span>
+          </div>
+          <div class="lic-contact-row">
+            <span class="lic-contact-label">IČO</span>
+            <span class="lic-contact-value">5148744</span>
+          </div>
+          <div class="lic-contact-row">
+            <span class="lic-contact-label">Miesto podnikania</span>
+            <span class="lic-contact-value">Trenčín 911 01, Slovenská republika</span>
+          </div>
+        </div>
+        <div class="lic-affiliate-note">
+          Tento eshop je partnerskou stránkou (affiliate) portálu <a href="https://www.gamers-outlet.net/en?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="noopener noreferrer">gamers-outlet.net</a>. Po kliknutí na produkt budete presmerovaní na stránku predajcu, kde prebehne objednávka a platba. Niektoré odkazy sú affiliate linky — pri nákupe môžeme dostať províziu bez dodatočných nákladov pre vás.
+        </div>
       </div>
     </div>
 
@@ -136,25 +567,321 @@
     </div>
   </footer>
 
-  <!-- Products data -->
+  <!-- ── Products data ── -->
   <script>
+    const TRACK = 'cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi';
+    const BASE = 'https://www.gamers-outlet.net/en/buy-';
+    const IMG = 'https://generaltrade-keys.netlify.app/img/';
+
     const products = [
-      {name:"Windows 11 Pro Cd Key OEM Microsoft Global",price:"$5.56",img:"https://generaltrade-keys.netlify.app/img/Windows-11-Pro-Cd-Key-OEM-Microsoft-Global-300x500.jpg",url:"https://www.gamers-outlet.net/en/buy-windows-11-pro-cd-key-oem-microsoft-global-1?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi",desc:"Available Languages: MULTILANGUAGE. This key can be used again if OS is reinstalled/formatted only if you link it to your Microsoft account.",cat:"windows"},
-      {name:"Windows 11 Pro Cd Key Retail Microsoft Global",price:"$8.11",img:"https://generaltrade-keys.netlify.app/img/Windows-11-Pro-Cd-Key-Retail-Microsoft-Global-300x500.jpg",url:"https://www.gamers-outlet.net/en/buy-windows-11-pro-cd-key-oem-microsoft-global?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi",desc:"Windows 11 Pro Retail CD Key: Unlock the Ultimate Windows Experience.",cat:"windows"},
-      {name:"Windows 11 Home Cd Key OEM Microsoft Global",price:"$5.51",img:"https://generaltrade-keys.netlify.app/img/Windows-11-Home-Cd-Key-OEM-Microsoft-Global-300x500.jpg",url:"https://www.gamers-outlet.net/en/buy-windows-11-home-cd-key-retail-microsoft-global?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi",desc:"Available Languages: MULTILANGUAGE - Russian, English, German, French, Italian, Spanish, Turkish, Czech, Polish.",cat:"windows"},
-      {name:"Windows 10 Professional OEM Cd Key Microsoft Global",price:"$4.63",img:"https://generaltrade-keys.netlify.app/img/wintest-300x500.jpg",url:"https://www.gamers-outlet.net/en/buy-windows-10-professional-oem-microsoft-global-cd-key-html?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi",desc:"Available Languages: MULTILANGUAGE.",cat:"windows"},
-      {name:"Windows 10 Home Cd Key OEM Microsoft Global",price:"$4.35",img:"https://generaltrade-keys.netlify.app/img/cover_W10_Home_oem-300x500.jpg",url:"https://www.gamers-outlet.net/en/buy-microsoft-windows-10-home-oem-key-global?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi",desc:"Officially licensed reseller of Microsoft CD keys. OEM key for Windows 10 Home.",cat:"windows"},
-      {name:"Windows 10 Professional Retail Cd Key Microsoft Global",price:"$6.95",img:"https://generaltrade-keys.netlify.app/img/Windows-10-Professional-Retail-Cd-Key-Microsoft-Global-300x500.jpg",url:"https://www.gamers-outlet.net/en/buy-windows-10-professional-retail-microsoft-global-cd-key?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi",desc:"Available Languages: MULTILANGUAGE.",cat:"windows"},
-      {name:"Windows 11 Enterprise Cd Key Retail Microsoft Global",price:"$13.91",img:"https://generaltrade-keys.netlify.app/img/Windows-11-Enterprise-Cd-Key-Retail-Microsoft-Global-300x500.jpg",url:"https://www.gamers-outlet.net/en/buy-windows-11-enterprise-cd-key-retail-microsoft-global?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi",desc:"Windows 11 Enterprise designed for the hybrid workforce with enterprise-grade security.",cat:"windows"},
-      {name:"Windows 11 Pro (5PC) Cd Key Retail Microsoft Global",price:"$27.83",img:"https://generaltrade-keys.netlify.app/img/Windows-11-Pro-5PC-Cd-Key-Retail-Microsoft-Global-300x500.jpg",url:"https://www.gamers-outlet.net/en/buy-windows-11-5pc-pro-cd-key-microsoft-global?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi",desc:"Available Languages: MULTILANGUAGE. 5-PC license for Windows 11 Pro Retail.",cat:"windows"},
-      {name:"Microsoft Windows Server Standard 2022 Cd Key Global",price:"$4.63",img:"https://generaltrade-keys.netlify.app/img/wserver2022-300x500.jpg",url:"https://www.gamers-outlet.net/en/buy-microsoft-windows-server-standard-2022?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi",desc:"Available Languages: MULTILANGUAGE. The code is valid for 1 pc / 1 installation.",cat:"windows"},
-      {name:"Microsoft Windows Server Standard 2025 Cd Key Global",price:"$15.07",img:"https://generaltrade-keys.netlify.app/img/Microsoft-Windows-Server-Standard-2025-Cd-Key-Global-300x500.jpg",url:"https://www.gamers-outlet.net/en/buy-microsoft-windows-server-standard-2025-cd-key-global?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi",desc:"Windows Server 2025 blends on-premises infrastructure and cloud services for businesses.",cat:"windows"},
-      {name:"Office 2019 Home and Business Windows Phone Activation Cd Key Global",price:"$5.05",img:"https://generaltrade-keys.netlify.app/img/officehb2019-300x500.jpg",url:"https://www.gamers-outlet.net/en/buy-office-2019-home-and-business-windows-phone-activation?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi",desc:"Includes Word, Excel, PowerPoint, Outlook. Compatible with Windows 10, Windows 11.",cat:"office"},
-      {name:"Microsoft Office 2019 Home and Business Windows Cd Key Global",price:"$30.15",img:"https://generaltrade-keys.netlify.app/img/officehb2019-300x500.jpg",url:"https://www.gamers-outlet.net/en/buy-office-2019-home-and-business-windows-online-activation?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi",desc:"Available Languages: MULTILANGUAGE. Does not work on MacBook. Online activation.",cat:"office"}
+      /* ══ WINDOWS ══ */
+      {
+        name: "Windows 11 Pro CD Key OEM Microsoft Global",
+        price: "$5.56", cat: "windows",
+        img: IMG + "Windows-11-Pro-Cd-Key-OEM-Microsoft-Global-300x500.jpg",
+        url: BASE + "windows-11-pro-cd-key-oem-microsoft-global-1?tracking=" + TRACK,
+        desc: "MULTILANGUAGE. Kľúč opätovne použiteľný po preinštalovaní OS (ak je prepojený s Microsoft účtom)."
+      },
+      {
+        name: "Windows 11 Pro CD Key Retail Microsoft Global",
+        price: "$8.11", cat: "windows",
+        img: IMG + "Windows-11-Pro-Cd-Key-Retail-Microsoft-Global-300x500.jpg",
+        url: BASE + "windows-11-pro-cd-key-oem-microsoft-global?tracking=" + TRACK,
+        desc: "Retail kľúč — prenositeľný, možné opakované aktivácie. Najnovší Windows 11 Pro."
+      },
+      {
+        name: "Windows 11 Home CD Key OEM Microsoft Global",
+        price: "$5.51", cat: "windows",
+        img: IMG + "Windows-11-Home-Cd-Key-OEM-Microsoft-Global-300x500.jpg",
+        url: BASE + "windows-11-home-cd-key-retail-microsoft-global?tracking=" + TRACK,
+        desc: "MULTILANGUAGE — Ruština, Angličtina, Nemčina, Francúzština, Španielčina, Čeština, Poľština."
+      },
+      {
+        name: "Windows 11 Pro (5 PC) CD Key Retail Microsoft Global",
+        price: "$27.83", cat: "windows",
+        img: IMG + "Windows-11-Pro-5PC-Cd-Key-Retail-Microsoft-Global-300x500.jpg",
+        url: BASE + "windows-11-5pc-pro-cd-key-microsoft-global?tracking=" + TRACK,
+        desc: "MULTILANGUAGE. Licencia na 5 zariadení — ideálne pre malé firmy a domácnosti s viacerými PC."
+      },
+      {
+        name: "Windows 11 Enterprise CD Key Retail Microsoft Global",
+        price: "$13.91", cat: "windows",
+        img: IMG + "Windows-11-Enterprise-Cd-Key-Retail-Microsoft-Global-300x500.jpg",
+        url: BASE + "windows-11-enterprise-cd-key-retail-microsoft-global?tracking=" + TRACK,
+        desc: "Enterprise edícia pre hybridné pracovné prostredie s pokročilým zabezpečením."
+      },
+      {
+        name: "Windows 11 Professional N Retail CD Key Microsoft Global",
+        price: "$5.22", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "windows-11-professional-n-retail-cd-key-microsoft-global?tracking=" + TRACK,
+        desc: "MULTILANGUAGE. N edícia bez mediálnych funkcií — vhodná pre firmy v EÚ."
+      },
+      {
+        name: "Windows 10 Professional OEM CD Key Microsoft Global",
+        price: "$4.63", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "windows-10-professional-oem-microsoft-global-cd-key-html?tracking=" + TRACK,
+        desc: "MULTILANGUAGE. OEM kľúč pre Windows 10 Pro — výborný pomer cena/výkon."
+      },
+      {
+        name: "Windows 10 Professional Retail CD Key Microsoft Global",
+        price: "$6.95", cat: "windows",
+        img: IMG + "Windows-10-Professional-Retail-Cd-Key-Microsoft-Global-300x500.jpg",
+        url: BASE + "windows-10-professional-retail-microsoft-global-cd-key?tracking=" + TRACK,
+        desc: "MULTILANGUAGE. Retail licencia pre Windows 10 Pro — prenositeľná."
+      },
+      {
+        name: "Windows 10 Home CD Key OEM Microsoft Global",
+        price: "$4.35", cat: "windows",
+        img: IMG + "cover_W10_Home_oem-300x500.jpg",
+        url: BASE + "microsoft-windows-10-home-oem-key-global?tracking=" + TRACK,
+        desc: "Officiálne licencovaný predajca Microsoft CD kľúčov. OEM kľúč pre Windows 10 Home."
+      },
+      {
+        name: "Windows 10 Professional N Retail CD Key Microsoft Global",
+        price: "$4.64", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "windows-10-professional-n-retail-cd-key-microsoft-global?tracking=" + TRACK,
+        desc: "MULTILANGUAGE. Retail N edícia Windows 10 Pro — bez Media Player."
+      },
+      {
+        name: "Windows 10 Enterprise 2021 LTSC CD Key Microsoft Global (20 PC)",
+        price: "$16.23", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "windows-10-enterprise-2021-ltsc-cd-key-microsoft-global?tracking=" + TRACK,
+        desc: "MULTILANGUAGE. 20-PC licencia. LTSC — dlhodobá podpora, žiadne featury updates."
+      },
+      {
+        name: "Windows 10 IoT Enterprise 2021 LTSC CD Key Microsoft Global",
+        price: "$23.19", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "windows-10-iot-enterprise-2021-ltsc?tracking=" + TRACK,
+        desc: "Všetky funkcie Windows 10 Enterprise s dlhodobou podporou — pre špeciálne nasadenia."
+      },
+      {
+        name: "Windows 8.1 Professional Retail CD Key Microsoft Global",
+        price: "$2.31", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "windows-8-1-professional-retail-cd-key-microsoft-global?tracking=" + TRACK,
+        desc: "MULTILANGUAGE. Retail kľúč pre Windows 8.1 Professional."
+      },
+      {
+        name: "Windows 7 Professional OEM CD Key Microsoft Global",
+        price: "$3.47", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "windows-7-professional-oem-cd-key-microsoft-global?tracking=" + TRACK,
+        desc: "MULTILANGUAGE. OEM kľúč pre Windows 7 Professional."
+      },
+      {
+        name: "Microsoft Windows Server Standard 2022 CD Key Global",
+        price: "$4.63", cat: "windows",
+        img: IMG + "wserver2022-300x500.jpg",
+        url: BASE + "microsoft-windows-server-standard-2022?tracking=" + TRACK,
+        desc: "MULTILANGUAGE. Platný pre 1 PC / 1 inštaláciu."
+      },
+      {
+        name: "Microsoft Windows Server Standard 2025 CD Key Global",
+        price: "$15.07", cat: "windows",
+        img: IMG + "Microsoft-Windows-Server-Standard-2025-Cd-Key-Global-300x500.jpg",
+        url: BASE + "microsoft-windows-server-standard-2025-cd-key-global?tracking=" + TRACK,
+        desc: "Windows Server 2025 prepája on-premises infraštruktúru s cloudovými službami."
+      },
+      {
+        name: "Microsoft Windows Server Datacenter 2025 CD Key Global",
+        price: "$17.39", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "microsoft-windows-server-datacenter-2025-cd-key-global?tracking=" + TRACK,
+        desc: "Vysoko škálovateľné riešenie pre dátové centrá a virtualizáciu."
+      },
+      {
+        name: "Microsoft Windows Server Datacenter 2022 CD Key Global",
+        price: "$5.21", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "microsoft-windows-server-datacenter-2022-cd-key-global?tracking=" + TRACK,
+        desc: "MULTILANGUAGE. Platný pre 1 PC / 1 inštaláciu."
+      },
+      {
+        name: "Microsoft Windows Server Standard 2019 CD Key Global",
+        price: "$2.66", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "microsoft-windows-server-standard-2019-cd-key-global?tracking=" + TRACK,
+        desc: "MULTILANGUAGE. Platný pre 1 PC / 1 inštaláciu."
+      },
+      {
+        name: "Microsoft Windows Server Standard 2016 CD Key Global",
+        price: "$3.36", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "microsoft-windows-server-standard-2016-cd-key-global?tracking=" + TRACK,
+        desc: "MULTILANGUAGE. Platný pre 1 PC / 1 inštaláciu."
+      },
+      {
+        name: "Microsoft Windows Server Essentials 2022 CD Key Global",
+        price: "$9.28", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "microsoft-windows-server-essentials-2022-cd-key-global?tracking=" + TRACK,
+        desc: "Ideálny pre malé firmy — jednoduché nasadenie, správa identít a úložísk."
+      },
+      {
+        name: "Windows Server 2022 Remote Desktop Services 50 USER Connections",
+        price: "$32.48", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "windows-server-2022-remote-desktop-services-50-user?tracking=" + TRACK,
+        desc: "Pridáva RDS CAL (50 USER) k existujúcej licencii Windows Server 2022."
+      },
+      {
+        name: "Windows Server 2022 Remote Desktop Services 50 DEVICE Connections",
+        price: "$32.48", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "windows-server-2022-remote-desktop-services-50-device?tracking=" + TRACK,
+        desc: "Pridáva RDS CAL (50 DEVICE) k existujúcej licencii Windows Server 2022."
+      },
+      {
+        name: "Windows Server 2025 Remote Desktop Services 50 USER Connections",
+        price: "$28.99", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "windows-server-2025-remote-desktop-services-50-user?tracking=" + TRACK,
+        desc: "Windows Server 2025 RDS CAL — 50 USER. Pre vzdialený prístup k serverom."
+      },
+      {
+        name: "AVG Ultimate 10 Devices 3 Years CD Key Global",
+        price: "$33.05", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "avg-ultimate-10-devices-3-years-cd-key-global?tracking=" + TRACK,
+        desc: "AVG Ultimate — antivírus, VPN a optimalizátor pre 10 zariadení na 3 roky."
+      },
+      {
+        name: "Avast Ultimate 10 Devices 3 Years CD Key Global",
+        price: "$38.27", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "avast-ultimate-10-devices-3-years-cd-key-global?tracking=" + TRACK,
+        desc: "Avast Ultimate — prémiový bezpečnostný balík: antivírus, VPN a čistič pre 10 zariadení."
+      },
+      {
+        name: "Nitro PDF Pro 10 Perpetual Windows CD Key Global",
+        price: "$10.43", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "nitro-pdf-pro-10-perpetual-windows-cd-key-global?tracking=" + TRACK,
+        desc: "PDF editor s pokročilými funkciami: úprava, konverzia, zabezpečenie a podpisovanie PDF."
+      },
+      {
+        name: "TechSmith Snagit 2020 For Windows/Mac CD Key Global",
+        price: "$9.27", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "techsmith-snagit-2020-for-windows-mac-cd-key-global?tracking=" + TRACK,
+        desc: "Zachyťte a zdieľajte informácie jednoducho — screenshot a screen recording nástroj."
+      },
+      {
+        name: "Winx DVD Copy Pro For Windows CD Key Global",
+        price: "$10.43", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "winx-dvd-copy-pro-for-windows-cd-key-global?tracking=" + TRACK,
+        desc: "All-in-one DVD zálohovací softvér. 1:1 klonovanie DVD na disk alebo ISO obraz."
+      },
+      {
+        name: "Halo: The Master Chief Collection Windows 10 (Microsoft Store Europe)",
+        price: "$14.04", cat: "windows",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "halo-the-master-chief-collection-windows-10-microsoft-store-europe?tracking=" + TRACK,
+        desc: "Halo: The Master Chief Collection pre Windows 10 — Microsoft Store kľúč pre Európu."
+      },
+
+      /* ══ MS OFFICE ══ */
+      {
+        name: "Office 2024 Professional Plus CD Key Global",
+        price: null, cat: "office",
+        img: IMG + "officehb2019-300x500.jpg",
+        url: BASE + "office-2024-professional-plus-cd-key-global?tracking=" + TRACK,
+        desc: "Najnovší Microsoft Office 2024 — Word, Excel, PowerPoint, Outlook a ďalšie aplikácie."
+      },
+      {
+        name: "Microsoft Office 2021 Professional Plus Retail CD Key Global",
+        price: "$40.59", cat: "office",
+        img: IMG + "officehb2019-300x500.jpg",
+        url: BASE + "microsoft-office-2021-professional-plus-retail-cd-key-global?tracking=" + TRACK,
+        desc: "Plný retail kľúč Office 2021 Pro Plus — trvalá licencia, online aktivácia."
+      },
+      {
+        name: "Office 2021 Professional Plus CD Key Digital Download Lifetime",
+        price: null, cat: "office",
+        img: IMG + "officehb2019-300x500.jpg",
+        url: BASE + "office-2021-professional-plus-cd-key-digital-download-lifetime?tracking=" + TRACK,
+        desc: "Office 2021 Pro Plus — doživotná licencia, digitálne doručenie."
+      },
+      {
+        name: "Office 2021 Professional Plus CD Key Global Phone Activation",
+        price: null, cat: "office",
+        img: IMG + "officehb2019-300x500.jpg",
+        url: BASE + "office-2021-professional-plus-cd-key-global-phone-activation?tracking=" + TRACK,
+        desc: "Office 2021 Pro Plus — aktivácia cez telefón, obsahuje Word, Excel, PowerPoint, Outlook."
+      },
+      {
+        name: "Microsoft Office 2019 Professional Plus CD Key Global",
+        price: null, cat: "office",
+        img: IMG + "officehb2019-300x500.jpg",
+        url: BASE + "microsoft-office-2019-professional-plus-cd-key-global?tracking=" + TRACK,
+        desc: "Office 2019 Professional Plus — trvalá licencia s plnou sadou aplikácií."
+      },
+      {
+        name: "Office 2019 Professional Plus CD Key Phone Activation RETAIL",
+        price: "$8.70", cat: "office",
+        img: IMG + "officehb2019-300x500.jpg",
+        url: BASE + "office-2019-professional-plus-cd-key-phone-activation-retail?tracking=" + TRACK,
+        desc: "Office 2019 Pro Plus — aktivácia cez telefón, RETAIL verzia."
+      },
+      {
+        name: "Microsoft Office 2019 Home and Business Windows CD Key Global",
+        price: "$30.15", cat: "office",
+        img: IMG + "officehb2019-300x500.jpg",
+        url: BASE + "office-2019-home-and-business-windows-online-activation?tracking=" + TRACK,
+        desc: "MULTILANGUAGE. Nefunguje na MacBook. Online aktivácia. Word, Excel, PowerPoint, Outlook."
+      },
+      {
+        name: "Office 2019 Home and Business Windows Phone Activation CD Key Global",
+        price: "$5.05", cat: "office",
+        img: IMG + "officehb2019-300x500.jpg",
+        url: BASE + "office-2019-home-and-business-windows-phone-activation?tracking=" + TRACK,
+        desc: "Word, Excel, PowerPoint, Outlook. Kompatibilný s Windows 10 a Windows 11."
+      },
+      {
+        name: "Microsoft Office 2019 Home and Student OEM CD Key Global",
+        price: "$19.72", cat: "office",
+        img: IMG + "officehb2019-300x500.jpg",
+        url: BASE + "microsoft-office-2019-home-and-student-oem-cd-key-global?tracking=" + TRACK,
+        desc: "Office 2019 Home & Student OEM — Word, Excel, PowerPoint. Ideálny pre študentov."
+      },
+      {
+        name: "Microsoft Word 2024 Bind CD Key Global",
+        price: "$22.03", cat: "office",
+        img: IMG + "officehb2019-300x500.jpg",
+        url: BASE + "microsoft-word-2024-bind-cd-key-global?tracking=" + TRACK,
+        desc: "Najnovší Microsoft Word 2024 — najpoužívanejší textový editor na svete."
+      },
+      {
+        name: "Microsoft Outlook 2019 Retail CD Key Global",
+        price: "$7.08", cat: "office",
+        img: IMG + "officehb2019-300x500.jpg",
+        url: BASE + "microsoft-outlook-2019-retail-cd-key-global?tracking=" + TRACK,
+        desc: "Samostatný Outlook 2019 — e-mail, kalendár a osobný informačný manažér."
+      },
+      {
+        name: "HDR Photomatix Pro 7 For Windows CD Key Global",
+        price: "$8.11", cat: "office",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "hdr-photomatix-pro-7-for-windows-cd-key-global?tracking=" + TRACK,
+        desc: "Vytvárajte úchvatné HDR fotografie z viacerých záberov — pre fotografov a kreatívcov."
+      },
+      {
+        name: "Ashampoo Backup Pro 17 For Windows CD Key Global",
+        price: "$9.27", cat: "office",
+        img: IMG + "wintest-300x500.jpg",
+        url: BASE + "ashampoo-backup-pro-17-for-windows-cd-key-global?tracking=" + TRACK,
+        desc: "Spoľahlivý zálohovací softvér pre Windows — obnova dát jedným kliknutím."
+      }
     ];
   </script>
 
-  <!-- App logic -->
+  <!-- ── App logic ── -->
   <script>
     (function () {
       let activeCategory = 'all';
@@ -165,27 +892,67 @@
       const searchInput = document.getElementById('searchInput');
       const sortSelect = document.getElementById('sortSelect');
       const tabBtns = document.querySelectorAll('.tab-btn');
+      const countEl = document.getElementById('productCount');
 
       function getFiltered() {
         let list = [...products];
         if (activeCategory !== 'all') list = list.filter(p => p.cat === activeCategory);
-        if (searchQuery) { const q = searchQuery.toLowerCase(); list = list.filter(p => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q)); }
-        if (sortOrder === 'price-asc') list.sort((a,b)=>parseFloat(a.price.replace('$',''))-parseFloat(b.price.replace('$','')));
-        else if (sortOrder === 'price-desc') list.sort((a,b)=>parseFloat(b.price.replace('$',''))-parseFloat(a.price.replace('$','')));
-        else if (sortOrder === 'name-asc') list.sort((a,b)=>a.name.localeCompare(b.name,'sk'));
+        if (searchQuery) {
+          const q = searchQuery.toLowerCase();
+          list = list.filter(p => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
+        }
+        if (sortOrder === 'price-asc') {
+          list.sort((a, b) => {
+            const ap = a.price ? parseFloat(a.price.replace('$', '')) : 9999;
+            const bp = b.price ? parseFloat(b.price.replace('$', '')) : 9999;
+            return ap - bp;
+          });
+        } else if (sortOrder === 'price-desc') {
+          list.sort((a, b) => {
+            const ap = a.price ? parseFloat(a.price.replace('$', '')) : 0;
+            const bp = b.price ? parseFloat(b.price.replace('$', '')) : 0;
+            return bp - ap;
+          });
+        } else if (sortOrder === 'name-asc') {
+          list.sort((a, b) => a.name.localeCompare(b.name, 'sk'));
+        }
         return list;
       }
 
+      function getBadge(cat) {
+        if (cat === 'windows') return '<span class="lic-badge lic-badge--win">Windows</span>';
+        if (cat === 'office') return '<span class="lic-badge lic-badge--off">MS Office</span>';
+        return '';
+      }
+
       function renderCard(p) {
-        const badge = p.cat === 'windows' ? '<span class="lic-badge lic-badge--win">Windows</span>' : '<span class="lic-badge lic-badge--off">MS Office</span>';
-        const desc = p.desc.length > 90 ? p.desc.slice(0,88)+'\u2026' : p.desc;
-        return `<article class="lic-card" role="listitem"><div class="lic-card-img"><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'">${badge}</div><div class="lic-card-body"><h3 class="lic-card-name">${p.name}</h3><p class="lic-card-desc">${desc}</p></div><div class="lic-card-footer"><span class="lic-card-price">${p.price}</span><a href="${p.url}" target="_blank" rel="noopener noreferrer" class="lic-buy-btn">Kúpiť &rarr;</a></div></article>`;
+        const badge = getBadge(p.cat);
+        const desc = p.desc.length > 95 ? p.desc.slice(0, 93) + '\u2026' : p.desc;
+        const priceHtml = p.price
+          ? `<span class="lic-card-price">${p.price}</span>`
+          : `<span class="lic-card-price price-na">Cena na sklade</span>`;
+        const imgHtml = `<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\"lic-card-img-placeholder\\"><span class=\\"lic-picon\\">${p.cat === 'windows' ? '🪟' : '📄'}</span></div>'">`; 
+        return `<article class="lic-card" role="listitem">
+          <div class="lic-card-img">${imgHtml}${badge}</div>
+          <div class="lic-card-body">
+            <h3 class="lic-card-name">${p.name}</h3>
+            <p class="lic-card-desc">${desc}</p>
+          </div>
+          <div class="lic-card-footer">
+            ${priceHtml}
+            <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="lic-buy-btn">Kúpiť &rarr;</a>
+          </div>
+        </article>`;
       }
 
       function render() {
         const list = getFiltered();
-        if (!list.length) { grid.innerHTML = ''; noResults.classList.remove('hidden'); noResults.style.display = 'block'; return; }
-        noResults.classList.add('hidden');
+        if (countEl) countEl.textContent = list.length + ' produktov';
+        if (!list.length) {
+          grid.innerHTML = '';
+          noResults.style.display = 'block';
+          return;
+        }
         noResults.style.display = 'none';
         grid.innerHTML = list.map(renderCard).join('');
       }
@@ -194,14 +961,28 @@
       sortSelect.addEventListener('change', e => { sortOrder = e.target.value; render(); });
       tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+          tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
           btn.classList.add('active');
-          btn.setAttribute('aria-selected','true');
+          btn.setAttribute('aria-selected', 'true');
           activeCategory = btn.dataset.cat;
           render();
         });
       });
+
       render();
+
+      // Smooth scroll to section on hero CTA click
+      window.filterCat = function(cat) {
+        tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        const btn = document.querySelector(`.tab-btn[data-cat="${cat}"]`);
+        if (btn) { btn.classList.add('active'); btn.setAttribute('aria-selected', 'true'); }
+        activeCategory = cat;
+        render();
+        setTimeout(() => {
+          const toolbar = document.querySelector('.lic-toolbar');
+          if (toolbar) toolbar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+      };
     })();
   </script>
 
