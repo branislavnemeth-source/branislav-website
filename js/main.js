@@ -87,3 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('current-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
+
+
+document.addEventListener('DOMContentLoaded', () => { document.querySelectorAll('.quick-offer, .homepage-offer-card, .support-card').forEach(el => el.classList.add('fade-in')); });
