@@ -521,6 +521,67 @@
       </div>
     </section>
 
+    <!-- KOZMETIKA PHOTO BANNER -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <a href="kozmetika.html" class="koz-photo-banner fade-in" aria-label="Otvoriť záložku Kozmetika">
+          <div class="koz-photo-banner-img">
+            <img src="images/kozmetika/model-banner.webp" alt="Prírodná kozmetika Panakeia" width="1600" height="900" loading="lazy">
+          </div>
+          <div class="koz-photo-banner-text">
+            <span class="koz-photo-banner-pill">🌿 Prírodná kozmetika</span>
+            <h3>Panakeia — slovenské byliny pre tvoju pleť</h3>
+            <p>Ručne vyrábané séra, tinktúry a balzamy zo srdca Kopaníc. Bestsellery od 12 €.</p>
+            <span class="koz-photo-banner-cta">Otvoriť ponuku <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <style>
+      .koz-photo-banner {
+        display: grid; grid-template-columns: 1fr 1fr; align-items: stretch;
+        border-radius: 22px; overflow: hidden;
+        background: linear-gradient(90deg, #f7f3ec 0%, #e8f3eb 100%);
+        box-shadow: 0 25px 50px -25px rgba(45, 106, 79, 0.35);
+        text-decoration: none; color: inherit;
+        transition: transform .3s ease, box-shadow .3s ease;
+      }
+      .koz-photo-banner:hover { transform: translateY(-3px); box-shadow: 0 30px 60px -25px rgba(45, 106, 79, 0.45); }
+      .koz-photo-banner-img { min-height: 320px; overflow: hidden; }
+      .koz-photo-banner-img img { width: 100%; height: 100%; object-fit: cover; object-position: left center; display: block; transition: transform .6s ease; }
+      .koz-photo-banner:hover .koz-photo-banner-img img { transform: scale(1.04); }
+      .koz-photo-banner-text { padding: 2.5rem 3rem; display: flex; flex-direction: column; justify-content: center; gap: .5rem; }
+      .koz-photo-banner-pill {
+        display: inline-block; padding: .35rem .8rem; border-radius: 999px;
+        background: #2d6a4f; color: #fff; font-size: .72rem; font-weight: 700;
+        letter-spacing: .1em; text-transform: uppercase;
+        align-self: flex-start;
+      }
+      .koz-photo-banner-text h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(1.4rem, 2.6vw, 2rem);
+        margin: .75rem 0 .5rem; color: #1f2a24; line-height: 1.2;
+      }
+      .koz-photo-banner-text p { color: #4a5550; line-height: 1.6; margin: 0 0 1.2rem; max-width: 38ch; }
+      .koz-photo-banner-cta {
+        display: inline-flex; align-items: center; gap: .5rem;
+        padding: .8rem 1.4rem; border-radius: 10px;
+        background: #2d6a4f; color: #fff; font-weight: 600;
+        align-self: flex-start;
+        transition: background .2s;
+      }
+      .koz-photo-banner:hover .koz-photo-banner-cta { background: #1f4d39; }
+      [data-theme="dark"] .koz-photo-banner { background: linear-gradient(90deg, #1a2620 0%, #0e1a13 100%); }
+      [data-theme="dark"] .koz-photo-banner-text h3 { color: #f0faf3; }
+      [data-theme="dark"] .koz-photo-banner-text p { color: #b8c8be; }
+      @media (max-width: 800px) {
+        .koz-photo-banner { grid-template-columns: 1fr; }
+        .koz-photo-banner-img { aspect-ratio: 16/9; min-height: auto; }
+        .koz-photo-banner-text { padding: 2rem 1.5rem; }
+      }
+    </style>
+
     <!-- WINDOWS 11 TIPS -->
     <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider);">
       <div class="container">

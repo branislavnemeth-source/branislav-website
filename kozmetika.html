@@ -187,6 +187,31 @@
 
     /* Hero card */
     .koz-hero-card-wrap { display: flex; justify-content: center; align-items: center; }
+
+    /* ── Hero photo (modelka) ── */
+    .koz-hero-photo {
+      position: relative; margin: 0; max-width: 420px; width: 100%;
+      border-radius: 24px; overflow: hidden;
+      aspect-ratio: 3/4;
+      box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.35), 0 14px 30px -16px rgba(45, 106, 79, 0.25);
+      transform: rotate(-1.2deg);
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+    .koz-hero-photo:hover { transform: rotate(0); box-shadow: 0 36px 70px -28px rgba(0, 0, 0, 0.45), 0 18px 36px -16px rgba(45, 106, 79, 0.35); }
+    .koz-hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .koz-hero-photo-tag {
+      position: absolute; bottom: 1rem; left: 1rem;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--koz-green);
+      padding: .5rem .95rem; border-radius: 999px;
+      font-size: .8rem; font-weight: 600;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 6px 16px -8px rgba(0,0,0,.2);
+    }
+    [data-theme="dark"] .koz-hero-photo-tag { background: rgba(26, 46, 30, 0.95); color: var(--koz-green3); }
+    @media (max-width: 880px) {
+      .koz-hero-photo { max-width: 320px; transform: rotate(0); }
+    }
     .koz-hero-card {
       background: #fff;
       border: 1px solid var(--koz-border);
@@ -541,6 +566,17 @@
       line-height: 1.75;
       margin: 0 0 1rem;
     }
+    .koz-story-photo {
+      margin: 0;
+      border-radius: 22px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      box-shadow: 0 24px 48px -22px rgba(45, 106, 79, 0.4), 0 10px 24px -14px rgba(0,0,0,.18);
+      max-width: 420px;
+      width: 100%;
+      justify-self: center;
+    }
+    .koz-story-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .koz-story-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -548,6 +584,7 @@
       background: var(--koz-green);
       border-radius: 14px;
       padding: 1.5rem 1rem;
+      margin-top: 1.5rem;
     }
     .koz-stat { text-align: center; }
     .koz-stat-num {
@@ -729,16 +766,10 @@
           </div>
         </div>
         <div class="koz-hero-card-wrap">
-          <div class="koz-hero-card">
-            <div class="koz-hero-card-img">
-              <span class="koz-hero-card-tag">🌿 Ručne vyrobené</span>
-              <span class="koz-hero-card-badge">BESTSELLER</span>
-              🌸
-            </div>
-            <h3>Pleťové sérum Magic Nature</h3>
-            <p>Ľahké hydratačné sérum s prírodnými extraktmi pre žiarivú a zdravú pleť každý deň.</p>
-            <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer">Kúpiť teraz →</a>
-          </div>
+          <figure class="koz-hero-photo">
+            <img src="images/kozmetika/model-hero.webp" alt="Prírodná kozmetika Panakeia — modelka so sérom" width="900" height="1200" loading="eager" fetchpriority="high">
+            <figcaption class="koz-hero-photo-tag">🌿 100 % prírodné · Slovensko</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -992,14 +1023,15 @@
     <!-- ── STORY ── -->
     <section class="koz-story" aria-labelledby="koz-story-title">
       <div class="koz-story-inner">
+        <figure class="koz-story-photo">
+          <img src="images/kozmetika/model-hero.webp" alt="Prírodná kozmetika Panakeia — pleť, ktorá ďakuje" width="900" height="1200" loading="lazy">
+        </figure>
         <div class="koz-story-text">
           <p class="koz-section-label">Náš príbeh</p>
           <h2 class="koz-section-title" id="koz-story-title">Kozmetika zo <em>srdca Kopaníc</em></h2>
           <p>Všetko začalo ako rodinný projekt s jednoduchou myšlienkou: vytvárať kozmetiku, ktorú by sme s radosťou dali vlastnej rodine. Prírodné, poctivé, bez zbytočných kompromisov.</p>
           <p>Inšpiráciu čerpáme z bohatej tradície bylinárstva z Kopaníc — regiónu, kde príroda a ľudia žijú v harmónii od nepamäti. Každý produkt nesie kúsok tohto dedičstva.</p>
           <p>Dnes vyrábame v akreditovanej výrobni v Trenčíne, no ducha rodinnej firmy si stráži každý, kto sa na produkte podieľa.</p>
-        </div>
-        <div>
           <div class="koz-story-stats">
             <div class="koz-stat">
               <span class="koz-stat-num">99%</span>
