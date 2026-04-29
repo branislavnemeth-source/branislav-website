@@ -314,21 +314,28 @@
     .koz-cat-header { text-align: center; margin-bottom: 2.25rem; }
     .koz-cat-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    @media (max-width: 640px) {
+      .koz-cat-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: .85rem;
+      }
     }
     .koz-cat-card {
       background: #fff;
       border: 1px solid var(--koz-border);
       border-radius: 14px;
-      padding: 1.35rem 1rem;
+      padding: 0;
       text-align: center;
       text-decoration: none;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: .5rem;
-      transition: all .18s;
+      align-items: stretch;
+      gap: 0;
+      overflow: hidden;
+      transition: all .22s ease;
       box-shadow: var(--koz-shadow);
     }
     [data-theme="dark"] .koz-cat-card { background: #162018; border-color: #2a4533; }
@@ -337,16 +344,38 @@
       box-shadow: var(--koz-shadow-md);
       border-color: var(--koz-green3);
     }
+    .koz-cat-card:hover .koz-cat-photo img { transform: scale(1.06); }
+    .koz-cat-photo {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--koz-green-pale);
+    }
+    .koz-cat-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+    .koz-cat-body {
+      padding: .9rem .85rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
     .koz-cat-icon { font-size: 2rem; }
     .koz-cat-name {
-      font-size: .85rem;
+      font-size: 1rem;
       font-weight: 700;
       color: var(--koz-text);
+      letter-spacing: -0.01em;
     }
     .koz-cat-desc {
-      font-size: .73rem;
+      font-size: .8rem;
       color: var(--koz-muted);
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     /* ── Products ── */
@@ -379,22 +408,34 @@
       border-color: var(--koz-green3);
     }
     .koz-prod-img {
-      height: 170px;
+      height: 240px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 3.5rem;
       position: relative;
+      overflow: hidden;
+      background: var(--koz-green-pale);
     }
+    .koz-prod-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+    .koz-prod-card:hover .koz-prod-img img { transform: scale(1.05); }
     .koz-prod-badge {
       position: absolute;
       top: .65rem; left: .65rem;
+      z-index: 2;
       font-size: .67rem;
       font-weight: 700;
-      padding: .22rem .6rem;
+      padding: .25rem .65rem;
       border-radius: 999px;
       text-transform: uppercase;
       letter-spacing: .04em;
+      box-shadow: 0 2px 6px rgba(0,0,0,.18);
     }
     .koz-badge--bestseller { background: var(--koz-green); color: #fff; }
     .koz-badge--novinka    { background: #e07b2a; color: #fff; }
@@ -402,11 +443,12 @@
     .koz-prod-body { padding: .9rem 1rem .5rem; flex: 1; }
     .koz-prod-name {
       font-family: 'Playfair Display', serif;
-      font-size: .95rem;
+      font-size: 1rem;
       font-weight: 700;
       color: var(--koz-text);
-      margin: 0 0 .4rem;
-      line-height: 1.3;
+      margin: 0 0 .45rem;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
     }
     .koz-prod-desc {
       font-size: .78rem;
@@ -743,35 +785,47 @@
           <p class="koz-section-sub">Od pleťových sér cez bylinné tinktúry až po vlasovú starostlivosť — všetko prírodné, ručne vyrobené a overené zákazníkmi.</p>
         </div>
         <div class="koz-cat-grid">
-          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-cat-card">
-            <span class="koz-cat-icon">✨</span>
-            <span class="koz-cat-name">Pleť</span>
-            <span class="koz-cat-desc">Séra, krémy, toniká, masky a čistenie pleti pre všetky typy pokožky.</span>
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="sponsored noopener noreferrer" class="koz-cat-card">
+            <span class="koz-cat-photo"><img src="images/kozmetika/kat-plet.webp" alt="Prírodné sérum pre pleť s eukalyptom" loading="lazy" width="600" height="600"></span>
+            <span class="koz-cat-body">
+              <span class="koz-cat-name">Pleť</span>
+              <span class="koz-cat-desc">Séra, krémy, toniká, masky a čistenie pleti pre všetky typy pokožky.</span>
+            </span>
           </a>
-          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-cat-card">
-            <span class="koz-cat-icon">🌿</span>
-            <span class="koz-cat-name">Bylinné tinktúry</span>
-            <span class="koz-cat-desc">Jednozložkové tinktúry, gemmoterapia a bylinné kvapky z tradičných receptúr.</span>
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="sponsored noopener noreferrer" class="koz-cat-card">
+            <span class="koz-cat-photo"><img src="images/kozmetika/kat-tinktury.webp" alt="Bylinné tinktúry s harmančekom a žihľavou" loading="lazy" width="600" height="600"></span>
+            <span class="koz-cat-body">
+              <span class="koz-cat-name">Bylinné tinktúry</span>
+              <span class="koz-cat-desc">Jednozložkové tinktúry, gemmoterapia a bylinné kvapky z tradičných receptúr.</span>
+            </span>
           </a>
-          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-cat-card">
-            <span class="koz-cat-icon">💆</span>
-            <span class="koz-cat-name">Telo</span>
-            <span class="koz-cat-desc">Telové oleje, balzamy a výživné prípravky pre hodvábne jemnú pokožku.</span>
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="sponsored noopener noreferrer" class="koz-cat-card">
+            <span class="koz-cat-photo"><img src="images/kozmetika/kat-telo.webp" alt="Telový olej a balzam s olivovými listami" loading="lazy" width="600" height="600"></span>
+            <span class="koz-cat-body">
+              <span class="koz-cat-name">Telo</span>
+              <span class="koz-cat-desc">Telové oleje, balzamy a výživné prípravky pre hodvábne jemnú pokožku.</span>
+            </span>
           </a>
-          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-cat-card">
-            <span class="koz-cat-icon">💇</span>
-            <span class="koz-cat-name">Vlasy</span>
-            <span class="koz-cat-desc">Prírodné šampóny, vlasové séra a sady pre silné a zdravé vlasy.</span>
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="sponsored noopener noreferrer" class="koz-cat-card">
+            <span class="koz-cat-photo"><img src="images/kozmetika/kat-vlasy.webp" alt="Prírodný šampón a vlasové sérum s rozmarínom" loading="lazy" width="600" height="600"></span>
+            <span class="koz-cat-body">
+              <span class="koz-cat-name">Vlasy</span>
+              <span class="koz-cat-desc">Prírodné šampóny, vlasové séra a sady pre silné a zdravé vlasy.</span>
+            </span>
           </a>
-          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-cat-card">
-            <span class="koz-cat-icon">☀️</span>
-            <span class="koz-cat-name">Opaľovanie</span>
-            <span class="koz-cat-desc">Prírodná ochrana pred slnkom a produkty po opaľovaní s prírodnými extraktmi.</span>
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="sponsored noopener noreferrer" class="koz-cat-card">
+            <span class="koz-cat-photo"><img src="images/kozmetika/kat-opalovanie.webp" alt="Prírodný opaľovací krém a balzam po opaľovaní" loading="lazy" width="600" height="600"></span>
+            <span class="koz-cat-body">
+              <span class="koz-cat-name">Opaľovanie</span>
+              <span class="koz-cat-desc">Prírodná ochrana pred slnkom a produkty po opaľovaní s prírodnými extraktmi.</span>
+            </span>
           </a>
-          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-cat-card">
-            <span class="koz-cat-icon">🫧</span>
-            <span class="koz-cat-name">Čistenie &amp; Líčenie</span>
-            <span class="koz-cat-desc">Odličovacie oleje, čistiace balzamy a gély pre dokonale čistú pleť.</span>
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="sponsored noopener noreferrer" class="koz-cat-card">
+            <span class="koz-cat-photo"><img src="images/kozmetika/kat-cistenie.webp" alt="Čistiaci olej a odličovacie tampóny s levanduľou" loading="lazy" width="600" height="600"></span>
+            <span class="koz-cat-body">
+              <span class="koz-cat-name">Čistenie &amp; Líčenie</span>
+              <span class="koz-cat-desc">Odličovacie oleje, čistiace balzamy a gély pre dokonale čistú pleť.</span>
+            </span>
           </a>
         </div>
       </div>
@@ -789,94 +843,94 @@
 
           <!-- Product 1 -->
           <article class="koz-prod-card">
-            <div class="koz-prod-img" style="background:linear-gradient(135deg,#d8f3dc,#95d5b2)">
+            <div class="koz-prod-img">
               <span class="koz-prod-badge koz-badge--bestseller">BESTSELLER</span>
-              🌸
+              <img src="images/bestsellery/magic-nature.webp" alt="Magic Nature — rozjasňujúce pleťové sérum 15 ml" loading="lazy" width="600" height="600">
             </div>
             <div class="koz-prod-body">
-              <h3 class="koz-prod-name">Pleťové sérum Magic Nature</h3>
+              <h3 class="koz-prod-name">Magic Nature — rozjasňujúce pleťové sérum 15 ml</h3>
               <p class="koz-prod-desc">Ľahké hydratačné sérum pre každodenné použitie. Dodáva pleti žiarivosť a hydratáciu bez mastného pocitu.</p>
             </div>
             <div class="koz-prod-footer">
               <span class="koz-prod-price">Cena na panakeia.sk</span>
-              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
+              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fwww.panakeia.sk%2Fmagic-nature-rozjasnujuce-pletove-serum-15ml%2F" target="_blank" rel="sponsored noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
             </div>
           </article>
 
           <!-- Product 2 -->
           <article class="koz-prod-card">
-            <div class="koz-prod-img" style="background:linear-gradient(135deg,#fde8d8,#f4b896)">
+            <div class="koz-prod-img">
               <span class="koz-prod-badge koz-badge--novinka">NOVINKA</span>
-              🌼
+              <img src="images/bestsellery/pdrn-exosome.webp" alt="Phyto Exosome PDRN — pleťové hydratačné sérum 30 ml" loading="lazy" width="600" height="600">
             </div>
             <div class="koz-prod-body">
-              <h3 class="koz-prod-name">PDRN Phyto Exosome sérum</h3>
+              <h3 class="koz-prod-name">Phyto Exosome PDRN — hydratačné sérum 30 ml</h3>
               <p class="koz-prod-desc">Inovatívne sérum s PDRN technológiou pre hlbokú regeneráciu a obnovu pleti. Viditeľné výsledky už po 6 týždňoch.</p>
             </div>
             <div class="koz-prod-footer">
               <span class="koz-prod-price">Cena na panakeia.sk</span>
-              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
+              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fwww.panakeia.sk%2Fphyto-exosome-pdrn---pletove-hydratacne-serum-30ml%2F" target="_blank" rel="sponsored noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
             </div>
           </article>
 
           <!-- Product 3 -->
           <article class="koz-prod-card">
-            <div class="koz-prod-img" style="background:linear-gradient(135deg,#e8f4fd,#b8d8f0)">
-              🍯
+            <div class="koz-prod-img">
+              <img src="images/bestsellery/stramanda-ocny.webp" alt="Štramanda — očný šípkový balzam 15 ml" loading="lazy" width="600" height="600">
             </div>
             <div class="koz-prod-body">
-              <h3 class="koz-prod-name">Šípkový očný balzam</h3>
+              <h3 class="koz-prod-name">Štramanda — očný šípkový balzam 15 ml</h3>
               <p class="koz-prod-desc">Jemný balzam pre citlivú oblasť okolo očí so šípkovým olejom. Redukuje unavený vzhľad a jemné linky.</p>
             </div>
             <div class="koz-prod-footer">
               <span class="koz-prod-price">Cena na panakeia.sk</span>
-              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
+              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fwww.panakeia.sk%2Fstramanda---ocny-sipkovy-krem-balzam-15ml%2F" target="_blank" rel="sponsored noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
             </div>
           </article>
 
           <!-- Product 4 -->
           <article class="koz-prod-card">
-            <div class="koz-prod-img" style="background:linear-gradient(135deg,#fdf3d8,#f0d896)">
-              <span class="koz-prod-badge koz-badge--oblibeny">OBLÍBENÝ</span>
-              🌾
+            <div class="koz-prod-img">
+              <span class="koz-prod-badge koz-badge--oblibeny">OBĽÚBENÝ</span>
+              <img src="images/bestsellery/set-regebasil.webp" alt="Set Regebasil® — vlasová starostlivosť (šampón a vlasová kúra)" loading="lazy" width="600" height="600">
             </div>
             <div class="koz-prod-body">
-              <h3 class="koz-prod-name">Set Regebasil — vlasová starostlivosť</h3>
-              <p class="koz-prod-desc">Kompletná sada z chmeľu a lopúchu pre silné, zdravé vlasy. Šampón, sérum a tonikum v jednom balení.</p>
+              <h3 class="koz-prod-name">Set Regebasil® — vlasová starostlivosť</h3>
+              <p class="koz-prod-desc">Kompletná sada z chmeľu a lopúchu pre silné, zdravé vlasy. Šampón a vlasová kúra v jednom výhodnom balení.</p>
             </div>
             <div class="koz-prod-footer">
               <span class="koz-prod-price">Cena na panakeia.sk</span>
-              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
+              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fwww.panakeia.sk%2Fset-regebasil%2F" target="_blank" rel="sponsored noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
             </div>
           </article>
 
           <!-- Product 5 -->
           <article class="koz-prod-card">
-            <div class="koz-prod-img" style="background:linear-gradient(135deg,#f3d8f4,#d896e8)">
-              🌺
+            <div class="koz-prod-img">
+              <img src="images/bestsellery/kopaniciarska-zehlicka.webp" alt="Kopaničiarska žehlička® s vitamínom C 20 ml — pleťové olejové sérum" loading="lazy" width="600" height="600">
             </div>
             <div class="koz-prod-body">
-              <h3 class="koz-prod-name">Kopaničiarska žehlička s vitamínom C</h3>
-              <p class="koz-prod-desc">Rozjasňujúci krém s vitamínom C inšpirovaný kopaničiarskymi bylinkárkami. Zjednocuje tón pleti.</p>
+              <h3 class="koz-prod-name">Kopaničiarska žehlička® s vitamínom C 20 ml</h3>
+              <p class="koz-prod-desc">Pleťové olejové sérum s vitamínom C inšpirované kopaničiarskymi bylinkárkami. Rozjasňuje a zjednocuje tón pleti.</p>
             </div>
             <div class="koz-prod-footer">
               <span class="koz-prod-price">Cena na panakeia.sk</span>
-              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
+              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fwww.panakeia.sk%2Fkopaniciarska-zehlicka-s-vitaminom-c-20ml--pletove-olejove-serum%2F" target="_blank" rel="sponsored noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
             </div>
           </article>
 
           <!-- Product 6 -->
           <article class="koz-prod-card">
-            <div class="koz-prod-img" style="background:linear-gradient(135deg,#d8f3dc,#c7f4d4)">
-              🌱
+            <div class="koz-prod-img">
+              <img src="images/bestsellery/tinktura-ceres.webp" alt="Tinktúra Ceres 100 ml — zmes 6 bylín" loading="lazy" width="600" height="600">
             </div>
             <div class="koz-prod-body">
-              <h3 class="koz-prod-name">Bylinné tinktúry — kolekcia</h3>
-              <p class="koz-prod-desc">Tradičné bylinné tinktúry vyrobené macerovaním. Žihľava, Ceres, gemmoterapia a ďalšie overené receptúry.</p>
+              <h3 class="koz-prod-name">Tinktúra Ceres 100 ml</h3>
+              <p class="koz-prod-desc">Tradičná bylinná tinktúra macerovaná zo zmesi 6 bylín podľa originálneho receptu. Jeden z najobľúbenejších bestsellerov.</p>
             </div>
             <div class="koz-prod-footer">
               <span class="koz-prod-price">Cena na panakeia.sk</span>
-              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk" target="_blank" rel="noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
+              <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fwww.panakeia.sk%2Ftinktura-ceres-100ml%2F" target="_blank" rel="sponsored noopener noreferrer" class="koz-prod-btn">Kúpiť teraz →</a>
             </div>
           </article>
 

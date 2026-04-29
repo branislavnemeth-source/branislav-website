@@ -67,12 +67,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Fade-in on scroll ---
+  // Pre-tag elements that should fade in but don't have the class in HTML
+  document.querySelectorAll('.quick-offer, .homepage-offer-card, .support-card').forEach(el => el.classList.add('fade-in'));
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Safety net: ensure nothing stays invisible if observer misses (e.g. above-the-fold race)
+  setTimeout(() => {
+    document.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) el.classList.add('visible');
+    });
+  }, 600);
 
   // --- Active nav link ---
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
@@ -89,4 +100,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => { document.querySelectorAll('.quick-offer, .homepage-offer-card, .support-card').forEach(el => el.classList.add('fade-in')); });
+
