@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="sk" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT pomoc doma Trenčín | BranislavIT</title>
+  <meta name="description" content="Osobná IT pomoc priamo doma v Trenčíne a okolí. Mobil, počítač, internet, tlačiareň, ochrana pred podvodmi. Trpezlivé vysvetlenie, jasná cena vopred. Od 30 € za návštevu." />
+  <meta name="keywords" content="IT pomoc Trenčín, pomoc s počítačom doma, IT služby seniori, pomalý notebook, Wi-Fi, tlačiareň, WhatsApp, BranislavIT" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="IT pomoc doma Trenčín | BranislavIT" />
+  <meta property="og:description" content="Osobná IT pomoc priamo doma. Mobil, PC, internet, tlačiareň. Trpezlivé vysvetlenie, jasná cena. Od 30 €." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://branislav.website/it-pomoc.html" />
+  <meta property="og:locale" content="sk_SK" />
+
+  <link rel="canonical" href="https://branislav.website/it-pomoc.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='45' height='45' rx='6' fill='%231e40af'/><rect x='55' width='45' height='45' rx='6' fill='%231e40af' opacity='.8'/><rect y='55' width='45' height='45' rx='6' fill='%231e40af' opacity='.6'/><rect x='55' y='55' width='45' height='45' rx='6' fill='%2338bdf8'/></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20260429b" />
+  <script src="js/main.js?v=20260429b" defer></script>
+
+  <!-- JSON-LD: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "BranislavIT — IT pomoc doma",
+    "image": "https://branislav.website/og-image.jpg",
+    "@id": "https://branislav.website/it-pomoc.html",
+    "url": "https://branislav.website/it-pomoc.html",
+    "telephone": "+421903760844",
+    "email": "postmaster@generaltrade.sk",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Armádna 777/4",
+      "postalCode": "91101",
+      "addressLocality": "Trenčín",
+      "addressCountry": "SK"
+    },
+    "areaServed": "Trenčín a okolie",
+    "description": "Osobná IT pomoc priamo doma. Mobil, počítač, internet, tlačiareň, ochrana pred podvodmi. Od 30 € za návštevu."
+  }
+  </script>
+
+  <style>
+    /* ══════════════════════════════════════════════
+       IT POMOC — modrá IT paleta (samostatná téma)
+       ══════════════════════════════════════════════ */
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f4f6fb;
+      --border: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-secondary: #64748b;
+
+      /* IT pomoc paleta — modrá / sky */
+      --it-primary: #1e40af;       /* hĺbková modrá */
+      --it-primary-2: #2563eb;     /* primary blue */
+      --it-accent: #38bdf8;        /* sky */
+      --it-accent-2: #0ea5e9;
+      --it-pale: #eff6ff;
+      --it-cream: #f8fafc;
+      --it-soft: #e0f2fe;
+      --it-text: #0c1e3e;
+    }
+    [data-theme="dark"] {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --border: #334155;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+
+      --it-pale: #0c1e3e;
+      --it-cream: #0f172a;
+      --it-soft: #1e3a8a33;
+      --it-text: #e0f2fe;
+    }
+
+    .it-page { font-family: 'Inter', system-ui, sans-serif; color: var(--text-primary); background: var(--bg-primary); }
+    .it-page h1, .it-page h2, .it-page h3 { font-family: 'Space Grotesk', system-ui, sans-serif; }
+    .it-container { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Header / Nav patches (zarovnanie zhodné s licencie/kozmetika) ── */
+    .skip-link { position: absolute; left: -9999px; top: 0; padding: .5rem 1rem; background: var(--it-primary); color: #fff; z-index: 200; border-radius: 0 0 8px 0; }
+    .skip-link:focus { left: 0; }
+    .main-nav {
+      display: flex; flex: 1; justify-content: center;
+      gap: .15rem; flex-wrap: wrap; align-items: center;
+    }
+    .main-nav .nav-link {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: .5rem .85rem; border-radius: 8px;
+      font-size: .95rem; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+      transition: background .2s, color .2s;
+      white-space: nowrap;
+    }
+    .main-nav .nav-link:hover { color: var(--text-primary); background: var(--it-pale); }
+    .main-nav .nav-link--active {
+      color: var(--it-primary); background: var(--it-soft); font-weight: 600;
+    }
+    .theme-toggle {
+      width: 38px; height: 38px; border-radius: 8px;
+      display: grid; place-items: center;
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      color: var(--text-secondary); cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .theme-toggle:hover { color: var(--it-primary); background: var(--it-pale); }
+    @media (max-width: 768px) {
+      .main-nav { font-size: .85rem; gap: 0; }
+      .main-nav .nav-link { padding: .45rem .55rem; font-size: .85rem; }
+    }
+    @media (max-width: 540px) {
+      .nav-logo-text { display: none; }
+    }
+
+    /* ── Footer base ── */
+    .site-footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 2.2rem 1.5rem; margin-top: 3rem; color: var(--text-secondary); }
+    .footer-inner { max-width: 1180px; margin: 0 auto; text-align: center; }
+    .footer-copy { margin: 0 0 .5rem; font-weight: 500; color: var(--text-primary); }
+    .footer-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+    .footer-nav a { color: var(--text-secondary); text-decoration: none; font-size: .88rem; }
+    .footer-nav a:hover { color: var(--it-primary); }
+
+    /* ── Hero ── */
+    .it-hero {
+      position: relative; overflow: hidden;
+      background:
+        radial-gradient(1100px 600px at 90% -10%, rgba(56,189,248,.18), transparent 60%),
+        radial-gradient(900px 500px at -10% 100%, rgba(30,64,175,.12), transparent 65%),
+        linear-gradient(180deg, var(--it-pale) 0%, var(--bg-primary) 100%);
+      padding: 4.5rem 1.5rem 3.5rem;
+    }
+    .it-hero-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: center; }
+    @media (max-width: 880px) { .it-hero-inner { grid-template-columns: 1fr; } }
+
+    .it-hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem .9rem; border-radius: 999px;
+      background: linear-gradient(135deg, var(--it-primary), var(--it-primary-2));
+      color: #fff; font-size: .82rem; font-weight: 600; letter-spacing: .02em;
+      box-shadow: 0 8px 22px -10px rgba(30,64,175,.55);
+      margin-bottom: 1.1rem;
+    }
+    .it-hero h1 {
+      font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.08; margin: 0 0 1rem;
+      color: var(--text-primary); font-weight: 700; letter-spacing: -.02em;
+    }
+    .it-hero h1 .it-grad {
+      background: linear-gradient(135deg, var(--it-primary-2), var(--it-accent));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .it-hero p.lead {
+      font-size: 1.12rem; color: var(--text-secondary); line-height: 1.65; max-width: 56ch; margin: 0 0 1.6rem;
+    }
+    .it-hero-cta { display: flex; flex-wrap: wrap; gap: .8rem; }
+    .it-btn {
+      display: inline-flex; align-items: center; gap: .55rem;
+      padding: .85rem 1.4rem; border-radius: 12px; font-weight: 600; font-size: 1rem;
+      text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s;
+    }
+    .it-btn-primary {
+      background: linear-gradient(135deg, var(--it-primary), var(--it-primary-2));
+      color: #fff; box-shadow: 0 12px 26px -12px rgba(30,64,175,.55);
+    }
+    .it-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(30,64,175,.7); }
+    .it-btn-ghost {
+      background: var(--bg-primary); color: var(--it-primary); border: 1.5px solid var(--it-primary);
+    }
+    .it-btn-ghost:hover { background: var(--it-pale); }
+
+    .it-hero-card {
+      background: var(--bg-primary); border: 1px solid var(--border);
+      border-radius: 18px; padding: 1.6rem; box-shadow: 0 22px 50px -28px rgba(15,23,42,.22);
+    }
+    .it-hero-card h3 { margin: 0 0 1rem; font-size: 1.1rem; color: var(--it-primary); }
+    .it-mini-points { list-style: none; padding: 0; margin: 0; display: grid; gap: .6rem; }
+    .it-mini-points li { display: flex; gap: .65rem; font-size: .95rem; color: var(--text-primary); }
+    .it-mini-points li::before {
+      content: "✓"; color: var(--it-primary-2); font-weight: 700; flex-shrink: 0;
+    }
+
+    .it-trust-strip {
+      display: flex; flex-wrap: wrap; gap: 1rem 1.6rem;
+      margin-top: 2.2rem; padding-top: 1.6rem; border-top: 1px solid var(--border);
+      font-size: .92rem; color: var(--text-secondary);
+    }
+    .it-trust-item { display: inline-flex; align-items: center; gap: .45rem; }
+
+    /* ── Sections ── */
+    .it-section { padding: 4rem 1.5rem; }
+    .it-section-alt { background: var(--it-cream); }
+    .it-section-head { text-align: center; max-width: 720px; margin: 0 auto 2.6rem; }
+    .it-kicker {
+      display: inline-block; padding: .35rem .8rem; border-radius: 999px;
+      background: var(--it-soft); color: var(--it-primary);
+      font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: .9rem;
+    }
+    .it-section h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); margin: 0 0 .7rem; letter-spacing: -.015em; }
+    .it-section .sub { color: var(--text-secondary); font-size: 1.05rem; margin: 0; }
+
+    /* ── Services grid ── */
+    .it-svc-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.4rem;
+    }
+    .it-svc-card {
+      background: var(--bg-primary); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.6rem 1.5rem; transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .it-svc-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--it-accent);
+      box-shadow: 0 20px 40px -22px rgba(30,64,175,.25);
+    }
+    .it-svc-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--it-primary), var(--it-primary-2));
+      color: #fff; display: grid; place-items: center; font-size: 1.5rem;
+      margin-bottom: 1.1rem;
+      box-shadow: 0 10px 20px -10px rgba(30,64,175,.55);
+    }
+    .it-svc-card h3 { font-size: 1.08rem; margin: 0 0 .55rem; color: var(--text-primary); }
+    .it-svc-card p { color: var(--text-secondary); font-size: .94rem; line-height: 1.6; margin: 0; }
+    .it-svc-tags { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .35rem; }
+    .it-svc-tag {
+      font-size: .76rem; padding: .25rem .55rem; border-radius: 6px;
+      background: var(--it-pale); color: var(--it-primary); font-weight: 500;
+    }
+
+    /* ── Trust ── */
+    .it-trust-box {
+      max-width: 980px; margin: 0 auto;
+      background: linear-gradient(135deg, var(--it-pale), var(--bg-primary));
+      border: 1px solid var(--border); border-radius: 20px; padding: 2.2rem;
+    }
+    .it-trust-list { list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: .9rem; }
+    .it-trust-list li { display: flex; gap: .8rem; align-items: flex-start; font-size: 1rem; color: var(--text-primary); }
+    .it-trust-list li .it-shield {
+      width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+      background: var(--it-soft); color: var(--it-primary);
+      display: grid; place-items: center; font-weight: 700; font-size: .9rem;
+    }
+
+    /* ── Pricing ── */
+    .it-price-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.4rem; max-width: 1080px; margin: 0 auto;
+    }
+    .it-price-card {
+      background: var(--bg-primary); border: 1px solid var(--border);
+      border-radius: 18px; padding: 1.8rem; position: relative; transition: transform .25s, box-shadow .25s;
+    }
+    .it-price-card:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -22px rgba(15,23,42,.18); }
+    .it-price-card.featured {
+      border: 2px solid var(--it-primary-2);
+      background: linear-gradient(180deg, var(--it-pale), var(--bg-primary));
+      box-shadow: 0 18px 40px -20px rgba(30,64,175,.3);
+    }
+    .it-price-badge {
+      position: absolute; top: -12px; right: 22px;
+      background: linear-gradient(135deg, var(--it-primary), var(--it-primary-2));
+      color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+      padding: .35rem .8rem; border-radius: 999px; text-transform: uppercase;
+    }
+    .it-price-card h3 { margin: 0 0 .35rem; font-size: 1.15rem; color: var(--text-primary); }
+    .it-price-card .it-price-desc { color: var(--text-secondary); font-size: .92rem; line-height: 1.55; margin: 0 0 1.2rem; min-height: 3.5rem; }
+    .it-price-amount {
+      font-size: 2rem; font-weight: 700; color: var(--it-primary);
+      font-family: 'Space Grotesk', sans-serif; letter-spacing: -.01em;
+    }
+    .it-price-amount small { font-size: .85rem; font-weight: 500; color: var(--text-secondary); display: block; margin-top: .15rem; }
+    .it-price-note { text-align: center; color: var(--text-secondary); font-size: .9rem; margin-top: 2rem; max-width: 60ch; margin-left: auto; margin-right: auto; }
+
+    /* ── Process ── */
+    .it-process-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem; counter-reset: step;
+    }
+    .it-process-card {
+      background: var(--bg-primary); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2rem 1.6rem 1.6rem; position: relative;
+      transition: transform .25s, border-color .25s;
+    }
+    .it-process-card:hover { transform: translateY(-3px); border-color: var(--it-accent); }
+    .it-process-card::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute; top: -18px; left: 1.5rem;
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--it-primary), var(--it-primary-2));
+      color: #fff; display: grid; place-items: center;
+      font-weight: 700; font-size: 1.05rem;
+      font-family: 'Space Grotesk', sans-serif;
+      box-shadow: 0 8px 18px -8px rgba(30,64,175,.55);
+    }
+    .it-process-card h3 { font-size: 1.05rem; margin: .3rem 0 .6rem; color: var(--text-primary); }
+    .it-process-card p { color: var(--text-secondary); font-size: .94rem; line-height: 1.6; margin: 0; }
+
+    /* ── FAQ ── */
+    .it-faq { max-width: 800px; margin: 0 auto; display: grid; gap: .8rem; }
+    .it-faq details {
+      background: var(--bg-primary); border: 1px solid var(--border);
+      border-radius: 12px; padding: 0; transition: border-color .2s, box-shadow .2s;
+    }
+    .it-faq details[open] { border-color: var(--it-accent); box-shadow: 0 8px 20px -14px rgba(30,64,175,.3); }
+    .it-faq summary {
+      list-style: none; cursor: pointer; padding: 1rem 1.3rem;
+      font-weight: 600; color: var(--text-primary); font-size: 1rem;
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    }
+    .it-faq summary::-webkit-details-marker { display: none; }
+    .it-faq summary::after {
+      content: "+"; color: var(--it-primary-2); font-size: 1.5rem; font-weight: 300;
+      transition: transform .2s; flex-shrink: 0;
+    }
+    .it-faq details[open] summary::after { transform: rotate(45deg); }
+    .it-faq details > div { padding: 0 1.3rem 1.1rem; color: var(--text-secondary); font-size: .96rem; line-height: 1.65; }
+
+    /* ── Contact CTA ── */
+    .it-contact {
+      background: linear-gradient(135deg, var(--it-primary), var(--it-primary-2));
+      border-radius: 22px; padding: 3rem 2rem; text-align: center; color: #fff;
+      max-width: 1080px; margin: 0 auto;
+      box-shadow: 0 30px 60px -25px rgba(30,64,175,.5);
+    }
+    .it-contact h2 { color: #fff; margin: 0 0 .6rem; }
+    .it-contact p { color: rgba(255,255,255,.92); font-size: 1.05rem; margin: 0 0 2rem; }
+    .it-contact-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem; margin: 0 auto 2rem; max-width: 880px;
+    }
+    .it-contact-item {
+      background: rgba(255,255,255,.12); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.2); border-radius: 14px;
+      padding: 1.2rem; transition: background .2s, transform .2s;
+      text-decoration: none; color: #fff;
+    }
+    .it-contact-item:hover { background: rgba(255,255,255,.2); transform: translateY(-2px); color: #fff; }
+    .it-contact-label { font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; opacity: .85; margin-bottom: .35rem; }
+    .it-contact-value { font-size: 1.05rem; font-weight: 600; }
+
+    .it-contact-cta-btn {
+      display: inline-flex; align-items: center; gap: .55rem;
+      padding: 1rem 2rem; border-radius: 12px;
+      background: #fff; color: var(--it-primary);
+      font-weight: 700; font-size: 1.05rem; text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 12px 28px -12px rgba(0,0,0,.4);
+    }
+    .it-contact-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 18px 36px -12px rgba(0,0,0,.5); color: var(--it-primary); }
+
+    /* ── Animations ── */
+    .fade-in { opacity: 0; transform: translateY(15px); transition: opacity .6s, transform .6s; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Mobile tweaks ── */
+    @media (max-width: 640px) {
+      .it-hero { padding: 3rem 1.2rem 2.5rem; }
+      .it-section { padding: 3rem 1.2rem; }
+      .it-trust-box { padding: 1.5rem; }
+      .it-contact { padding: 2.2rem 1.4rem; }
+    }
+  </style>
+</head>
+
+<body class="it-page">
+
+  <a href="#main-content" class="skip-link">Preskočiť na obsah</a>
+
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="BranislavIT — domov">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="17" height="17" rx="3" fill="#0078d4"/>
+          <rect x="19" width="17" height="17" rx="3" fill="#0078d4" opacity=".8"/>
+          <rect y="19" width="17" height="17" rx="3" fill="#0078d4" opacity=".6"/>
+          <rect x="19" y="19" width="17" height="17" rx="3" fill="#44c38a"/>
+        </svg>
+        <span class="nav-logo-text">BranislavIT</span>
+      </a>
+      <nav class="main-nav" aria-label="Hlavná navigácia">
+        <a href="index.html" class="nav-link">Domov</a>
+        <a href="licencie.html" class="nav-link">🔑 Licencie</a>
+        <a href="kozmetika.html" class="nav-link">🌿 Kozmetika</a>
+        <a href="it-pomoc.html" class="nav-link nav-link--active">🛠️ IT pomoc</a>
+        <a href="windows11.html" class="nav-link">Windows 11</a>
+        <a href="ai.html" class="nav-link">AI nástroje</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Prepnúť tému">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ── Hero ── -->
+    <section class="it-hero" aria-labelledby="it-hero-title">
+      <div class="it-hero-inner">
+        <div>
+          <span class="it-hero-badge">🛠️ Trenčín a okolie · Návšteva u vás doma</span>
+          <h1 id="it-hero-title">Osobná IT pomoc <span class="it-grad">od 30 € za návštevu</span></h1>
+          <p class="lead">Keď mobil, počítač alebo internet prestane poslúchať. Prídem k vám domov v Trenčíne a okolí, problém pokojne vyriešim a všetko vysvetlím ľudskou rečou.</p>
+          <div class="it-hero-cta">
+            <a href="tel:+421903760844" class="it-btn it-btn-primary">📞 Zavolať teraz</a>
+            <a href="#cennik" class="it-btn it-btn-ghost">Pozrieť cenník</a>
+          </div>
+          <div class="it-trust-strip">
+            <span class="it-trust-item">✅ Trpezlivé vysvetlenie</span>
+            <span class="it-trust-item">💶 Jasná cena vopred</span>
+            <span class="it-trust-item">🚫 Bez IT výrazov</span>
+          </div>
+        </div>
+        <aside class="it-hero-card fade-in" aria-label="Najčastejšie problémy">
+          <h3>S čím najčastejšie pomáham</h3>
+          <ul class="it-mini-points">
+            <li>Pomalý notebook či počítač</li>
+            <li>Wi-Fi, internet, slabý signál</li>
+            <li>Nový mobil, WhatsApp, fotky</li>
+            <li>Tlačiareň, skenovanie</li>
+            <li>Podozrivé SMS a podvody</li>
+            <li>Email, prehliadač, aktualizácie</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ── Services ── -->
+    <section class="it-section" id="sluzby">
+      <div class="it-container">
+        <div class="it-section-head">
+          <span class="it-kicker">S čím pomáham</span>
+          <h2>Technika vysvetlená pokojne</h2>
+          <p class="sub">Cieľ nie je len niečo „opraviť". Cieľ je, aby ste vedeli, čo sa stalo, čomu sa vyhnúť a ako zariadenie používať istejšie.</p>
+        </div>
+
+        <div class="it-svc-grid">
+          <article class="it-svc-card fade-in">
+            <div class="it-svc-icon">📱</div>
+            <h3>Mobil a tablet</h3>
+            <p>Nastavenie nového zariadenia, kontakty, fotky, veľkosť písma, aplikácie, WhatsApp, Messenger a videohovory.</p>
+            <div class="it-svc-tags">
+              <span class="it-svc-tag">Nový mobil</span>
+              <span class="it-svc-tag">WhatsApp</span>
+              <span class="it-svc-tag">Fotky</span>
+            </div>
+          </article>
+
+          <article class="it-svc-card fade-in">
+            <div class="it-svc-icon">💻</div>
+            <h3>Počítač a notebook</h3>
+            <p>Pomalý počítač, aktualizácie, prehliadač, email, základné čistenie, zálohovanie a jednoduché vysvetlenie práce.</p>
+            <div class="it-svc-tags">
+              <span class="it-svc-tag">Pomalý notebook</span>
+              <span class="it-svc-tag">Email</span>
+              <span class="it-svc-tag">Zálohovanie</span>
+            </div>
+          </article>
+
+          <article class="it-svc-card fade-in">
+            <div class="it-svc-icon">🖨️</div>
+            <h3>Internet a tlačiareň</h3>
+            <p>Pripojenie na Wi-Fi, slabý signál, nastavenie tlačiarne, skenovanie, tlač dokumentov a pripojenie zariadení.</p>
+            <div class="it-svc-tags">
+              <span class="it-svc-tag">Wi-Fi</span>
+              <span class="it-svc-tag">Tlačiareň</span>
+              <span class="it-svc-tag">Skenovanie</span>
+            </div>
+          </article>
+
+          <article class="it-svc-card fade-in">
+            <div class="it-svc-icon">🛡️</div>
+            <h3>Ochrana pred podvodmi</h3>
+            <p>Kontrola podozrivých SMS, emailov a vyskakovacích okien. Vysvetlenie, čo neklikať a kedy radšej zavolať.</p>
+            <div class="it-svc-tags">
+              <span class="it-svc-tag">Bezpečnosť</span>
+              <span class="it-svc-tag">SMS podvody</span>
+              <span class="it-svc-tag">Phishing</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Trust ── -->
+    <section class="it-section it-section-alt" id="dovera">
+      <div class="it-container">
+        <div class="it-section-head">
+          <span class="it-kicker">Dôvera a bezpečnosť</span>
+          <h2>Pri citlivých veciach opatrne</h2>
+          <p class="sub">Pomoc pri technike musí byť bezpečná. Pri banke, heslách a osobných údajoch postupujem tak, aby ste mali kontrolu vy alebo váš rodinný príslušník.</p>
+        </div>
+
+        <div class="it-trust-box fade-in">
+          <ul class="it-trust-list">
+            <li><span class="it-shield">🔒</span><span><strong>Nikdy si nepýtam PIN ku karte</strong> ani celé heslo do banky. Ani keby to vyzeralo, že to potrebujem.</span></li>
+            <li><span class="it-shield">👆</span><span><strong>Pri internet bankingu iba navigujem</strong> — klikáte vy. Vždy.</span></li>
+            <li><span class="it-shield">👨‍👩‍👧</span><span><strong>Pri citlivých úkonoch môže byť prítomný</strong> syn, dcéra alebo iný blízky človek.</span></li>
+            <li><span class="it-shield">💶</span><span><strong>Cenu a rozsah práce poviem dopredu</strong>, nie až po vyriešení problému.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Pricing ── -->
+    <section class="it-section" id="cennik">
+      <div class="it-container">
+        <div class="it-section-head">
+          <span class="it-kicker">Cenník</span>
+          <h2>Jednoduché ceny bez prekvapení</h2>
+          <p class="sub">Najčastejšia návšteva stojí 30 €. Pri dlhšej práci alebo výjazde mimo mesta sa cena potvrdí vopred.</p>
+        </div>
+
+        <div class="it-price-grid">
+          <article class="it-price-card featured fade-in">
+            <span class="it-price-badge">Najčastejšie</span>
+            <h3>IT pomoc doma</h3>
+            <p class="it-price-desc">Bežný problém s mobilom, počítačom, internetom, emailom alebo tlačiarňou.</p>
+            <div class="it-price-amount">30 €<small>za návštevu / do 45 min.</small></div>
+          </article>
+
+          <article class="it-price-card fade-in">
+            <h3>Dlhšia návšteva</h3>
+            <p class="it-price-desc">Viac problémov naraz, nový mobil, nový notebook alebo detailnejšie vysvetlenie.</p>
+            <div class="it-price-amount">45 €<small>za návštevu / do 90 min.</small></div>
+          </article>
+
+          <article class="it-price-card fade-in">
+            <h3>Mesačná starostlivosť</h3>
+            <p class="it-price-desc">Pravidelná pomoc pre rodičov alebo seniorov, ktorí chcú mať techniku pod kontrolou.</p>
+            <div class="it-price-amount">39 €<small>1 návšteva mesačne</small></div>
+          </article>
+        </div>
+
+        <p class="it-price-note">Pri výjazde mimo Trenčín sa môže účtovať dopravný príplatok, ktorý poviem vopred. Žiadne skryté poplatky.</p>
+      </div>
+    </section>
+
+    <!-- ── Process ── -->
+    <section class="it-section it-section-alt" id="proces">
+      <div class="it-container">
+        <div class="it-section-head">
+          <span class="it-kicker">Ako to prebieha</span>
+          <h2>Od telefonátu po vyriešený problém</h2>
+        </div>
+
+        <div class="it-process-grid">
+          <article class="it-process-card fade-in">
+            <h3>Zavoláte alebo napíšete</h3>
+            <p>Stručne mi poviete, čo nejde, aké zariadenie máte a kde sa nachádzate.</p>
+          </article>
+          <article class="it-process-card fade-in">
+            <h3>Dohodneme termín</h3>
+            <p>Potvrdíme čas, cenu a či ide o krátku alebo dlhšiu návštevu.</p>
+          </article>
+          <article class="it-process-card fade-in">
+            <h3>Prídem a vysvetlím</h3>
+            <p>Problém vyriešim, ukážem postup a nechám jednoduché odporúčanie do budúcna.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="it-section" id="otazky">
+      <div class="it-container">
+        <div class="it-section-head">
+          <span class="it-kicker">Otázky</span>
+          <h2>Časté otázky</h2>
+        </div>
+
+        <div class="it-faq">
+          <details>
+            <summary>Je služba len pre seniorov?</summary>
+            <div>Nie. Pomáham seniorom, rodičom, domácnostiam aj ľuďom, ktorí si jednoducho nechcú lámať hlavu s technikou.</div>
+          </details>
+          <details>
+            <summary>Čo ak sa problém nedá vyriešiť?</summary>
+            <div>Vysvetlím dôvod a odporučím ďalší postup, napríklad servis, výmenu dielu alebo kúpu nového zariadenia. Aj v takom prípade odchádzate s jasnou predstavou, čo robiť ďalej.</div>
+          </details>
+          <details>
+            <summary>Chodíte aj mimo Trenčína?</summary>
+            <div>Áno, podľa dohody. Pri výjazde mimo mesta sa môže účtovať dopravný príplatok, ktorý poviem vopred — bez prekvapení po príchode.</div>
+          </details>
+          <details>
+            <summary>Môžem objednať pomoc pre rodiča?</summary>
+            <div>Áno. Služba je vhodná aj pre deti seniorov, ktoré chcú rodičom zabezpečiť pokojné a bezpečné vysvetlenie techniky. Stačí zavolať alebo napísať.</div>
+          </details>
+          <details>
+            <summary>Aké formy platby prijímate?</summary>
+            <div>Hotovosť na mieste alebo prevod na účet po návšteve. Doklad o zaplatení dostanete vždy.</div>
+          </details>
+          <details>
+            <summary>Ako rýchlo viete prísť?</summary>
+            <div>Vo väčšine prípadov v deň zavolania alebo nasledujúci deň. Pri akútnom probléme (napr. nefunguje internet, dôležitý dokument) sa snažím prísť čo najskôr.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contact CTA ── -->
+    <section class="it-section" id="kontakt">
+      <div class="it-container">
+        <div class="it-contact fade-in">
+          <h2>Dohodnime návštevu</h2>
+          <p>Najrýchlejšie je zavolať a povedať, čo presne nejde.<br>Dohodneme rozsah pomoci, cenu a vhodný termín návštevy.</p>
+
+          <div class="it-contact-grid">
+            <a href="tel:+421903760844" class="it-contact-item">
+              <div class="it-contact-label">Telefón</div>
+              <div class="it-contact-value">+421 903 760 844</div>
+            </a>
+            <a href="mailto:postmaster@generaltrade.sk" class="it-contact-item">
+              <div class="it-contact-label">Email</div>
+              <div class="it-contact-value">postmaster@generaltrade.sk</div>
+            </a>
+            <div class="it-contact-item" style="cursor:default;">
+              <div class="it-contact-label">Lokalita</div>
+              <div class="it-contact-value">Trenčín a okolie</div>
+            </div>
+            <div class="it-contact-item" style="cursor:default;">
+              <div class="it-contact-label">Cena</div>
+              <div class="it-contact-value">od 30 € za návštevu</div>
+            </div>
+          </div>
+
+          <a href="tel:+421903760844" class="it-contact-cta-btn">📞 Zavolať teraz</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 BranislavIT – branislav.website</p>
+      <div class="footer-bizinfo" style="font-size:.78rem;color:var(--text-secondary,#64748b);display:flex;flex-wrap:wrap;gap:.4rem .9rem;justify-content:center;margin:.4rem 0;">
+        <span><strong>Ing. Branislav Németh – Generaltrade</strong></span>
+        <span>IČO: 51487446</span>
+        <span>Armádna 777/4, 91101 Trenčín</span>
+        <span>Živnostenský register: Okresný úrad Trenčín, č. 840-24688</span>
+      </div>
+      <nav class="footer-nav" aria-label="Právne informácie">
+        <a href="privacy-policy.html">Ochrana súkromia</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
