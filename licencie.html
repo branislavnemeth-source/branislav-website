@@ -2,6 +2,7 @@
 <html lang="sk" data-theme="light">
 <head>
   <meta charset="UTF-8" />
+  <meta name="google-adsense-account" content="ca-pub-4124785228904294">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Licencie Windows &amp; MS Office | BranislavIT</title>
   <meta name="description" content="Originálne licencie Windows a MS Office za výhodné ceny. Digitálne kľúče, okamžitá aktivácia. BranislavIT – Ing. Branislav Németh, Trenčín." />
@@ -11,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css?v=20260429b" />
   <script src="js/main.js?v=20260429b" defer></script>
+  <script src="js/cookie-consent.js?v=20260505" defer></script>
   <style>
     /* ══════════════════════════════════════════════
        INLINE CSS — overrides cached live style.css
@@ -562,6 +564,14 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <p class="footer-copy">© 2026 BranislavIT – branislav.website</p>
+            <div class="footer-legal-links">
+        <a href="privacy-policy.html">Ochrana osobných údajov</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="obchodne-podmienky.html">Obchodné podmienky</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="contact.html">Kontakt</a>
+        <button type="button" onclick="window.openCookieSettings();return false;">Nastavenia cookies</button>
+      </div>
       <div class="footer-bizinfo" style="font-size:.78rem;color:var(--text-secondary,#64748b);display:flex;flex-wrap:wrap;gap:.4rem .9rem;justify-content:center;margin:.4rem 0;">
         <span><strong>Ing. Branislav Németh – Generaltrade</strong></span>
         <span>IČO: 51487446</span>
@@ -993,6 +1003,21 @@
       };
     })();
   </script>
+
+
+<!-- Cookie consent banner -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Súhlas s cookies" hidden>
+  <div class="cookie-inner">
+    <div class="cookie-text">
+      <strong>🍪 Používame cookies</strong>
+      <p>Na zlepšenie obsahu používame nevyhnutné cookies, anonymné analytické cookies a reklamné cookies (Google AdSense). Viac v <a href="cookies.html">zásadách cookies</a>.</p>
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-secondary" data-cookie="reject">Iba nevyhnutné</button>
+      <button class="cookie-btn cookie-btn-primary" data-cookie="accept">Súhlasím so všetkými</button>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

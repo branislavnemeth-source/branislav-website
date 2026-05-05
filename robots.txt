@@ -2,3 +2,10 @@ User-agent: *
 Allow: /
 
 Sitemap: https://branislav.website/sitemap.xml
+
+# Google AdSense crawlers
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
