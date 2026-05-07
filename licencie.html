@@ -562,28 +562,71 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <p class="footer-copy">© 2026 BranislavIT – branislav.website</p>
-            <div class="footer-legal-links">
-        <a href="privacy-policy.html">Ochrana osobných údajov</a>
-        <a href="cookies.html">Cookies</a>
-        <a href="obchodne-podmienky.html">Obchodné podmienky</a>
-        <a href="disclaimer.html">Disclaimer</a>
-        <a href="contact.html">Kontakt</a>
-        <button type="button" onclick="window.openCookieSettings();return false;">Nastavenia cookies</button>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom: 0;">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:28px;height:28px;">
+            <rect width="16" height="16" rx="3" fill="#0078d4"/>
+            <rect x="20" width="16" height="16" rx="3" fill="#0078d4" opacity=".75"/>
+            <rect y="20" width="16" height="16" rx="3" fill="#0078d4" opacity=".55"/>
+            <rect x="20" y="20" width="16" height="16" rx="3" fill="#7c3aed"/>
+          </svg>
+          <span class="nav-logo-text">BranislavIT</span>
+        </a>
+        <p>Blog o Windows 11, AI nástrojoch a IT technológiách. Nové články každý týždeň po slovensky.</p>
       </div>
-      <div class="footer-bizinfo" style="font-size:.78rem;color:var(--text-secondary,#64748b);display:flex;flex-wrap:wrap;gap:.4rem .9rem;justify-content:center;margin:.4rem 0;">
-        <span><strong>Ing. Branislav Németh – Generaltrade</strong></span>
-        <span>IČO: 51487446</span>
-        <span>Armádna 777/4, 91101 Trenčín</span>
-        <span>Živnostenský register: Okresný úrad Trenčín, č. 840-24688</span>
+      <div class="footer-col">
+        <h4>Windows 11</h4>
+        <ul role="list">
+          <li><a href="windows11.html#win10-koniec">Koniec Windows 10</a></li>
+          <li><a href="windows11.html#prechod">Prechod na Win 11</a></li>
+          <li><a href="windows11.html#funkcie">Nové funkcie</a></li>
+          <li><a href="windows11.html#tipy">Tipy a rady</a></li>
+          <li><a href="windows11.html#bezpecnost">Bezpečnosť</a></li>
+        </ul>
       </div>
-      <nav class="footer-nav" aria-label="Právne informácie">
-        <a href="privacy-policy.html">Ochrana súkromia</a>
-        <a href="disclaimer.html">Disclaimer</a>
-      </nav>
+      <div class="footer-col">
+        <h4>AI Nástroje</h4>
+        <ul role="list">
+          <li><a href="ai.html#co-je-ai">Čo je AI?</a></li>
+          <li><a href="ai.html#prompty">Tvorba promptov</a></li>
+          <li><a href="ai.html#obrazky">AI obrázky</a></li>
+          <li><a href="ai.html#kling">Kling AI videá</a></li>
+          <li><a href="ai.html#publer">AI & Publer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Odporúčame</h4>
+        <ul role="list">
+          <li><a href="https://www.gamers-outlet.net/en?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="sponsored noopener">Gamers Outlet 🎮</a></li>
+          <li><a href="https://pro.klingai.com/h5-app/invitation?code=7B6SBWEWKXVS" target="_blank" rel="sponsored noopener">Kling AI 🎬</a></li>
+          <li><a href="https://publer.com/Branislav" target="_blank" rel="sponsored noopener">Publer 📅</a></li>
+          <li><a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fmobilego.sk" target="_blank" rel="sponsored noopener">Mobilego.sk 📱</a></li>
+        </ul>
+      </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <p>© <span id="current-year">2026</span> BranislavIT – branislav.website</p>
+      <p class="footer-disclaimer">Niektoré odkazy sú affiliate linky (Dognet, Gamers Outlet, Kling AI, Publer). Nákupom cez tieto odkazy podporíš tento blog bez extra nákladov pre teba.</p>
+    
+                <div class="footer-legal-links">
+          <a href="privacy-policy.html">Ochrana osobných údajov</a>
+          <a href="cookies.html">Cookies</a>
+          <a href="obchodne-podmienky.html">Obchodné podmienky</a>
+          <a href="disclaimer.html">Disclaimer</a>
+          <a href="contact.html">Kontakt</a>
+          <button type="button" onclick="window.openCookieSettings();return false;">Nastavenia cookies</button>
+        </div>
+        <div class="footer-bizinfo">
+          <span><strong>Ing. Branislav Németh – Generaltrade</strong></span>
+          <span>IČO: 51487446</span>
+          <span>Miesto podnikania: Armádna 777/4, 91101 Trenčín</span>
+          <span>Živnostenský register: Okresný úrad Trenčín, č. 840-24688</span>
+        </div>
+      </div>
+  </div>
+</footer>
 
   <!-- ── Products data ── -->
   <script>
