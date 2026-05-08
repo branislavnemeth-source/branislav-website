@@ -448,6 +448,12 @@
 .pay-card-info p{font-size:.85rem;margin:.4rem 0;color:var(--text-primary,#0f172a);line-height:1.5}
 .lic-pay-btn{background:#0078d4;color:#fff;font-size:.78rem;font-weight:700;padding:.3rem .7rem;border-radius:7px;border:none;cursor:pointer;transition:background .15s;margin-top:.5rem;width:100%}
 .lic-pay-btn:hover{background:#005fa3}
+
+.lic-qr-wrap{display:flex;flex-direction:column;align-items:center;margin:.5rem 0 .25rem}
+.lic-qr-img{width:110px;height:110px;border:2px solid var(--border,#e2e8f0);border-radius:8px;padding:3px;background:#fff;cursor:pointer}
+.lic-qr-img:hover{border-color:#0078d4}
+.lic-qr-label{font-size:.68rem;color:var(--text-secondary,#64748b);margin-top:.2rem;text-align:center}
+
 </style>
 </head>
 <body>
@@ -1027,7 +1033,11 @@
             <h3 class="lic-card-name">${p.name}</h3>
             <p class="lic-card-desc">${desc}</p>
           </div>
-          <div class="lic-card-footer"><button class="lic-pay-btn" onclick="openPayModal(${p.idx})">Zaplat (IBAN / QR)</button>
+          <div class="lic-qr-wrap">
+            <img class="lic-qr-img" src="${QR_CODES[p.idx] ? QR_CODES[p.idx].img : ''}" alt="QR platba" title="Naskenuj pre platbu (IBAN/Revolut)" onclick="openPayModal(${p.idx})" loading="lazy" />
+            <span class="lic-qr-label">QR platba · ${QR_CODES[p.idx] ? QR_CODES[p.idx].ref : ''}</span>
+          </div>
+          <div class="lic-card-footer">
             ${priceHtml}
             <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="lic-buy-btn">Kúpiť &rarr;</a>
           </div>
