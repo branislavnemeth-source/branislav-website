@@ -481,6 +481,11 @@
 .lic-card-title-link { text-decoration: none; color: inherit; }
 .lic-card-title-link:hover .lic-card-title { color: var(--color-primary, #0078d4); }
 
+.lic-card-img-link { display:block; width:100%; height:100%; }
+.lic-card-img-link img { width:100%; height:100%; object-fit:contain; }
+.lic-card-name-link { text-decoration:none; color:inherit; display:block; }
+.lic-card-name-link:hover .lic-card-name { color:var(--color-primary,#0078d4); }
+
 </style>
 </head>
 <body>
@@ -935,11 +940,12 @@ const QR_CODES = {
         const priceHtml = p.price
           ? `<span class="lic-card-price">${p.price}</span>`
           : `<span class="lic-card-price price-na">Cena na sklade</span>`;
-        const imgHtml = `<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\"lic-card-img-placeholder\\"><span class=\\"lic-picon\\">${p.cat === 'windows' ? '🪟' : '📄'}</span></div>'">`; 
+        const pageUrl = 'licencia-' + p.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'') + '.html';
+        const imgHtml = `<a href="${pageUrl}" class="lic-card-img-link" tabindex="-1"><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\"lic-card-img-placeholder\\"><span class=\\"lic-picon\\">${p.cat === 'windows' ? '🪟' : '📄'}</span></div>'"></a>`; 
         return `<article class="lic-card" role="listitem">
           <div class="lic-card-img">${imgHtml}${badge}</div>
           <div class="lic-card-body">
-            <h3 class="lic-card-name">${p.name}</h3>
+            <a href="${pageUrl}" class="lic-card-name-link"><h3 class="lic-card-name">${p.name}</h3></a>
             <p class="lic-card-desc">${desc}</p>
           </div>
           <div class="lic-qr-wrap">
