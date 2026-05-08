@@ -553,7 +553,7 @@
     <div class="lic-info-section">
       <div class="lic-info-card">
         <strong>ℹ️ Ako to funguje?</strong>
-        Po kliknutí na tlačidlo <em>Kúpiť</em> budete presmerovaní na stránku partnera <a href="https://www.gamers-outlet.net/en?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="noopener noreferrer">gamers-outlet.net</a>, kde prebehne objednávka, platba a doručenie digitálneho kľúča.
+        Platbu môžete vykonať rýchlym skenovaním QR kódu priamo z karty produktu alebo cez tlačidlo Zaplatiť kartou cez Revolut.
       </div>
       <div class="lic-info-card">
         <strong>🔑 Čo je OEM vs. Retail kľúč?</strong>
@@ -1082,7 +1082,6 @@ const QR_CODES = {
           </div>
           <div class="lic-card-footer">
             ${priceHtml}
-            <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="lic-buy-btn">Kúpiť &rarr;</a>
           </div>
         </article>`;
       }
@@ -1153,7 +1152,6 @@ const QR_CODES = {
     <p id="pay-modal-product" class="pay-modal-product"></p>
     <div class="pay-tabs">
       <button class="pay-tab active" onclick="showPayTab('qr',this)">QR kod</button>
-      <button class="pay-tab" onclick="showPayTab('iban',this)">IBAN prevod</button>
       <button class="pay-tab" onclick="showPayTab('card',this)">Platba kartou</button>
     </div>
     <div id="pay-tab-qr" class="pay-tab-content active">
@@ -1162,24 +1160,16 @@ const QR_CODES = {
       <div class="pay-ref-row"><span class="pay-label">Referencia:</span><span id="pay-ref" class="pay-ref-val"></span></div>
       <div class="pay-ref-row"><span class="pay-label">Suma (EUR):</span><span id="pay-amount-qr" class="pay-amount"></span></div>
     </div>
-    <div id="pay-tab-iban" class="pay-tab-content">
-      <table class="pay-table">
-        <tr><td>Prijemca</td><td><strong>Branislav N&eacute;meth</strong></td></tr>
-        <tr><td>IBAN</td><td><strong>LT54 3250 0672 8822 9312</strong></td></tr>
-        <tr><td>BIC/SWIFT</td><td><strong>REVOLT21</strong></td></tr>
-        <tr><td>Banka</td><td>Revolut Bank UAB, Konstitucijos ave. 21B, 08130 Vilnius</td></tr>
-        <tr><td>Koresp. BIC</td><td>CHASDEFX</td></tr>
-        <tr><td>Suma (EUR)</td><td><strong id="pay-amount-iban"></strong></td></tr>
-        <tr><td>Referencia</td><td><strong id="pay-ref-iban"></strong></td></tr>
-      </table>
-      <p class="pay-hint">Po uhradeni platby zaslite potvrdenie na <a href="mailto:info@branislav.website">info@branislav.website</a> &mdash; licencny kluc dostanete obratom.</p>
-    </div>
     <div id="pay-tab-card" class="pay-tab-content">
       <div class="pay-card-info">
         <div class="pay-card-icon">&#x1F4B3;</div>
-        <p><strong>Platba kartou</strong> prebieha priamo cez zabezpecenu stranku predajcu <strong>gamers-outlet.net</strong>.</p>
-        <p>Kliknite na tlacidlo <strong>Kupiat</strong> pri produkte &mdash; budete presmerovani na stranku predajcu (Visa, Mastercard, PayPal).</p>
-        <p class="pay-hint">Platba kartou je okamzita &mdash; licencny kluc dostanete ihned po zaplateni.</p>
+        <p><strong>Platba kartou cez Revolut</strong> – rýchla a bezpečná platba priamo cez Revolut.</p>
+        <p id="pay-card-revolut-info" style="font-size:.85rem;color:var(--text-secondary,#64748b)">Suma: <strong id="pay-card-amount"></strong> &nbsp;|&nbsp; Ref: <strong id="pay-card-ref"></strong></p>
+        <a id="pay-revolut-btn" href="#" target="_blank" rel="noopener noreferrer"
+           style="display:inline-block;margin-top:1rem;padding:.7rem 1.6rem;background:#0075eb;color:#fff;border-radius:8px;font-weight:700;text-decoration:none;font-size:1rem;letter-spacing:.01em;">
+          💳 Zaplatiť cez Revolut
+        </a>
+        <p class="pay-hint" style="margin-top:.75rem">Po zaplatení zašlite potvrdenie na <a href="mailto:info@branislav.website">info@branislav.website</a> &mdash; licenčný kľúč dostanete obratom.</p>
       </div>
     </div>
   </div>
@@ -1190,10 +1180,16 @@ function openPayModal(idx){
   document.getElementById('pay-modal-product').textContent=p.name;
   document.getElementById('pay-qr-img').src=d.img;
   document.getElementById('pay-ref').textContent=d.ref;
-  document.getElementById('pay-ref-iban').textContent=d.ref;
   var amt=d.amount+' EUR';
   document.getElementById('pay-amount-qr').textContent=amt;
-  document.getElementById('pay-amount-iban').textContent=amt;
+  // Revolut card tab
+  var revolutUrl='https://revolut.me/branislavnemeth?amount='+encodeURIComponent(d.amount)+'&currency=EUR&description='+encodeURIComponent(d.ref);
+  var revBtn=document.getElementById('pay-revolut-btn');
+  if(revBtn)revBtn.href=revolutUrl;
+  var cardAmt=document.getElementById('pay-card-amount');
+  if(cardAmt)cardAmt.textContent=amt;
+  var cardRef=document.getElementById('pay-card-ref');
+  if(cardRef)cardRef.textContent=d.ref;
   document.querySelectorAll('.pay-tab').forEach(function(b){b.classList.remove('active');});
   document.querySelectorAll('.pay-tab-content').forEach(function(c){c.classList.remove('active');});
   document.querySelector('.pay-tab').classList.add('active');
