@@ -551,6 +551,18 @@
     }
 
 </style>
+
+  <!-- NAV UNIFIED CSS -->
+  <style>
+    .urgency-bar{background:linear-gradient(90deg,#0d47a1 0%,#1565c0 50%,#0d47a1 100%);color:#fff;text-align:center;padding:.65rem 1rem;font-size:.84rem;font-weight:600;letter-spacing:.01em;}
+    .urgency-bar a{color:#7ee8ff;text-decoration:underline;}
+    .urgency-bar a:hover{color:#b3f0ff;}
+    .nav-licencie{background:var(--color-store,#0078d4)!important;color:#fff!important;padding:.32rem .9rem!important;border-radius:6px;font-weight:700!important;}
+    .nav-licencie:hover{background:var(--color-store-hover,#005fa3)!important;color:#fff!important;}
+    .nav-kozmetika{background:var(--koz-green,#2d6a4f)!important;color:#fff!important;padding:.32rem .9rem!important;border-radius:6px;font-weight:700!important;}
+    .nav-kozmetika:hover{background:#40916c!important;color:#fff!important;}
+    .nav-mobile a.active-store{color:var(--color-store);background:var(--color-store-highlight);}
+  </style>
 </head>
 <body>
   <a class="sr-only" href="#main-content">Preskočiť na obsah</a>
@@ -574,7 +586,7 @@
       </a>
       <ul class="nav-links" role="list">
         <li><a href="index.html">Domov</a></li>
-        <li><a href="licencie.html" class="nav-licencie">🔑 Licencie</a></li>
+        <li><a href="licencie.html" class="nav-licencie active">🔑 Licencie</a></li>
         <li><a href="kozmetika.html" class="nav-kozmetika">🌿 Kozmetika</a></li>
         <li><a href="it-pomoc.html">🛠️ IT pomoc</a></li>
         <li><a href="windows11.html">Windows 11</a></li>
@@ -589,13 +601,14 @@
     </div>
     <nav class="nav-mobile" aria-label="Mobilná navigácia">
       <a href="index.html">Domov</a>
-      <a href="licencie.html" class="active-store">🔑 Licencie</a>
+      <a href="licencie.html" class="active-store active">🔑 Licencie</a>
       <a href="kozmetika.html">🌿 Kozmetika</a>
       <a href="it-pomoc.html">🛠️ IT pomoc</a>
       <a href="windows11.html">Windows 11</a>
       <a href="ai.html">AI</a>
     </nav>
   </header>
+
 
   <main id="main-content">
 
