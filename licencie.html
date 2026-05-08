@@ -471,7 +471,10 @@
 .order-price-box{background:linear-gradient(135deg,#0078d4 0%,#005fa3 100%);border-radius:10px;padding:.85rem 1rem;margin:.75rem 0 0;display:flex;align-items:center;justify-content:space-between}
 .order-price-label{color:rgba(255,255,255,.8);font-size:.78rem;font-weight:600}
 .order-price-val{color:#fff;font-size:1.4rem;font-weight:800;letter-spacing:-.01em}
-.order-submit-btn{width:100%;margin-top:1rem;padding:.75rem 1.5rem;background:#44c38a;color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;letter-spacing:.01em}
+.order-btn-row{display:flex;gap:.6rem;margin-top:1rem}
+.order-back-btn{flex:0 0 auto;padding:.75rem 1.1rem;background:var(--bg-secondary,#f1f5f9);color:var(--text-secondary,#64748b);border:1.5px solid var(--border,#e2e8f0);border-radius:10px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .15s}
+.order-back-btn:hover{background:#e2e8f0}
+.order-submit-btn{flex:1;padding:.75rem 1.5rem;background:#44c38a;color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;letter-spacing:.01em}
 .order-submit-btn:hover{background:#2da66e}
 .order-product-name{font-size:.82rem;color:var(--text-secondary,#64748b);margin:0 0 1.25rem;line-height:1.4;padding:.5rem .75rem;background:var(--bg-secondary,#f8fafc);border-radius:8px;border-left:3px solid #0078d4}
 
@@ -1197,7 +1200,10 @@ const QR_CODES = {
       <span class="order-price-label">Celková suma</span>
       <span class="order-price-val" id="order-total-price">0.00 EUR</span>
     </div>
-    <button class="order-submit-btn" onclick="submitOrder()">Pokračovať k platbe →</button>
+    <div class="order-btn-row">
+      <button class="order-back-btn" onclick="closeOrderModal()" title="Späť na produkty">← Späť</button>
+      <button class="order-submit-btn" onclick="submitOrder()">Pokračovať k platbe →</button>
+    </div>
   </div>
 </div>
 
