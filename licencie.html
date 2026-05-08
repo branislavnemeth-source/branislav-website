@@ -247,12 +247,28 @@
     }
     .lic-card-img {
       position: relative;
-      aspect-ratio: 3/5;
+      aspect-ratio: 1/1;
       overflow: hidden;
       background: var(--bg-secondary, #f4f6fb);
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 8px 8px 0 0;
+    }
+    .lic-card-img .lic-card-img-link {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem;
+      box-sizing: border-box;
+    }
+    .lic-card-img .lic-card-img-link img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
     .lic-card-img img {
       width: 100%;
@@ -481,8 +497,6 @@
 .lic-card-title-link { text-decoration: none; color: inherit; }
 .lic-card-title-link:hover .lic-card-title { color: var(--color-primary, #0078d4); }
 
-.lic-card-img-link { display:block; width:100%; height:100%; }
-.lic-card-img-link img { width:100%; height:100%; object-fit:contain; }
 .lic-card-name-link { text-decoration:none; color:inherit; display:block; }
 .lic-card-name-link:hover .lic-card-name { color:var(--color-primary,#0078d4); }
 
@@ -941,7 +955,8 @@ const QR_CODES = {
           ? `<span class="lic-card-price">${p.price}</span>`
           : `<span class="lic-card-price price-na">Cena na sklade</span>`;
         const pageUrl = 'licencia-' + p.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'') + '.html';
-        const imgHtml = `<a href="${pageUrl}" class="lic-card-img-link" tabindex="-1"><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\"lic-card-img-placeholder\\"><span class=\\"lic-picon\\">${p.cat === 'windows' ? '🪟' : '📄'}</span></div>'"></a>`; 
+        const fallbackIcon = p.cat === 'windows' ? '🪟' : '📄';
+        const imgHtml = `<a href="${pageUrl}" class="lic-card-img-link" tabindex="-1"><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.lic-img-fallback').style.display='flex'"><span class="lic-img-fallback" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:3rem;">${fallbackIcon}</span></a>`; 
         return `<article class="lic-card" role="listitem">
           <div class="lic-card-img">${imgHtml}${badge}</div>
           <div class="lic-card-body">
