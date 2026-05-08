@@ -454,6 +454,27 @@
 .lic-qr-img:hover{border-color:#0078d4}
 .lic-qr-label{font-size:.68rem;color:var(--text-secondary,#64748b);margin-top:.2rem;text-align:center}
 
+/* ── Order Modal ── */
+.order-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9998;display:flex;align-items:center;justify-content:center;padding:1rem}
+.order-modal{background:var(--bg-primary,#fff);border-radius:16px;max-width:500px;width:100%;padding:2rem;position:relative;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.order-modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--text-secondary,#64748b);line-height:1;width:2rem;height:2rem}
+.order-modal-heading{font-size:1.2rem;font-weight:700;margin:0 0 1.25rem;color:var(--text-primary,#0f172a)}
+.order-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.order-form-full{grid-column:1/-1}
+.order-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-secondary,#64748b);margin-bottom:.25rem;display:block}
+.order-input{width:100%;padding:.55rem .75rem;border:1.5px solid var(--border,#e2e8f0);border-radius:8px;font-size:.9rem;color:var(--text-primary,#0f172a);background:var(--bg-primary,#fff);outline:none;box-sizing:border-box;transition:border-color .15s}
+.order-input:focus{border-color:#0078d4}
+.order-qty-row{display:flex;align-items:center;gap:.5rem}
+.order-qty-btn{width:2rem;height:2rem;border:1.5px solid var(--border,#e2e8f0);border-radius:6px;background:var(--bg-secondary,#f8fafc);font-size:1.1rem;font-weight:700;cursor:pointer;color:var(--text-primary,#0f172a);display:flex;align-items:center;justify-content:center;transition:background .15s;flex-shrink:0}
+.order-qty-btn:hover{background:#e2e8f0}
+.order-qty-val{width:3rem;text-align:center;font-weight:700;font-size:1rem;border:1.5px solid var(--border,#e2e8f0);border-radius:6px;padding:.35rem 0;color:var(--text-primary,#0f172a);background:var(--bg-primary,#fff)}
+.order-price-box{background:linear-gradient(135deg,#0078d4 0%,#005fa3 100%);border-radius:10px;padding:.85rem 1rem;margin:.75rem 0 0;display:flex;align-items:center;justify-content:space-between}
+.order-price-label{color:rgba(255,255,255,.8);font-size:.78rem;font-weight:600}
+.order-price-val{color:#fff;font-size:1.4rem;font-weight:800;letter-spacing:-.01em}
+.order-submit-btn{width:100%;margin-top:1rem;padding:.75rem 1.5rem;background:#44c38a;color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;letter-spacing:.01em}
+.order-submit-btn:hover{background:#2da66e}
+.order-product-name{font-size:.82rem;color:var(--text-secondary,#64748b);margin:0 0 1.25rem;line-height:1.4;padding:.5rem .75rem;background:var(--bg-secondary,#f8fafc);border-radius:8px;border-left:3px solid #0078d4}
+
 </style>
 </head>
 <body>
@@ -1077,7 +1098,7 @@ const QR_CODES = {
             <p class="lic-card-desc">${desc}</p>
           </div>
           <div class="lic-qr-wrap">
-            <img class="lic-qr-img" src="${QR_CODES[p.idx] ? QR_CODES[p.idx].img : ''}" alt="QR platba" title="Naskenuj pre platbu (IBAN/Revolut)" onclick="openPayModal(${p.idx})" loading="lazy" />
+            <img class="lic-qr-img" src="${QR_CODES[p.idx] ? QR_CODES[p.idx].img : ''}" alt="QR platba" title="Naskenuj pre platbu (IBAN/Revolut)" onclick="openOrderModal(${p.idx})" loading="lazy" />
             <span class="lic-qr-label">QR platba · ${QR_CODES[p.idx] ? QR_CODES[p.idx].ref : ''}</span>
           </div>
           <div class="lic-card-footer">
@@ -1145,6 +1166,41 @@ const QR_CODES = {
 
 
 
+<div id="orderModal" class="order-modal-overlay" role="dialog" aria-modal="true" style="display:none">
+  <div class="order-modal">
+    <button class="order-modal-close" onclick="closeOrderModal()" aria-label="Zavriet">&times;</button>
+    <h2 class="order-modal-heading">Objednávka</h2>
+    <p id="order-product-name" class="order-product-name"></p>
+    <div class="order-form-grid">
+      <div>
+        <label class="order-label" for="order-meno">Meno</label>
+        <input class="order-input" type="text" id="order-meno" placeholder="Ján" autocomplete="given-name" />
+      </div>
+      <div>
+        <label class="order-label" for="order-priezvisko">Priezvisko</label>
+        <input class="order-input" type="text" id="order-priezvisko" placeholder="Novák" autocomplete="family-name" />
+      </div>
+      <div class="order-form-full">
+        <label class="order-label" for="order-email">E-mail (doručenie licencie)</label>
+        <input class="order-input" type="email" id="order-email" placeholder="vas@email.sk" autocomplete="email" />
+      </div>
+      <div class="order-form-full">
+        <label class="order-label">Množstvo</label>
+        <div class="order-qty-row">
+          <button class="order-qty-btn" onclick="orderQtyChange(-1)" aria-label="Znížiť">−</button>
+          <input class="order-qty-val order-input" type="number" id="order-qty" value="1" min="1" max="99" readonly />
+          <button class="order-qty-btn" onclick="orderQtyChange(1)" aria-label="Zvýšiť">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="order-price-box">
+      <span class="order-price-label">Celková suma</span>
+      <span class="order-price-val" id="order-total-price">0.00 EUR</span>
+    </div>
+    <button class="order-submit-btn" onclick="submitOrder()">Pokračovať k platbe →</button>
+  </div>
+</div>
+
 <div id="payModal" class="pay-modal-overlay" role="dialog" aria-modal="true" style="display:none">
   <div class="pay-modal">
     <button class="pay-modal-close" onclick="closePayModal()" aria-label="Zavriet">&times;</button>
@@ -1175,19 +1231,21 @@ const QR_CODES = {
   </div>
 </div>
 <script id="pay-modal-js">
-function openPayModal(idx){
+function openPayModal(idx, qty){
+  qty = qty || 1;
   var d=QR_CODES[idx],p=PRODUCTS[idx];
-  document.getElementById('pay-modal-product').textContent=p.name;
+  var totalAmt=(parseFloat(d.amount)*qty).toFixed(2);
+  document.getElementById('pay-modal-product').textContent=p.name+(qty>1?' ('+qty+' ks)':'');
   document.getElementById('pay-qr-img').src=d.img;
   document.getElementById('pay-ref').textContent=d.ref;
-  var amt=d.amount+' EUR';
-  document.getElementById('pay-amount-qr').textContent=amt;
+  var amtStr=totalAmt+' EUR';
+  document.getElementById('pay-amount-qr').textContent=amtStr;
   // Revolut card tab
-  var revolutUrl='https://revolut.me/branislavn74/eur'+d.amount+'/'+d.ref;
+  var revolutUrl='https://revolut.me/branislavn74/eur'+totalAmt+'/'+d.ref;
   var revBtn=document.getElementById('pay-revolut-btn');
   if(revBtn)revBtn.href=revolutUrl;
   var cardAmt=document.getElementById('pay-card-amount');
-  if(cardAmt)cardAmt.textContent=amt;
+  if(cardAmt)cardAmt.textContent=amtStr;
   var cardRef=document.getElementById('pay-card-ref');
   if(cardRef)cardRef.textContent=d.ref;
   document.querySelectorAll('.pay-tab').forEach(function(b){b.classList.remove('active');});
@@ -1207,6 +1265,63 @@ function showPayTab(name,btn){
   document.getElementById('pay-tab-'+name).classList.add('active');
   if(btn)btn.classList.add('active');
 }
+var _orderIdx = 0;
+var _orderUnitPrice = 0;
+
+function openOrderModal(idx) {
+  _orderIdx = idx;
+  var p = PRODUCTS[idx];
+  var d = QR_CODES[idx];
+  _orderUnitPrice = parseFloat(d.amount);
+  document.getElementById('order-product-name').textContent = p.name;
+  document.getElementById('order-meno').value = '';
+  document.getElementById('order-priezvisko').value = '';
+  document.getElementById('order-email').value = '';
+  document.getElementById('order-qty').value = 1;
+  updateOrderTotal();
+  document.getElementById('orderModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeOrderModal() {
+  document.getElementById('orderModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function orderQtyChange(delta) {
+  var input = document.getElementById('order-qty');
+  var val = parseInt(input.value) + delta;
+  if (val < 1) val = 1;
+  if (val > 99) val = 99;
+  input.value = val;
+  updateOrderTotal();
+}
+
+function updateOrderTotal() {
+  var qty = parseInt(document.getElementById('order-qty').value) || 1;
+  var total = (_orderUnitPrice * qty).toFixed(2);
+  document.getElementById('order-total-price').textContent = total + ' EUR';
+}
+
+function submitOrder() {
+  var meno = document.getElementById('order-meno').value.trim();
+  var priezvisko = document.getElementById('order-priezvisko').value.trim();
+  var email = document.getElementById('order-email').value.trim();
+  var qty = parseInt(document.getElementById('order-qty').value) || 1;
+
+  if (!meno) { document.getElementById('order-meno').focus(); alert('Zadajte meno.'); return; }
+  if (!priezvisko) { document.getElementById('order-priezvisko').focus(); alert('Zadajte priezvisko.'); return; }
+  if (!email || !email.includes('@')) { document.getElementById('order-email').focus(); alert('Zadajte platný e-mail.'); return; }
+
+  closeOrderModal();
+  openPayModal(_orderIdx, qty);
+}
+
+window.addEventListener('load', function() {
+  var om = document.getElementById('orderModal');
+  if (om) om.addEventListener('click', function(e) { if (e.target === this) closeOrderModal(); });
+});
+
 window.addEventListener('load',function(){
   var m=document.getElementById('payModal');
   if(m)m.addEventListener('click',function(e){if(e.target===this)closePayModal();});
