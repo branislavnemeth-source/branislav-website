@@ -1234,6 +1234,9 @@ const QR_CODES = {
         <p class="pay-hint" style="margin-top:.75rem">Po zaplatení zašlite potvrdenie na <a href="mailto:postmaster@generaltrade.sk">postmaster@generaltrade.sk</a> &mdash; licenčný kľúč dostanete obratom.</p>
       </div>
     </div>
+    <div style="margin-top:1.25rem;border-top:1px solid var(--border,#e2e8f0);padding-top:1rem">
+      <button onclick="goBackToOrder()" style="background:var(--bg-secondary,#f1f5f9);color:var(--text-secondary,#64748b);border:1.5px solid var(--border,#e2e8f0);border-radius:10px;padding:.6rem 1.2rem;font-size:.92rem;font-weight:700;cursor:pointer;">← Späť na objednávku</button>
+    </div>
   </div>
 </div>
 <script id="pay-modal-js">
@@ -1265,6 +1268,10 @@ function openPayModal(idx, qty){
 function closePayModal(){
   document.getElementById('payModal').style.display='none';
   document.body.style.overflow='';
+}
+function goBackToOrder(){
+  document.getElementById('payModal').style.display='none';
+  openOrderModal(_orderIdx);
 }
 function showPayTab(name,btn){
   document.querySelectorAll('.pay-tab-content').forEach(function(el){el.classList.remove('active');});
