@@ -481,6 +481,75 @@
       .lic-info-section { flex-direction: column; }
     }
 
+    /* ── CONTACT SEKCIA ── */
+    .lic-contact-section {
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 1.5rem !important;
+      align-items: flex-start !important;
+      margin: 2rem 0 !important;
+    }
+    .lic-contact-card {
+      flex: 2 1 0 !important;
+      min-width: 0 !important;
+      background: var(--color-surface, #f8f9fa) !important;
+      border: 1.5px solid var(--color-border, #e2e8f0) !important;
+      border-radius: 12px !important;
+      padding: 1.25rem 1.5rem !important;
+      box-sizing: border-box !important;
+    }
+    .lic-contact-card h3 {
+      margin: 0 0 0.9rem !important;
+      font-size: 1rem !important;
+      font-weight: 700 !important;
+    }
+    .lic-contact-grid {
+      display: grid !important;
+      grid-template-columns: auto 1fr !important;
+      gap: 0.35rem 1rem !important;
+      font-size: 0.875rem !important;
+    }
+    .lic-contact-label {
+      color: var(--color-text-muted, #64748b) !important;
+      font-weight: 500 !important;
+      white-space: nowrap !important;
+    }
+    .lic-contact-value a {
+      color: var(--color-store, #0078d4) !important;
+      text-decoration: none !important;
+    }
+    .lic-contact-value a:hover { text-decoration: underline !important; }
+    .lic-contact-col {
+      flex: 1 1 0 !important;
+      min-width: 0 !important;
+      background: var(--color-surface, #f8f9fa) !important;
+      border: 1.5px solid var(--color-border, #e2e8f0) !important;
+      border-radius: 12px !important;
+      padding: 1.25rem 1.3rem !important;
+      box-sizing: border-box !important;
+    }
+    .lic-contact-col h4 {
+      margin: 0 0 0.7rem !important;
+      font-size: 0.95rem !important;
+      font-weight: 700 !important;
+    }
+    .lic-contact-col ul {
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    .lic-contact-col ul li { margin-bottom: 0.35rem !important; }
+    .lic-contact-col ul a {
+      font-size: 0.85rem !important;
+      color: var(--color-text, #1a202c) !important;
+      text-decoration: none !important;
+    }
+    .lic-contact-col ul a:hover { color: var(--color-store, #0078d4) !important; text-decoration: underline !important; }
+    @media (max-width: 768px) {
+      .lic-contact-section { flex-direction: column !important; }
+      .lic-contact-card, .lic-contact-col { flex: unset !important; width: 100% !important; }
+    }
+
 </style>
 </head>
 <body>
