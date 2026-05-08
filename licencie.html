@@ -1241,7 +1241,8 @@ function openPayModal(idx, qty){
   var amtStr=totalAmt+' EUR';
   document.getElementById('pay-amount-qr').textContent=amtStr;
   // Revolut card tab
-  var revolutUrl='https://revolut.me/branislavn74/eur'+totalAmt+'/'+d.ref;
+  var revolutAmtCents=Math.round(parseFloat(totalAmt)*100);
+  var revolutUrl='https://revolut.me/branislavn74?amount='+revolutAmtCents+'&note='+encodeURIComponent(d.ref);
   var revBtn=document.getElementById('pay-revolut-btn');
   if(revBtn)revBtn.href=revolutUrl;
   var cardAmt=document.getElementById('pay-card-amount');
