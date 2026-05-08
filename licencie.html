@@ -478,6 +478,9 @@
 .order-submit-btn:hover{background:#2da66e}
 .order-product-name{font-size:.82rem;color:var(--text-secondary,#64748b);margin:0 0 1.25rem;line-height:1.4;padding:.5rem .75rem;background:var(--bg-secondary,#f8fafc);border-radius:8px;border-left:3px solid #0078d4}
 
+.lic-card-title-link { text-decoration: none; color: inherit; }
+.lic-card-title-link:hover .lic-card-title { color: var(--color-primary, #0078d4); }
+
 </style>
 </head>
 <body>
@@ -1174,6 +1177,22 @@ window.addEventListener('load', function() {
   var om = document.getElementById('orderModal');
   if (om) om.addEventListener('click', function(e) { if (e.target === this) closeOrderModal(); });
 });
+
+function slugify(name) {
+  return 'licencia-' + name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g,'') + '.html';
+}
+
+// Auto-open order form z URL parametra ?order=IDX
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var orderIdx = params.get('order');
+  if (orderIdx !== null) {
+    var idx = parseInt(orderIdx);
+    if (!isNaN(idx) && idx >= 0 && idx < PRODUCTS.length) {
+      setTimeout(function(){ openOrderModal(idx); }, 400);
+    }
+  }
+})();
 
 window.addEventListener('load',function(){
   var m=document.getElementById('payModal');
