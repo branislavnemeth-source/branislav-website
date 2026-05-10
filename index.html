@@ -277,6 +277,41 @@
 }
 
     /* ── END COMMERCE CSS ── */
+
+    /* ── DogNet Affiliate Grid ── */
+    .dognet-partner-section { padding: 1.5rem 0 2.5rem; }
+    .dognet-partner-heading { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--text-secondary,#64748b); margin: 0 0 1rem; }
+    .dognet-partner-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    .dognet-partner-card {
+      display: flex; flex-direction: column; gap: .5rem;
+      background: var(--bg-primary,#fff);
+      border: 1px solid var(--border,#e2e8f0);
+      border-radius: 12px; padding: 1rem 1.1rem;
+      text-decoration: none; color: inherit;
+      transition: transform .15s, box-shadow .15s, border-color .15s;
+    }
+    .dognet-partner-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.08); border-color: var(--color-store,#0078d4); }
+    .dognet-partner-card-top { display: flex; align-items: center; gap: .6rem; }
+    .dognet-partner-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .dognet-partner-name { font-weight: 700; font-size: .95rem; }
+    .dognet-partner-desc { font-size: .8rem; color: var(--text-secondary,#64748b); line-height: 1.45; }
+    .dognet-partner-badge { display: inline-block; font-size: .72rem; font-weight: 700; color: #107c10; background: #e6f4e6; border-radius: 20px; padding: .15rem .55rem; width: fit-content; }
+    /* Banner cards (wide) */
+    .dognet-banner-card {
+      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      border-radius: 14px; padding: 1.4rem 1.8rem; margin: 1.2rem 0;
+      text-decoration: none;
+    }
+    .dognet-banner-card:hover { opacity: .93; }
+    .dognet-banner-card-body { color: #fff; }
+    .dognet-banner-card-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #7ee8ff; margin-bottom: .3rem; }
+    .dognet-banner-card-title { font-size: 1.15rem; font-weight: 700; margin: 0 0 .3rem; color: #fff; }
+    .dognet-banner-card-desc { font-size: .83rem; color: #cbd5e1; margin: 0; }
+    .dognet-banner-card-btn { background: #fff; color: #0f172a; font-weight: 700; font-size: .85rem; padding: .6rem 1.3rem; border-radius: 8px; white-space: nowrap; flex-shrink: 0; }
+    [data-theme="dark"] .dognet-partner-card { background: var(--bg-secondary,#1e293b); }
+    [data-theme="dark"] .dognet-partner-badge { background: #0a3d0a; color: #57d39a; }
+    @media(max-width:640px){ .dognet-partner-grid { grid-template-columns: 1fr 1fr; } .dognet-banner-card { flex-direction: column; align-items: flex-start; } }
   </style>
   <script src="js/main.js?v=20260429b" defer></script>
   <script src="js/cookie-consent.js?v=20260505" defer></script>
@@ -505,21 +540,88 @@
       </div>
     </div>
 
-    <!-- AFFILIATE / GAMERS OUTLET BANNER -->
-    <section class="section" style="padding-top: 0;">
+    <!-- AFFILIATE PARTNERI (DogNet) -->
+    <section class="section dognet-partner-section" style="padding-top:0;">
       <div class="container">
-        <div class="affiliate-banner fade-in store-banner">
-          <div class="affiliate-banner-content">
-            <div class="affiliate-banner-label">🎮 Odporúčaný obchod</div>
-            <h3 class="affiliate-banner-title">Gamers Outlet — originálny software za skvelé ceny</h3>
-            <p class="affiliate-banner-text">Overený obchod s originálnymi licenciami Windows 11, Office a ďalším softvérom. Skvelá voľba pri prechode na Windows 11.</p>
+        <p class="dognet-partner-heading">🤝 Odporúčaní partneri</p>
+
+        <!-- Hlavný banner: Mobilego -->
+        <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fmobilego.sk"
+           target="_blank" rel="sponsored noopener noreferrer"
+           class="dognet-banner-card fade-in">
+          <div class="dognet-banner-card-body">
+            <div class="dognet-banner-card-label">📱 Odporúčaný obchod</div>
+            <h3 class="dognet-banner-card-title">Mobilego.sk — mobily, smartwatch & príslušenstvo</h3>
+            <p class="dognet-banner-card-desc">Nové aj repasované smartfóny, smart hodinky a príslušenstvo. Rýchla doprava, overený predajca.</p>
           </div>
-          <div class="affiliate-banner-cta">
-            <a href="https://www.gamers-outlet.net/en?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="sponsored noopener noreferrer" class="btn btn-store">🛒 Zobraziť ponuku</a>
-          </div>
+          <span class="dognet-banner-card-btn">🛒 Zobraziť ponuku</span>
+        </a>
+
+        <!-- Grid partnerov -->
+        <div class="dognet-partner-grid">
+
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fallegro.sk"
+             target="_blank" rel="sponsored noopener noreferrer" class="dognet-partner-card fade-in">
+            <div class="dognet-partner-card-top">
+              <span class="dognet-partner-icon">🛍️</span>
+              <span class="dognet-partner-name">Allegro.sk</span>
+            </div>
+            <p class="dognet-partner-desc">Veľký marketplace — elektronika, domácnosť, móda a oveľa viac.</p>
+          </a>
+
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fmerkurymarket.sk"
+             target="_blank" rel="sponsored noopener noreferrer" class="dognet-partner-card fade-in">
+            <div class="dognet-partner-card-top">
+              <span class="dognet-partner-icon">🔧</span>
+              <span class="dognet-partner-name">MerkuryMarket.sk</span>
+            </div>
+            <p class="dognet-partner-desc">Náradie, stavebné materiály, interiér a záhrada za výhodné ceny.</p>
+          </a>
+
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fssledovanietv.sk"
+             target="_blank" rel="sponsored noopener noreferrer" class="dognet-partner-card fade-in">
+            <div class="dognet-partner-card-top">
+              <span class="dognet-partner-icon">📺</span>
+              <span class="dognet-partner-name">SledovanieTV.sk</span>
+            </div>
+            <p class="dognet-partner-desc">Internetová TV — 100+ kanálov, HD/4K, archív 7 dní, bez antény.</p>
+          </a>
+
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Ffirmaren.sk"
+             target="_blank" rel="sponsored noopener noreferrer" class="dognet-partner-card fade-in">
+            <div class="dognet-partner-card-top">
+              <span class="dognet-partner-icon">🏢</span>
+              <span class="dognet-partner-name">Firmaren.sk</span>
+            </div>
+            <p class="dognet-partner-desc">Zakladanie firiem a živností online — rýchlo, jednoducho, z domova.</p>
+            <span class="dognet-partner-badge">Až 13,90 € provízia</span>
+          </a>
+
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fwatchclick.com"
+             target="_blank" rel="sponsored noopener noreferrer" class="dognet-partner-card fade-in">
+            <div class="dognet-partner-card-top">
+              <span class="dognet-partner-icon">⌚</span>
+              <span class="dognet-partner-name">Watchclick.com</span>
+            </div>
+            <p class="dognet-partner-desc">Hodinky a šperky — originálne značky za skvelé ceny.</p>
+          </a>
+
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fklarstein.sk"
+             target="_blank" rel="sponsored noopener noreferrer" class="dognet-partner-card fade-in">
+            <div class="dognet-partner-card-top">
+              <span class="dognet-partner-icon">🌡️</span>
+              <span class="dognet-partner-name">Klarstein.sk</span>
+            </div>
+            <p class="dognet-partner-desc">Klimatizácie, spotrebiče a kuchynská elektronika prémiových značiek.</p>
+            <span class="dognet-partner-badge">Až 5% provízia</span>
+          </a>
+
         </div>
+
+        <p style="font-size:.72rem;color:var(--text-secondary,#64748b);margin-top:.8rem;">* Ide o affiliate/sponzorované linky (DogNet). Nákupom cez ne podporíš tento web bez extra nákladov pre teba.</p>
       </div>
     </section>
+
 
     <!-- KOZMETIKA PHOTO BANNER -->
     <section class="section" style="padding-top: 0;">
