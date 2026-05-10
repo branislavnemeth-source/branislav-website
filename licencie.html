@@ -562,7 +562,11 @@
     .nav-kozmetika{background:var(--koz-green,#2d6a4f)!important;color:#fff!important;padding:.32rem .9rem!important;border-radius:6px;font-weight:700!important;}
     .nav-kozmetika:hover{background:#40916c!important;color:#fff!important;}
     .nav-mobile a.active-store{color:var(--color-store);background:var(--color-store-highlight);}
-  </style>
+      .tab-btn[data-cat="antivirus"].active,
+    .tab-btn[data-cat="antivirus"]:hover {
+      background: #107c10; color: #fff;
+    }
+</style>
 </head>
 <body>
   <a class="sr-only" href="#main-content">Preskočiť na obsah</a>
@@ -618,11 +622,12 @@
         <div class="lic-hero-badge">
           🔑 Originálne kľúče &middot; Okamžité doručenie
         </div>
-        <h1 id="lic-hero-title">Licencie Windows &amp; MS Office</h1>
+        <h1 id="lic-hero-title">Licencie Windows, MS Office &amp; Antivírus</h1>
         <p>Originálne digitálne kľúče za zlomok bežnej ceny.<br>Aktivácia okamžite po objednávke. Overený predajca Generaltrade.</p>
         <div class="lic-hero-cta">
           <a href="#sekcia-windows" class="btn-win" onclick="filterCat('windows');return true;">Pozrieť Windows</a>
           <a href="#sekcia-office" class="btn-off" onclick="filterCat('office');return true;">Pozrieť MS Office</a>
+          <a href="#sekcia-antivirus" class="btn-off" onclick="filterCat('antivirus');return true;" style="background:rgba(16,124,16,.85);border-color:#107c10;">🛡️ Antivírus</a>
         </div>
         <div class="lic-trust-strip">
           <span class="lic-trust-item"><span class="ti-icon">🛡️</span> Originálne kľúče</span>
@@ -639,6 +644,7 @@
         <button class="tab-btn active" data-cat="all" role="tab" aria-selected="true">Všetky</button>
         <button class="tab-btn" data-cat="windows" role="tab" aria-selected="false">Windows</button>
         <button class="tab-btn" data-cat="office" role="tab" aria-selected="false">MS Office</button>
+        <button class="tab-btn" data-cat="antivirus" role="tab" aria-selected="false">🛡️ Antivírus</button>
       </div>
       <input
         id="searchInput"
