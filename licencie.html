@@ -1147,12 +1147,7 @@ const VARIANT_QR_CODES = {
         <label class="order-label" for="order-email">E-mail (doručenie licencie)</label>
         <input class="order-input" type="email" id="order-email" placeholder="vas@email.sk" autocomplete="email" />
       </div>
-      <div class="order-form-full" id="order-variant-row" style="display:none">
-        <label class="order-label" for="order-variant-select">Variant (zariadenia / doba)</label>
-        <select class="order-input" id="order-variant-select" onchange="onVariantChange()"
-          style="width:100%;padding:.5rem .75rem;border:1.5px solid var(--border,#e2e8f0);border-radius:8px;font-size:.9rem;background:var(--bg-primary,#fff);color:var(--text-primary,#0f172a);cursor:pointer;">
-        </select>
-      </div>
+
       <div class="order-form-full">
         <label class="order-label">Množstvo</label>
         <div class="order-qty-row">
@@ -1206,15 +1201,11 @@ const VARIANT_QR_CODES = {
   </div>
 </div>
 <script id="pay-modal-js">
-function openPayModal(idx, qty){
-  // Ak je variant vybraný, použij variant QR
-  var varSel = document.getElementById('order-variant-select');
+function openPayModal(idx, qty, variantIdx){
+  // Ak je variantIdx zadaný, použi variantné dáta
   var varData = null;
-  if (varSel && VARIANT_QR_CODES[idx] && varSel.style.display !== 'none') {
-    var varRow = document.getElementById('order-variant-row');
-    if (varRow && varRow.style.display !== 'none') {
-      varData = VARIANT_QR_CODES[idx][parseInt(varSel.value) || 0];
-    }
+  if (variantIdx !== undefined && variantIdx !== null && VARIANT_QR_CODES[idx]) {
+    varData = VARIANT_QR_CODES[idx][variantIdx] || null;
   }
   qty = qty || 1;
   var d=QR_CODES[idx],p=PRODUCTS[idx];
@@ -1261,28 +1252,17 @@ function showPayTab(name,btn){
 var _orderIdx = 0;
 var _orderUnitPrice = 0;
 
-function openOrderModal(idx) {
+var _orderVariantIdx = null;
+
+function openOrderModal(idx, variantIdx) {
   _orderIdx = idx;
+  _orderVariantIdx = (variantIdx !== undefined && variantIdx !== null) ? variantIdx : null;
   var p = PRODUCTS[idx];
-  // Variant výber pre antivírusy
-  var varRow = document.getElementById('order-variant-row');
-  var varSel = document.getElementById('order-variant-select');
-  if (p.variants && p.variants.length > 0 && VARIANT_QR_CODES[idx]) {
-    if (varRow) varRow.style.display = '';
-    if (varSel) {
-      varSel.innerHTML = '';
-      VARIANT_QR_CODES[idx].forEach(function(v, i) {
-        var opt = document.createElement('option');
-        opt.value = i;
-        opt.textContent = v.label + '  –  ' + v.amount + ' €';
-        varSel.appendChild(opt);
-      });
-      varSel.selectedIndex = 0;
-    }
-    var firstV = VARIANT_QR_CODES[idx][0];
-    _orderUnitPrice = parseFloat(firstV.amount);
+  // Nastav cenu: variant alebo základná
+  if (_orderVariantIdx !== null && VARIANT_QR_CODES[idx] && VARIANT_QR_CODES[idx][_orderVariantIdx]) {
+    var vv = VARIANT_QR_CODES[idx][_orderVariantIdx];
+    _orderUnitPrice = parseFloat(vv.price || vv.amount);
   } else {
-    if (varRow) varRow.style.display = 'none';
     var d = QR_CODES[idx];
     _orderUnitPrice = parseFloat(d.amount);
   }
@@ -1294,15 +1274,6 @@ function openOrderModal(idx) {
   updateOrderTotal();
   document.getElementById('orderModal').style.display = 'flex';
   document.body.style.overflow = 'hidden';
-}
-
-function onVariantChange() {
-  var idx = _orderIdx;
-  var varSel = document.getElementById('order-variant-select');
-  if (!varSel || !VARIANT_QR_CODES[idx]) return;
-  var v = VARIANT_QR_CODES[idx][parseInt(varSel.value)];
-  _orderUnitPrice = parseFloat(v.amount);
-  updateOrderTotal();
 }
 
 function closeOrderModal() {
@@ -1336,7 +1307,7 @@ function submitOrder() {
   if (!email || !email.includes('@')) { document.getElementById('order-email').focus(); alert('Zadajte platný e-mail.'); return; }
 
   closeOrderModal();
-  openPayModal(_orderIdx, qty);
+  openPayModal(_orderIdx, qty, _orderVariantIdx);
 }
 
 window.addEventListener('load', function() {
@@ -1348,14 +1319,16 @@ function slugify(name) {
   return 'licencia-' + name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g,'') + '.html';
 }
 
-// Auto-open order form z URL parametra ?order=IDX
+// Auto-open order form z URL parametra ?order=IDX&variant=VI
 (function(){
   var params = new URLSearchParams(window.location.search);
   var orderIdx = params.get('order');
   if (orderIdx !== null) {
     var idx = parseInt(orderIdx);
+    var vi = params.get('variant');
+    var variantIdx = (vi !== null && !isNaN(parseInt(vi))) ? parseInt(vi) : null;
     if (!isNaN(idx) && idx >= 0 && idx < PRODUCTS.length) {
-      setTimeout(function(){ openOrderModal(idx); }, 400);
+      setTimeout(function(){ openOrderModal(idx, variantIdx); }, 400);
     }
   }
 })();
