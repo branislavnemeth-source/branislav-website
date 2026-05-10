@@ -703,6 +703,40 @@
     [data-theme="dark"] .koz-affiliate-inner { background: #0e1f14; border-color: #2a4533; }
     .koz-affiliate-inner a { color: var(--koz-green2); font-weight: 600; text-decoration: none; }
     .koz-affiliate-inner a:hover { text-decoration: underline; }
+  
+    /* ── DogNet Affiliate Grid ── */
+    .dognet-partner-section { padding: 1.5rem 0 2.5rem; }
+    .dognet-partner-heading { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--text-secondary,#64748b); margin: 0 0 1rem; }
+    .dognet-partner-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    .dognet-partner-card {
+      display: flex; flex-direction: column; gap: .5rem;
+      background: var(--bg-primary,#fff);
+      border: 1px solid var(--border,#e2e8f0);
+      border-radius: 12px; padding: 1rem 1.1rem;
+      text-decoration: none; color: inherit;
+      transition: transform .15s, box-shadow .15s, border-color .15s;
+    }
+    .dognet-partner-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.08); border-color: #2d6a4f; }
+    .dognet-partner-card-top { display: flex; align-items: center; gap: .6rem; }
+    .dognet-partner-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .dognet-partner-name { font-weight: 700; font-size: .95rem; }
+    .dognet-partner-desc { font-size: .8rem; color: var(--text-secondary,#64748b); line-height: 1.45; }
+    .dognet-partner-badge { display: inline-block; font-size: .72rem; font-weight: 700; color: #107c10; background: #e6f4e6; border-radius: 20px; padding: .15rem .55rem; width: fit-content; }
+    .dognet-banner-card {
+      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+      background: linear-gradient(135deg, #1a2f22 0%, #2d6a4f 100%);
+      border-radius: 14px; padding: 1.4rem 1.8rem; margin: 1.2rem 0;
+      text-decoration: none;
+    }
+    .dognet-banner-card:hover { opacity: .93; }
+    .dognet-banner-card-body { color: #fff; }
+    .dognet-banner-card-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #b7eac9; margin-bottom: .3rem; }
+    .dognet-banner-card-title { font-size: 1.15rem; font-weight: 700; margin: 0 0 .3rem; color: #fff; }
+    .dognet-banner-card-desc { font-size: .83rem; color: #d4f0de; margin: 0; }
+    .dognet-banner-card-btn { background: #fff; color: #1a2f22; font-weight: 700; font-size: .85rem; padding: .6rem 1.3rem; border-radius: 8px; white-space: nowrap; flex-shrink: 0; }
+    [data-theme="dark"] .dognet-partner-card { background: var(--bg-secondary,#1e293b); }
+    [data-theme="dark"] .dognet-partner-badge { background: #0a3d0a; color: #57d39a; }
+    @media(max-width:640px){ .dognet-partner-grid { grid-template-columns: 1fr 1fr; } .dognet-banner-card { flex-direction: column; align-items: flex-start; } }
   </style>
 
   <!-- NAV UNIFIED CSS -->
@@ -1108,6 +1142,90 @@
       </div>
     </section>
 
+  
+    <!-- AFFILIATE PARTNERI – kozmetika & zdravie (DogNet) -->
+    <section class="section dognet-partner-section">
+      <div class="container">
+        <p class="dognet-partner-heading">🌿 Ďalší odporúčaní partneri</p>
+
+        <!-- Panakeia banner -->
+        <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fpanakeia.sk"
+           target="_blank" rel="sponsored noopener noreferrer"
+           class="dognet-banner-card fade-in">
+          <div class="dognet-banner-card-body">
+            <div class="dognet-banner-card-label">🌿 Prírodná kozmetika</div>
+            <h3 class="dognet-banner-card-title">Panakeia.sk — prírodná kozmetika a doplnky stravy</h3>
+            <p class="dognet-banner-card-desc">Bylinné extrakty, oleje a prírodné produkty pre krásu aj zdravie.</p>
+          </div>
+          <span class="dognet-banner-card-btn">🛒 Zobraziť ponuku</span>
+        </a>
+
+        <div class="dognet-partner-grid">
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fherbatica.sk"
+             target="_blank" rel="sponsored noopener noreferrer" class="dognet-partner-card fade-in">
+            <div class="dognet-partner-card-top">
+              <span class="dognet-partner-icon">🌱</span>
+              <span class="dognet-partner-name">Herbatica.sk</span>
+            </div>
+            <p class="dognet-partner-desc">CBD produkty, bylinné tinktúry a prírodná kozmetika.</p>
+            <span class="dognet-partner-badge">Až 18% provízia</span>
+          </a>
+
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fnutraceutics.sk"
+             target="_blank" rel="sponsored noopener noreferrer" class="dognet-partner-card fade-in">
+            <div class="dognet-partner-card-top">
+              <span class="dognet-partner-icon">💊</span>
+              <span class="dognet-partner-name">Nutraceutics.sk</span>
+            </div>
+            <p class="dognet-partner-desc">Vitamíny, minerály a doplnky stravy pre každodenné zdravie.</p>
+            <span class="dognet-partner-badge">Až 30% provízia</span>
+          </a>
+
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fgymbeam.sk"
+             target="_blank" rel="sponsored noopener noreferrer" class="dognet-partner-card fade-in">
+            <div class="dognet-partner-card-top">
+              <span class="dognet-partner-icon">💪</span>
+              <span class="dognet-partner-name">GymBeam.sk</span>
+            </div>
+            <p class="dognet-partner-desc">Proteíny, suplementy a fitness výživa pre aktívnych ľudí.</p>
+            <span class="dognet-partner-badge">Až 8% provízia</span>
+          </a>
+
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fsupershape.sk"
+             target="_blank" rel="sponsored noopener noreferrer" class="dognet-partner-card fade-in">
+            <div class="dognet-partner-card-top">
+              <span class="dognet-partner-icon">🏋️</span>
+              <span class="dognet-partner-name">Supershape.sk</span>
+            </div>
+            <p class="dognet-partner-desc">Chudnutie, detox a zdravé produkty pre aktívny životný štýl.</p>
+            <span class="dognet-partner-badge">Až 25% provízia</span>
+          </a>
+
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Forinbody.sk"
+             target="_blank" rel="sponsored noopener noreferrer" class="dognet-partner-card fade-in">
+            <div class="dognet-partner-card-top">
+              <span class="dognet-partner-icon">✨</span>
+              <span class="dognet-partner-name">Orinbody.sk</span>
+            </div>
+            <p class="dognet-partner-desc">Starostlivosť o telo a pleť — prírodné oleje a krémy.</p>
+            <span class="dognet-partner-badge">Až 20% provízia</span>
+          </a>
+
+          <a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fvitanella.sk"
+             target="_blank" rel="sponsored noopener noreferrer" class="dognet-partner-card fade-in">
+            <div class="dognet-partner-card-top">
+              <span class="dognet-partner-icon">🍃</span>
+              <span class="dognet-partner-name">Vitanella.sk</span>
+            </div>
+            <p class="dognet-partner-desc">Prírodné doplnky stravy a zdravá výživa pre celú rodinu.</p>
+            <span class="dognet-partner-badge">Až 10% provízia</span>
+          </a>
+        </div>
+
+        <p style="font-size:.72rem;color:var(--text-secondary,#64748b);margin-top:.8rem;">* Sponzorované linky (DogNet). Nákupom cez ne podporíš tento web bez extra nákladov pre teba.</p>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -1157,7 +1275,7 @@
     </div>
     <div class="footer-bottom">
       <p>© <span id="current-year">2026</span> BranislavIT – branislav.website</p>
-      <p class="footer-disclaimer">Niektoré odkazy sú affiliate linky (Dognet, Gamers Outlet, Kling AI, Publer). Nákupom cez tieto odkazy podporíš tento blog bez extra nákladov pre teba.</p>
+      <p class="footer-disclaimer">Niektoré odkazy na tejto stránke sú affiliate/sponzorované linky (DogNet, Kling AI, Publer). Nákupom cez tieto odkazy podporíš tento web bez extra nákladov pre teba.</p>
     
                 <div class="footer-legal-links">
           <a href="privacy-policy.html">Ochrana osobných údajov</a>
