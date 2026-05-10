@@ -947,21 +947,58 @@ const QR_CODES = {
       idx: 23, ref: "LIC024", name: "ESET Internet Security", price: 29.89,
       img: "/images/licencie/eset-internet-security.png", cat: "antivirus",
       url: "licencia-eset-internet-security.html",
-      desc: "Komprehenzívna ochrana pre PC, Mac, Android – firewall, antiphishing, banková ochrana."
+      desc: "Komprehenzívna ochrana pre PC, Mac, Android – firewall, antiphishing, banková ochrana.",
+      variants: [
+        {label:"1 zar. / 1 rok", devices:1, years:1, price:29.89, ref:"LIC024-1z1r"},
+        {label:"1 zar. / 2 roky", devices:1, years:2, price:57.89, ref:"LIC024-1z2r"}
+      ]
     },
     {
       idx: 24, ref: "LIC025", name: "ESET NOD32 Antivirus", price: 29.49,
       img: "/images/licencie/eset-nod32-antivirus.png", cat: "antivirus",
       url: "licencia-eset-nod32-antivirus.html",
-      desc: "Klasický antivírus s nízkou záťažou na systém – ideálny pre rýchle a sporľahlivé PC."
+      desc: "Klasický antivírus s nízkou záťažou na systém – ideálny pre rýchle a spoľahlivé PC.",
+      variants: [
+        {label:"1 zar. / 1 rok", devices:1, years:1, price:29.49, ref:"LIC025-1z1r"},
+        {label:"3 zar. / 1 rok", devices:3, years:1, price:54.99, ref:"LIC025-3z1r"},
+        {label:"5 zar. / 1 rok", devices:5, years:1, price:64.99, ref:"LIC025-5z1r"},
+        {label:"10 zar. / 1 rok", devices:10, years:1, price:99.49, ref:"LIC025-10z1r"},
+        {label:"1 zar. / 2 roky", devices:1, years:2, price:74.99, ref:"LIC025-1z2r"}
+      ]
     },
     {
       idx: 25, ref: "LIC026", name: "ESET Smart Security Premium", price: 39.89,
       img: "/images/licencie/eset-smart-security-premium.png", cat: "antivirus",
       url: "licencia-eset-smart-security-premium.html",
-      desc: "Prémium ochrana so správcom hesiel, šifrovaním súbornov a VPN ochrannon sieťou."
+      desc: "Prémium ochrana so správcom hesiel, šifrovaním súborov a VPN ochranou siete.",
+      variants: [
+        {label:"1 zar. / 1 rok", devices:1, years:1, price:39.89, ref:"LIC026-1z1r"},
+        {label:"3 zar. / 1 rok", devices:3, years:1, price:89.99, ref:"LIC026-3z1r"},
+        {label:"10 zar. / 1 rok", devices:10, years:1, price:174.99, ref:"LIC026-10z1r"},
+        {label:"10 zar. / 2 roky", devices:10, years:2, price:199.89, ref:"LIC026-10z2r"}
+      ]
     }
     ];
+
+const VARIANT_QR_CODES = {
+  23: [
+    {ref:"LIC024-1z1r", amount:"29.89", label:"1 zar. / 1 rok", img:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADeklEQVR4nO2cXcqrSBCGnxobctnCLOBbitnBt6RhlnR2oEvJAgJ6GVDeuegfDcMMnMlgPKa8EII+pJpUqqveKjXx08fw288z4JBDDv2i0GT5uAIMFgAWM2sBpoBdp0C5KextnkP7Q40kScCS3MLMLqIbwexrznd2kqRxf/McegOU//s0ksbFJD2Moa13xZkUS65vMc+hN0Jm7TZGwGRPvvH/fZNDvwK0WNk/gKEF9VGSbuEQ5jm0GyRpBqaLGNrF0tbRT2b2x1iTiSipf4t5Du0IkZNFgG5s9M+nfDRSf/A1OfQKFCCuItXDBA/T8DUjeBjEh4kJtkrWwdfk0IvQFGBoF7PrdJFdp0v58dMmAhCfS4/jr8mh/wwFiDPW3S6CaTFgMYhLALB00/B9B1iChu9xV/Mc2h0iqVN9zBVGyjG7sZH6JE+s+lWTTp5HnBoqZQbZN5I0WR0kiVPdmO9LXuIecWYo1Rrq4xoZyC7Qp6tNcZCoHDLcI84MBYhzoLulLNLUjW25Fu/BABMsQQAGza7mObQ7lKJAlh3ShrHdREqgIKsVSaY6+JocegXK+UE+5iJYxZk1qdykGr17xGdAefahbWRXSlAY2nwya0sseY95Dr0jRqxBYS5JZa05OyltLHknOfiaHHoFqgIEZSamFpkaSyXyLEq4R5waKr95TSpzjlm8hKpM5HaXe8TJoVprAHm+7ilG9EWppHOF6iOgMgoT56I4xDt0WkzQzBDvpuF7REN7xzrta55Du0MbdXqzV3QqIzK1Nk37R+ea5dmhAFMLxBENBmLKVzRcQ5IhLH+0cvXga3LoFajOUBXNMoWMolCl7CE3N2ZXqD4Ayn0N4vg0JTUFGK4NyhEka5ZG3Nc8h3aHqha55hE1MqxTEWtZ6nnE2aGiUFWlMtWXcWaNDLkEjXUg++BrcugVqDY2AaozVAcpPa9y1VXs00O17akiWysnkKUErQ2PsWqbB1+TQ69AT89rFD1idYHc31of2vBd4+xQIEmTgDH9LoavuU5ONbOtyQTTYnQ/wnz4NTn0CvRca9TJWyA3uWLteYH3NT4NmgL60yw9pSHdzNRP62sE3m2eQ3tAf4sRUIfn2PbKoT6+4THizNB2HCZllpt5qSpKxOoRXmt8ArSkKcukXdfHQNMmkgqOW8jJxODvoTo7ZP72Qocccuhfjr8AskkDPRojh3gAAAAASUVORK5CYII="},
+    {ref:"LIC024-1z2r", amount:"57.89", label:"1 zar. / 2 roky", img:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADXklEQVR4nO2cQYrjMBBFf40FvVSgD9BHUW42zJHmBvZRcoABaRmw+bMolaz0QEMTcDJKeRHasR9IpLr09atsIb59LD++zwAOOeTQfwoVqccZAJYTgOW0icgJAEqAnEuA3RSOHp5Dx0MTSZIANg0LOWMiUgZEPtZ6ZyJJ5uOH59ADoPq/j4mcsQlnbKLZQo+4QnPJ+SHDc+hAKHw6l3QJkHR5o6QZAIoAyyk/aHgOPRjahHNcm5gAOEeSvIQvoOOG59BhEMkVQAk1GFLehHMRkZ+5iYlIcn7I8Bw6eNXYxM6mVRcM/Su/r4LyviL9DisWvWs6dHgOHQ4FIO4m1VWAeBUuHyu4n6IAvZP15HNy6B4IZJ6o6iFloO4vI0nmiUBcdU2pioIk5yefk0P3QDArAlCRkPTXNxcCsZ7ah0fE4FCNiKQfFgwpT+SMSROFBc2kHx4RQ0O2JKCuHzUYIk037MuJ3ucRMTikwqHLDMyoITBjVxnkri08IoaGAhDXgJRBLCcIgWmtu9H4JwgAIbAFAoD47nN4yNYK0xFVSqIKDEsU0AxSbaonn5ND90CwLWXdZNoPv2IXldXRBHyv8RpQCZAzJtaGiHgVTQqtuCFyslzygOE5dCx0myPIajtgNyramtJShueIkSHsSwK0dyYDZkXYTuTWlPCIGBrqbWvdgjaNmeyC3qgCwyNidMgSQIb5Ec2IatkCdelwh+oVIHOxcxMOrbTVSmB1h2EZxCNiaKgVNu3nVuGgGrOXnLp+JPcsXwAqbwTKG/lLAuSs32+iLVUAtDGfcxHxHqrxoU5ZqlLolo5s6uHz+vHkc3LoHqj3I1Q2wopc3RbUjAp3sceHmhdZvet/skW7kPZa+ZPPyaF7IKtmsHVJYWr5oFUzbuLFI2JoCLs1CbRgSNZFY4rCrrqLPTzUdARpZnUVkFYcbxdyUxRPPieH7oFaAsCNH3HTTbVLCF81xocCgEn1gqC8r4JIWOfUpKfQ5zXKJvosz7PPyaF7oH6v0XkPAGqRK7aaF+B1jVeDyhvlHK/aZkleRDiX0DkTjx2eQ0dAtzmiPcsT2bVYdq0R3os9PNS3w2hXRNcvtT/Y1SLC9xqvAG36hqla2tJXBtRKV7UnLqGKicXfQzU6JP72QocccuiL4y97+01elXn7CAAAAABJRU5ErkJggg=="},
+  ],
+  24: [
+    {ref:"LIC025-1z1r", amount:"29.49", label:"1 zar. / 1 rok", img:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADXElEQVR4nO2cUWrjMBCGv1kL+mhBD6TcrOyReoP4KD1AQX4s2Mw+SCMru7DQBlzXGT85dj6QyGT065+xRfn0Mf36PAMOOeTQD4VmqceFVWAOiMTVrs0Bpgj2pbD38BzaHxpUVbUuH1MEUoZy8QrISwaSqqrm/Yfn0K5QAEBgWGCOSNJVFAYVxvegjAtMUu+SXvcdnkPfDA3KFAcVERG9MqhcABiXQwzPoR2gcPNpFYU1KPPzIulN0Cm+B5jDTUgcfE4O3Q+pav3JRSQgRWOOC/LyFtDruABjlRU/ZE4OfR2q+wpgUFIetJwxP5UzeXkLMImISNx/eA7tCgUYm0k1g04RYYoIjB+iU0QUFnon6+BzcugeCNWSFICkC3otiQJUc11OyrX6FVW9HnxODt0DdRFR5EJZNUbzHlIeVK+jaokXzYNHxLmhKiqTapEQ9TcvrtVCtaQsIgCPiJND9rcHSipg21eMFgIlLOwrHhGnhkwuZLAsUNePulbkbf+BLSIHn5ND90BdRFQBWVaImi06ZVnqGq4szw61ugZIUlBYyzWFFUmvERgzMEfbgh58Tg7dA9UsUP77RUe0M0xgqJU9fa9xfqiLCNtfQr9g3J65sjw9dGNEbRKiHEMTEzVveI44P9T8iKXba2wqkpRhM6yKUeERcWaoK3tatti8quZotvTge43TQyYWx7ZWNOGgrQqabm1Nj4gzQ52LvVlS1nbZTO1xW1M8Is4PzU9aOrAvswilXSKuQsrWNnMp7RKBKiuOPyeHvgyFUsiY4lDsJ2FcgsJKbZyYnxedLgL1xrLr8BzaHWp+xELfFZHbjQzWUGca01eNM0NW5MqmMcvWwzzLKjQz2JnriJNDfRwka42Arj9iaAVQ9yMeAeodhyuwdUr0mxDansRzxNmhvs+yd6yt1sFmVNCe/Dv4nBy6B7LC5k11s382wzr2vfb5IJDJRmiu5LZqVO8aWn+21z4fAmom5SximQG2FwVYkeubhufQrhB/ZYFNTGwVDjsGr2s8HGQ7zUkCxbbuQoVVan/2j5qTQ588/skRt122TWj6EzwPBZlTuUDKq+h1Dvaaodg8ivao38+Yk0Nfh9qz4fOT6u84aHkIuPTO6IcAIJdSFN1/eA7tCom/vdAhhxz6z/EHMpg86FvOgg0AAAAASUVORK5CYII="},
+    {ref:"LIC025-3z1r", amount:"54.99", label:"3 zar. / 1 rok", img:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADe0lEQVR4nO2cW4rjOhCGvzo29KMMs4BeirODs6RmlnR2YC8lCxiQHgM2/zzoYjcHBnoyOImn9BDctj8iQXVdfpVi4stj/ufrDDjkkEMvCiUr4wLYJfUwm5nZAJD6fK++1B89PYeOhzpJkoDVICzYhU6MEczel/LmKEmKx0/PoQdA5X+fTppYTROrMQ/trbCQfcnlIdNz6IFQjhAfsfgISPbJNv7cNzn0CtBqmsJCNoF5AE1Bkq79U0zPocMgSQuQepiHToxxtRwmPmJLJoKk6SHTc+hgaM1VBNDJPq4lo2CMnbKVjNfP9ccLrMmh34V6CJtIdTMIN2N+X1D7UyTYK1lPviaH7oGQYqecPYyxxY8gSbEThCXfKxmFJE1PviaH7oRyafkmfR+AOdehq5kNq+WXSq3RKtLnX5NDvw2hNhhV/AFj7KSJLjuKql91+cN9xKmhZgKl0szSZL6KkD1ICyfZStwizgwhRch5RNEsqQbClmVIW27hFnF2KCwwXt92xlBGWKjJxGpSBK8+zw/VqNE+mhBV6gqKGynyRPBa4+RQyyyXerXVnDWpLBUpVdR2izg5lHrsQgsJNUJsmxtmQ8koHjE9h46FKKVljhVdKUGn7UG+pyxqu0J1fqgH1h5SEaM054tugTQg0mAifVsEC5YfPPmaHLoHatWnmpRdHEWuOsbsKKiZpesRZ4d6oFtsvBrAm4CbabZOkECzdUt+hXAzzZdjp+fQ4dCuFUYARohi1GrKESL8MM3/RjQPP7BRx07PocOhnTpdY0VXy82wL0sh1PTSo8bJodSTBYjvbdvzAmhKxYGYmZmmZOY9VOeHis6wdw8lx9webC0UrlCdH2otMjV0lCuou+FNzw5N437yNTl0D9S0yGIM0GSqXVfEVpZ6HnF2qLXMLfzfH7TdjM1e3EecHap2EKmdU6HsgpYsspoK7TSgW8SpoV1XXfURS+um2vfg7j3Ik6/JoXug5gBgqytK1RGpUnZsxzc8apwdyio2AEb6piJWD2TN0vJpjgQircb4X+87XX8DVM6Gh5sxXt9U7r0vMA+r2SU360Nu4H+NNTn0B6D0JuZ6SkO6mmlK/U6ZeOz0HDoc2mrOIOUeqtaibza0XxB4pTU59NWxO6PTiovddtd2z6vPvwP6VGvkq9JOuTvIsZMrvWPm7JD5rxc65JBDvxg/AaBT9Jwpu9bLAAAAAElFTkSuQmCC"},
+    {ref:"LIC025-5z1r", amount:"64.99", label:"5 zar. / 1 rok", img:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADdklEQVR4nO2cUWrkOhBFT40M+ZQhC+iluHcwSxpmSbMDeylZQMD+bJC570OSrZ4HA/P64XSc8odp0zpEIkrVratyTPz1NX37ewYccsihTwotVq4rUG+rmfUAS4ddl446qDt6eg4dDwVJkoDVmKyDqQ9imMHsksrIQZI0Hz89hz4AKn/7BGlkNY2sxtRvo2Iix5Lrh0zPoQOh7rdnK7cX2TACLAZTPz/+kxz6jNBqbf7oQWOUpLfuD9Bx03PoMEhSApYOpn41hhk0Lmb2Y97ERJQ0fsj0HDo4a6xWn0Ky4e1Flj/Nr8lYXhPDry4x5VHh0Ok5dDjUQdxNqptBvBnTJaHtUSzQOllPviaHHoGQ5iCNMZFzRdYRUZLmIIgp55SiKCRpfPI1OfQgFIuE0M9LKjqC7FDVdFLq0K0iff41OfSfoRIUhlxhVI05zEEaCTlQ1Poj5JvHiFNDtcwANBJUNkNU9ixzBCnpJOUhviNODSHNkHVE9rNnyhYY2VVGqy18R3wFaHh7yQZ2+11MVDGxmjRDOf36HGty6IFag2EOWUyUeEARGDVQkLVFsamefE0OPQKVrJFvSk0S2UVlKzV8R3wBKEp2zRkiyK5Rsh8zpeac+pIrij1x/PQcOhaqySEbUVKxJ9i8Kko6yUWIO1Snh5pcsffEVCtizymtKeE74tTQJhxqg1TRmMWF2K2roix9R5wd6ignngYQEnAzTRYEC2iykPIQ4s00XY+dnkOHQ00rjACM+A6DVlPeIPHdNH2f0dS/Y4OOnZ5Dh0ONO111RM0a2aRUas5Di8f95Gty6P+A4s300zrsWr/RuJQAYmZmGhcz76E6P9TWnE3/fXWoGJSaFgp3qM4Poebaf/Hcl6DVsnAX+/xQDQCE7fhbNTLsXREx1bLUdcTZodoisx1ptPHgrnECjxFfAmpOumqzTN0gI1AVBbC9Deg74tTQvY7YitGaOpo+mSaCPPmaHHoE2gIA1AOt7SBjpsSNvYXCs8bpoexiA2AsPZouqTMge5a2iwmW1fK7PM++Jocegba+h7tD7xHIVcfWeZsHe+ft6aG7V3yX18R0ueVmS7EYmq4dYgkJlv746Tl0OPSvGMFuTUJTkcL2+obHiDNDbTvMoDsjajMqSv7w6vNLQHe1Rv4UtH9RXwjd7ErXEWeHzP97oUMOOfSH6x8jjSpDxTUjjgAAAABJRU5ErkJggg=="},
+    {ref:"LIC025-10z1r", amount:"99.49", label:"10 zar. / 1 rok", img:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADaklEQVR4nO2cXarbMBBGz1SGPMrQBdylODu7dEndgb2ULKBgPQZkpg8jyU4fCm3AybXHD8E/OSARZfTNp5FF+edj+vbvDDjkkENfFEpSjiuLMPUg0i/1Xuoo9+zo9m6eQ/tCqM5BVVWVQbNdMsxgN+3SnpZLHd+8Tw49D5X/fuosPOhIUJF+EYgZJnsqIteXNM+hl0ElHsiVOiyugA2LN2ieQztA3R/XCkunpJBluAk69b86SN3DkHjzPjn0PKSqGWAREblYjICYkc9bh44xA1FVx5c0z6GdoZJXYLPGDHZGuigQVD5vHUwiItLv3zyHdoU6iM2kSosw9QGd+gDEu+jUIwqZrZP15n1y6BmopJsADDZ1BFW1PLRMJzqyfkU9+zwFNMxB9UdP0QyTiQmQa7qo5RqDZnRM7lAdHKqiMqqadmyG1Roo7OkaQTxGHBkqnuVIMSlLPJiDlgyD9Qx0jD5rHBwqUcAyDBsMTT1EVQZTGU1HuIt9dIiNijQBaZqhRIuNshzaZOIj4viQyEdGPrVMGPZomMHWPs3FTiIvap5DO8eItqYZq45glRCbrzTR8eZ9cuhJqP73zbHW20UhdajqXTbhYfrI2McX6JND/w3Vv33MrIHCLpusKOqh5aYeI44MFT+imA3r0apoZqhGRRGfPiIODbVsotiVxdSOW+Hwp3XlI+LI0OY3LzdifhgblnjWjNT9iMND1aGqSsF+c3MvCbqqDHexTwK1GqqlAwQlgRBnlNSLEjNCDCqkHoaf33dtnkO7Q618qrmX6wyxGhVQ1j5dRxwe6iD1Vg4jwwhAULFiy/IhEGeYJKgQ512b59DuUN2vYaGgqMhaItOWOWYozoQry6NDbQdPra1tW3bqElgoC6DD7H7EGaCt4zC2xc51lFgSQnOyPEYcHdpUzFQrooUH1QejAlxZngCqC5str2hldGWUEKpHMfva5xmgWkkJNb+ca/nt0NbAR5qOiB4jTgA1kzI97vmzFwWsovJFzXNoV8jGgEDI9QxkmBd0+riLDrpIvR+yDLcuv32fHHoGeljQWqtsq57cLonjyvJ80CLr+WYmmT7afg3fwXMOqDpUGQa9i46pq68Z6qnVE61E/2v0yaH/h9re8HRRHW1b313KhKH3UoV5ZfG94SeAxN9e6JBDDv3l+A0PJyGqIFBQiQAAAABJRU5ErkJggg=="},
+    {ref:"LIC025-1z2r", amount:"74.99", label:"1 zar. / 2 roky", img:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADbklEQVR4nO2cQW7jOgyGP44MdCkDPUCP4txszjQ3sI/SG0jLADL4FqJkZ7rq5MFJHWphOLE/VELZX+RvuqJ8eyy/vs+AQw459EOhLDYuQDusIjIC5AG55IF203D09Bw6HgqqqqrAKiwyAPlNmRKIfBS7c1JV1XT89Bx6AGR/+wRVTavozCosY78rFqqWXB4yPYceCImMIBdC1QjIchMb/99PcugnQKuoaqGGwDKCzlFV9XN4iuk5dBhU44A8wDIGZUqr6JxF5HfqyURU1fkh03PoQGgAVmmfQpHpcyh2lt6LkN8L05+hsNS7wqHTc+hwaIC4mVQFiFdh+SgoXAXiVZQMeyfrydfk0J1Q3StWkUtuhWcd+U0tqYzXm/Ty+dfk0D9DNCvCkgmdox1sxP13NdGcn3xNDt0DWURM9VAsx5xSUJ2rPbH5V6EePCJODfUQsEqzWpP1LEE1p6bUFcQj4uwQqom+TQSrL2uA1KvBAoSoJhkeES8A2TaxiikDALEgMq5Cta6SOZo/ZU0O/bNGBGVKoW8YpcmDmiVVn29NKZhQuEacGbJffB8toyhsSaU5muC1xmtA2foeREbLHuR3Yvdwo17QFHSDjpueQ8dCexfiLz3Yas5am3bJcI04M2QR0TOFmjiYFdEqkVtTwiPi1FALht4gZTmmuRBVHqBd8Ig4PTQAoUAeqWfLx1V0kaCQQRcJ9iiUeBVdLsdOz6HDoe5iNwO7GlFaujnVn2bEYlriGnFmqNkOUXcJ5GZlW2yoeZaWajz5mhy6BxogvxdgHXSRUJS8isI6KHmoZYcA6HIRlHzs9Bw6HOJLPtmNS23ffdk/nnxNDt0D3WQPzYP6UoK2KHEX+/xQE4CtHZ+uDFtXRCxNRjyPODvUHKrNuGw7hL23g6mFfXSNODvEZk1i7/sVqkbMQO2q21/1iDg51HqxowJ5FIWgLGNSmXQdaL10pV09dnoOHQ51AYD9A60Uuql900Lhu8bpoeZiA0IeYfm4CoCoedemC0pepb7L8+xrcugeqPc9/FVhQDUpe+dtvdk7b18Lym8qF1axXrpPEZ3zsHMmHjs9hw6HYnsdmKj2Oldv0RcZu2Xxk9bk0HfHrh1mau5l65eyOtT2D68+XwK6qTXqWbOytxc5dnal5xFnh5rF8J3h/73QIYdeB/oPeGMYIRA+C14AAAAASUVORK5CYII="},
+  ],
+  25: [
+    {ref:"LIC026-1z1r", amount:"39.89", label:"1 zar. / 1 rok", img:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADeElEQVR4nO2cXYrrOBBGT40F/ShDL6CXYu8szJLuDuylZAEXrMcLMjUPJcn2DAx0B9xppwSdWJEPSERdP5/KEeXTbf7r8ww45JBDPxRKUtqYRJj7VUR6kJFVmG0oUG8KZ0/PoXMhVJdOVVWVwa4y9jLZKOgUVRlU1W6ennxNDj0Olf99VoH0psx9p3LTjIwxIyNgtmT8luk5dCIU9p2YA8QMsAadBRQ6hRTy90zPoe+FUoC5B7ndA3JT2xvC3D/F9Bw6AzIbUVLQqMhwF5g/FIFOmUdgWN5tFNK503PoW6DVsgizEdApwz0AKSC3pVMZgZJ19OdPz6FTIXTfMtiOWLArnegU4uEuzzWuDJXsc2rdKZa9YZ8NqqpTzHYftkuefE0OPQKZ4gAxm7Wg2IiuGoSldLcX3xFXh2KGYSmihLmOuV8FqoSpf3/8EUytOH96Dp0LVW8QVTeRkmFpYubSqWmWZjw8jrg6dFSxoYSStM0AxW4MFlu417g41GxEiyNirgcZhwOPcrPbiKtD1JwT9kmm+YrcMpGyI9xrXB8KkN5ViL+DzmPIdgUgRBDsr8iaQnrPT78mhx6BWvZZ3cROklq2EKLFnW4jrg7tFKrtO2cwZYJ9pcQUi6LpO+LqUP2mZYwlotApiZi1mOVtX4lp8vbzr8mhL0NNqWwC9kJNMneuo0nZ7jWuDrFtgdLVw7ZoglWNLdxrvAgU69EWKSDSdypj/CMybonnvdTT/Jg1OfQViFpqW8QpqA6jiJSxOAwG9cjyFaAAqUeGyRQHFeKCQCmstKthQQU6G336NTn0CNTqHqAed7UDrd1nh8oatxFXhgKwipJ6lCS7ERl0tSpMse6v94xrlpeHqmZprRXUbdHDAptghccRLwG1armqUFleMdzfWmnEKrVc4vzpOXQqtKuftK5tgao97COKOuo24tLQoRa77Y1WO7Ort/XK25eBtmfDWcXsQXuIS6QvR2AyskoRJZ5/TQ59GQpA17SHLsuw9FLrI36LzuNa6yNSl5n75dTpOXQ6xMFXdMcQIv8nzfBzjReDVtEpBexcfO63aDMDsfx4wA9bk0Ofa//+tQAhLiisQUkh6yzFpzD8Ekr3ydfk0CPQoTrf3vO+XqqpEKp+0vUy0P7ZcBlTQG73t6JCzB/ZEo7yxNdy/vQcOhUS//VChxxy6H/aP9Jz/avhNej1AAAAAElFTkSuQmCC"},
+    {ref:"LIC026-3z1r", amount:"89.99", label:"3 zar. / 1 rok", img:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADdklEQVR4nO2cUY6jOhBFTw2W+tPsYJYCO5gljWZJswNYShbwJPwZyejOh21C+klP6uknktDlDxQSjmKLonyrXMbEh9v87eMMOOSQQy8KJattBMwsUL/rAVLAxhRoF4Wju+fQ8VAnSRKwGgBmfSeGBcy+53rlIElaju+eQw+A6rNfbONqkq7G3G9XxUzxG+NDuufQAyEzC9iY3oqPgGR3tvH//ZNDrwCtVuaPuQfmHjRFSbqEp+ieQwdA5VbXEDT1GHFBpN4gGUVMlFkjCkjHds+hh0BriSKATgyXgI10Ylg6QQowXALMtsUfLzAmh/4WCvXZLy0juJrm7/UTxKuJtLmRg7vn0OEQ0tJJU8xlhmCQBFGSlk4QM5JyUxSSND35mBz6DESRksPSlWSDpEwNN6F80rQ7uEWcHKI+9lHNHyxQDGSiK46i5a+6cnCLODXUnAI10qzG0AykHIaFNnW4RZwdqk6h3vhOmqCawMRNZey1hVvEqaEAMQcBYu47GJa+/Rb/CQaYYA0CMOgO7Z5Dh0NNOEhiuBOVVWDcLimhhyvLk0PUCKMIyMw+5myi8p3UcIs4OxQls34tCUkbaU5hW9ww62mmcnz3HDoWqrHG0NxDyVXVH1rMOdxSFp6hOju0iz6p9REtyKzTCbxLSrhFnBqq97zog/JNVzXmLqkNTVm6RZwdag5ggTYv3PmIqWUqy8TiGarTQ1UxFh1Rok/too79akbMtdjSLeLM0C473WprO/3LNtp6aE1rPvmYHPosVKNK/dpK9EdAU6q1dGZmpimZVanxAmNy6G+hu3UN3Woh8t108m7+ePIxOfQZaKuhWtHcLy0HlQLMY4dIPTZMNUA14rHdc+hwqLmClrvmFlfsqiLayqjriPND9zlLWnwZ79a8ps0sfKXrK0ApULd3lht/Nfu5bMqyuIfVIL3Jd/mdH0K7dstQxf3i+C2J5esa54darAG7qeNWiHtTD14f8UWgAHRFLxiph/lHDpp7TNBlI2bqfo20GsPvkJ9+TA59BtrqHvap7JqI2spvy55g8HWNrwalN9nYTqSLWUtctknkod1z6HCovCYiUNzD3NOqsmPevWXktcbk0Afb3d5w1pLCtOESMoPWYMQcjLi062M+tHsOPQTa9oa3zARzv5bTGnBcQhUTs7+H6uyQ+dsLHXLIof9ofwA6WPOc6kiFbwAAAABJRU5ErkJggg=="},
+    {ref:"LIC026-10z1r", amount:"174.99", label:"10 zar. / 1 rok", img:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADbklEQVR4nO2cTYrrOhCFTz0JeijBW0Avxd5Zc5f0diAtJTuwhw0y5w6qJCc9awKOn1MaiAT7AwmU+jlVihC/HvWf3zOAQw459D+FVrExA9BJ8ib2whoh8xrRX4pHL8+h46FAkiSATVAlAtPtgzIDEPls9uZEklyOX55DL4Dst49AlvQtLNgEWCMw3SKA1KC2ZH7J8hx6ISRftwiZEajnoOZNUPNZlufQwdAmLInczwFLIslbPMXyHDoMItmgUaTkTTAtAMsqIl/LCCYSyfKS5Tl0MLRpFgEgENPtgwAC5WsJvAsmqoiI5OOX59ChUATSLlI1WPTw+S0EvgVI30KswL2SdfI9OfQMBHIJZEkN6iu4BKqH0Iw0NfUpFlGQZDn5nhx6EtLU8oP8kwGZsY3sU8QcRgagakU+fHkOHQuBY1g8qdYikAWBakFMvwo6uY24NNTTDAAs6A6jJHMYOk0crsNPxNUhkEu3DKpnLxgRRY8yLKKgmQw/EW8AmZt4GPWzmTxR8ybkAnj2eX3IkotpCVTnUFSICtTSVoFZC31FfcrJ9+TQM1CPLLtzsOpmat1r6Bihhp+I94BE8iY6zV2ZQM2BqNkqoyZUvGR5Dr0g1+i+giU1mK8YOeekuWk3I24jrgzZiZgWoCuVPcm0XOMx4fDs8+oQeuDQQ4gRY+pkulR/4Cfi8tDINdBT0PTDRoThOlyhegfIwoWhSt65jiFdWYah6qXHEReH7jXLqRc39BPSflTGV9csrw6NdrlAVAm98RpbZJ1jIwAIALDOAmI9dnkOHQ79jBTMPIwHaiP2AMMVqqtD0aqbBSAQKFizPhEggFUAq4ICEKRjl+fQ4VA3AHuSOTol7roies+ExxHXh6zv4X6y+lZXrdponBja5sn35NAzEPaGCNh9v94iUwDsNS+M24B+Ii4NjV5sAliz6OeaF8pESzMAhLY/Pf2eHHoGGgYA2AtaVtV6EDO9P+JNoAg1AAAE678N9bOBNaPbg0RA72usm2D6L7bT78mhZ6BHPcJ6Z2C3xDmKXP1lr2u8F7RG6CUuLpsAGDdAR0vuS5fn0BHQTxvRL23woT9itEZ4L/blIa1r9Ha5LaLm0GS4CdEp9e8qSpx8Tw49C4274euoe62ieacVRW+x9176/1BdHeopxW+G/3uhQw69D/QXmAHxNIKCZpIAAAAASUVORK5CYII="},
+    {ref:"LIC026-10z2r", amount:"199.89", label:"10 zar. / 2 roky", img:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADnklEQVR4nO2cXYrrOBBGT40MeZShF5ClKDuYJTWzpN6BvRQv4IL82CBT81CS7b4MA7cDTtopPRg70QEJK/XzqRRR/riNf/05Aw455NAPhWap7cYicps75DaL2Be3uYOxh9apO3p4Dh0LdUAoAAiAjtcCxNJBVGAGSRlIA8D8dujwHHoQVH/7c4e8TyI6ENQMxdgDo30rIreHDM+hg23E1kIRoiLpo0fHqyJJAWJ+0PAcOhz6uiIWUVg6NV8xCTr2vzqYu/KY4Tn0IEhV2ys3DwFALMj71KFDLEBU1eEhw3PoYBuxSHsKRVJ+K5I+QhHmNxX7bOoKo/UKhw7PocOhllIAMC+iY48w9gGIn/aoUNgrWU8+J4fugVDNob7tpMU8hGqunsQuA1sXVR2efE4O3QOtXqOJEmm6qCUcAELMarlGGpZOmd/K08/JoXugGlQmVQWC6mABZNBqIzJAVCVZ8BncRpwbMq/R3IS2aCGqfUbKdW1YZ1svTz4nh+6FFtMi5cYipAw6sIhZBgARudS798n3NU4O7aPIAYC4OpH4JbJM2prbiPNDInJReVfVnY1IGWzvk1iAWeQLdNzwHHqUjYjNMgzNYehADTBqv+yR5QtAQRnlovI+iZCmiwKL1HhyNQ/jtWCXnzAnh74L2SaGEH+Jjn0oQiwIdAgEFSI0WTMoaepcjzg3tDqMYpplu9RGyrAloyZUuNc4M9TE6kwVsC2vyKtCZVmHatUtPNc4O9SCxbjZg7KukmA65mY3bKn4ijgzVHVq28GKupqHlmvU9dLciavYLwEFSy6q9sAiIj1UPSIW5EZQmDuqGfkBc3Lou9CufGrVJHUfXuZQK6dSCyvcRpwa2slPdR3kGjhs9RGtoC7UGNNXxJmhXcXM7m7dEq9rI0MNOT2yPDtU10H6D1OwJRxmN7LrEa8A7bLPtnOxvnjrUO9qZY3biLND/B47msOITZxKWxUNeGT5AtAuw9iqqfb+Y5Mws+99vgLUwkbY5xr7OIJV2faquleBVpGyKVQ6AHKbL8rYb0Hlg4bn0KFQ2w236vxQGK+lk5SXTsfrp2jSpZbpb6e7nn1ODt0Ddb89C1zUDvilvNh5DUkfPdRzwl4x81JQra40NeqfPqjq1MF4Xc9rzF6LfXLIbERNMGOxI146SihCXDogoOPfoKxH/Z59Tg7dCy32D1MwX1bN8lOamPlpFdhyWzdFf8KcHPouJP7vhQ455ND/tH8BvkryoGFnheEAAAAASUVORK5CYII="},
+  ],
+};
   </script>
 
   <!-- ── App logic ── -->
@@ -1110,6 +1147,12 @@ const QR_CODES = {
         <label class="order-label" for="order-email">E-mail (doručenie licencie)</label>
         <input class="order-input" type="email" id="order-email" placeholder="vas@email.sk" autocomplete="email" />
       </div>
+      <div class="order-form-full" id="order-variant-row" style="display:none">
+        <label class="order-label" for="order-variant-select">Variant (zariadenia / doba)</label>
+        <select class="order-input" id="order-variant-select" onchange="onVariantChange()"
+          style="width:100%;padding:.5rem .75rem;border:1.5px solid var(--border,#e2e8f0);border-radius:8px;font-size:.9rem;background:var(--bg-primary,#fff);color:var(--text-primary,#0f172a);cursor:pointer;">
+        </select>
+      </div>
       <div class="order-form-full">
         <label class="order-label">Množstvo</label>
         <div class="order-qty-row">
@@ -1164,23 +1207,36 @@ const QR_CODES = {
 </div>
 <script id="pay-modal-js">
 function openPayModal(idx, qty){
+  // Ak je variant vybraný, použij variant QR
+  var varSel = document.getElementById('order-variant-select');
+  var varData = null;
+  if (varSel && VARIANT_QR_CODES[idx] && varSel.style.display !== 'none') {
+    var varRow = document.getElementById('order-variant-row');
+    if (varRow && varRow.style.display !== 'none') {
+      varData = VARIANT_QR_CODES[idx][parseInt(varSel.value) || 0];
+    }
+  }
   qty = qty || 1;
   var d=QR_CODES[idx],p=PRODUCTS[idx];
-  var totalAmt=(parseFloat(d.amount)*qty).toFixed(2);
+  // Použi variant dáta ak sú k dispozícii, inak pôvodné QR_CODES
+  var useImg   = varData ? varData.img   : d.img;
+  var useRef   = varData ? varData.ref   : d.ref;
+  var useAmt   = varData ? parseFloat(varData.amount) : parseFloat(d.amount);
+  var totalAmt = (useAmt * qty).toFixed(2);
   document.getElementById('pay-modal-product').textContent=p.name+(qty>1?' ('+qty+' ks)':'');
-  document.getElementById('pay-qr-img').src=d.img;
-  document.getElementById('pay-ref').textContent=d.ref;
+  document.getElementById('pay-qr-img').src=useImg;
+  document.getElementById('pay-ref').textContent=useRef;
   var amtStr=totalAmt+' EUR';
   document.getElementById('pay-amount-qr').textContent=amtStr;
   // Revolut card tab
   var revolutAmtCents=Math.round(parseFloat(totalAmt)*100);
-  var revolutUrl='https://revolut.me/branislavn74?amount='+revolutAmtCents+'&note='+encodeURIComponent(d.ref);
+  var revolutUrl='https://revolut.me/branislavn74?amount='+revolutAmtCents+'&note='+encodeURIComponent(useRef);
   var revBtn=document.getElementById('pay-revolut-btn');
   if(revBtn)revBtn.href=revolutUrl;
   var cardAmt=document.getElementById('pay-card-amount');
   if(cardAmt)cardAmt.textContent=amtStr;
   var cardRef=document.getElementById('pay-card-ref');
-  if(cardRef)cardRef.textContent=d.ref;
+  if(cardRef)cardRef.textContent=useRef;
   document.querySelectorAll('.pay-tab').forEach(function(b){b.classList.remove('active');});
   document.querySelectorAll('.pay-tab-content').forEach(function(c){c.classList.remove('active');});
   document.querySelector('.pay-tab').classList.add('active');
@@ -1208,8 +1264,28 @@ var _orderUnitPrice = 0;
 function openOrderModal(idx) {
   _orderIdx = idx;
   var p = PRODUCTS[idx];
-  var d = QR_CODES[idx];
-  _orderUnitPrice = parseFloat(d.amount);
+  // Variant výber pre antivírusy
+  var varRow = document.getElementById('order-variant-row');
+  var varSel = document.getElementById('order-variant-select');
+  if (p.variants && p.variants.length > 0 && VARIANT_QR_CODES[idx]) {
+    if (varRow) varRow.style.display = '';
+    if (varSel) {
+      varSel.innerHTML = '';
+      VARIANT_QR_CODES[idx].forEach(function(v, i) {
+        var opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = v.label + '  –  ' + v.amount + ' €';
+        varSel.appendChild(opt);
+      });
+      varSel.selectedIndex = 0;
+    }
+    var firstV = VARIANT_QR_CODES[idx][0];
+    _orderUnitPrice = parseFloat(firstV.amount);
+  } else {
+    if (varRow) varRow.style.display = 'none';
+    var d = QR_CODES[idx];
+    _orderUnitPrice = parseFloat(d.amount);
+  }
   document.getElementById('order-product-name').textContent = p.name;
   document.getElementById('order-meno').value = '';
   document.getElementById('order-priezvisko').value = '';
@@ -1218,6 +1294,15 @@ function openOrderModal(idx) {
   updateOrderTotal();
   document.getElementById('orderModal').style.display = 'flex';
   document.body.style.overflow = 'hidden';
+}
+
+function onVariantChange() {
+  var idx = _orderIdx;
+  var varSel = document.getElementById('order-variant-select');
+  if (!varSel || !VARIANT_QR_CODES[idx]) return;
+  var v = VARIANT_QR_CODES[idx][parseInt(varSel.value)];
+  _orderUnitPrice = parseFloat(v.amount);
+  updateOrderTotal();
 }
 
 function closeOrderModal() {
