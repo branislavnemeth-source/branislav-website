@@ -47,8 +47,7 @@
   z-index: 9999;
   white-space: nowrap;
 }
-.nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu { display: block; }
+.nav-dropdown .nav-dropdown-menu.open { display: block; }
 .nav-dropdown-menu a {
   display: block;
   padding: .45rem 1.1rem;
@@ -92,7 +91,7 @@
         <li><a href="kozmetika.html" class="nav-kozmetika">🌿 Kozmetika</a></li>
         <li><a href="it-pomoc.html">🛠️ IT pomoc</a></li>
         <li class="nav-dropdown">
-          <a href="windows11.html">📝 Blog</a>
+          <a href="windows11.html" onclick="var m=this.nextElementSibling;m.classList.toggle('open');event.preventDefault();return false;">📝 Blog ▾</a>
           <ul class="nav-dropdown-menu" role="menu">
             <li><a href="windows11.html#win10">⚠️ Koniec Win 10</a></li>
             <li><a href="windows11.html#prechod">🔄 Prechod na Win 11</a></li>
@@ -250,7 +249,7 @@
         <h4>Obsah</h4>
         <ul role="list">
           <li class="nav-dropdown">
-          <a href="windows11.html">📝 Blog</a>
+          <a href="windows11.html" onclick="var m=this.nextElementSibling;m.classList.toggle('open');event.preventDefault();return false;">📝 Blog ▾</a>
           <ul class="nav-dropdown-menu" role="menu">
             <li><a href="windows11.html#win10">⚠️ Koniec Win 10</a></li>
             <li><a href="windows11.html#prechod">🔄 Prechod na Win 11</a></li>
