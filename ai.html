@@ -944,5 +944,30 @@
   </div>
 </div>
 
+
+<script>
+// Hash detection — aktivuje správnu záložku pri načítaní stránky cez URL #hash
+(function() {
+  function activateTabByHash() {
+    var hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+    var tabId = hash.startsWith('tab-') ? hash : 'tab-' + hash;
+    var btn = document.querySelector('[data-tab="' + tabId + '"]');
+    if (btn) {
+      btn.click();
+      setTimeout(function() {
+        var nav = document.querySelector('.tab-nav');
+        if (nav) nav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', activateTabByHash);
+  } else {
+    activateTabByHash();
+  }
+  window.addEventListener('hashchange', activateTabByHash);
+})();
+</script>
 </body>
 </html>
