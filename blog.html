@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-adsense-account" content="ca-pub-4124785228904294">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — IT Tipy, Windows 11, AI Nástroje | BranislavIT</title>
+  <meta name="description" content="IT blog v slovenčine. Tipy pre Windows 11, Microsoft Office, ESET licencie, AI nástroje a IT bezpečnosť. Praktické návody pre každého.">
+  <meta property="og:title" content="Blog — IT Tipy, Windows 11, AI Nástroje | BranislavIT">
+  <meta property="og:description" content="IT blog v slovenčine. Tipy pre Windows 11, AI nástroje a IT bezpečnosť.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='45' height='45' rx='6' fill='%230078d4'/><rect x='55' width='45' height='45' rx='6' fill='%230078d4' opacity='.75'/><rect y='55' width='45' height='45' rx='6' fill='%230078d4' opacity='.55'/><rect x='55' y='55' width='45' height='45' rx='6' fill='%2344c38a'/></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4124785228904294" crossorigin="anonymous"></script>
+  <script src="js/main.js?v=20260429b" defer></script>
+  <script src="js/cookie-consent.js?v=20260505" defer></script>
+  <style>
+.footer-bizinfo{font-size:.76rem;color:var(--text-muted,#94a3b8);display:flex;flex-wrap:wrap;gap:.3rem .8rem;justify-content:center;margin:.5rem 0;padding-top:.5rem;border-top:1px solid var(--border,#e2e8f0)}
+.footer-bizinfo span{white-space:nowrap}
+</style>
+
+  <!-- NAV UNIFIED CSS -->
+  <style>
+    .urgency-bar{background:linear-gradient(90deg,#0d47a1 0%,#1565c0 50%,#0d47a1 100%);color:#fff;text-align:center;padding:.65rem 1rem;font-size:.84rem;font-weight:600;letter-spacing:.01em;}
+    .urgency-bar a{color:#7ee8ff;text-decoration:underline;}
+    .urgency-bar a:hover{color:#b3f0ff;}
+    .nav-licencie{background:var(--color-store,#0078d4)!important;color:#fff!important;padding:.32rem .9rem!important;border-radius:6px;font-weight:700!important;}
+    .nav-licencie:hover{background:var(--color-store-hover,#005fa3)!important;color:#fff!important;}
+    .nav-kozmetika{background:var(--koz-green,#2d6a4f)!important;color:#fff!important;padding:.32rem .9rem!important;border-radius:6px;font-weight:700!important;}
+    .nav-kozmetika:hover{background:#40916c!important;color:#fff!important;}
+    .nav-mobile a.active-store{color:var(--color-store);background:var(--color-store-highlight);}
+  </style>
+
+<style>
+/* ── BLOG DROPDOWN NAV ── */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { display: flex; align-items: center; gap: .25rem; cursor: pointer; }
+.nav-dropdown > a::after { content: '▾'; font-size: .7em; opacity: .7; }
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + .5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-divider, #e2e8f0);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  padding: .4rem 0;
+  min-width: 220px;
+  z-index: 9999;
+  white-space: nowrap;
+}
+.nav-dropdown .nav-dropdown-menu.open { display: block; }
+.nav-dropdown-menu a {
+  display: block;
+  padding: .45rem 1.1rem;
+  color: var(--color-text, #1e293b);
+  font-size: .88rem;
+  text-decoration: none;
+  border-radius: 6px;
+  margin: .1rem .3rem;
+  transition: background .15s;
+}
+.nav-dropdown-menu a:hover { background: var(--color-surface-hover, #f1f5f9); }
+/* Mobile blog links */
+.nav-mobile .nav-mobile-blog-links { display: none; flex-direction: column; padding-left: 1rem; border-left: 2px solid var(--color-store, #0078d4); margin: .2rem 0 .4rem; }
+.nav-mobile .nav-mobile-blog-links.open { display: flex; }
+.nav-mobile .nav-mobile-blog-links a { font-size: .85rem; padding: .3rem 0; color: var(--color-text, #1e293b); }
+</style>
+  <style>
+  /* ── BLOG PAGE ── */
+  .blog-hero {
+    background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+    color: #fff;
+    padding: 3.5rem 1rem 3rem;
+    text-align: center;
+  }
+  .blog-hero h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    margin: 0 0 .75rem;
+    letter-spacing: -.02em;
+  }
+  .blog-hero p {
+    font-size: 1.05rem;
+    opacity: .88;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .blog-filters {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1.5rem 1rem .5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .blog-filter-btn {
+    border: 1.5px solid var(--color-divider, #e2e8f0);
+    background: var(--color-surface, #fff);
+    color: var(--color-text, #1e293b);
+    border-radius: 999px;
+    padding: .35rem 1rem;
+    font-size: .85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .blog-filter-btn:hover, .blog-filter-btn.active {
+    background: #0078d4;
+    border-color: #0078d4;
+    color: #fff;
+  }
+  .blog-grid-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem 1rem 3rem;
+  }
+  .blog-featured {
+    display: block;
+    background: var(--color-surface, #fff);
+    border: 1.5px solid var(--color-divider, #e2e8f0);
+    border-radius: 16px;
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow .18s, transform .18s;
+    border-left: 4px solid #0078d4;
+  }
+  .blog-featured:hover {
+    box-shadow: 0 8px 28px rgba(0,120,212,.13);
+    transform: translateY(-2px);
+  }
+  .blog-featured .blog-card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: .5rem 0 .6rem;
+    line-height: 1.3;
+  }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface, #fff);
+    border: 1.5px solid var(--color-divider, #e2e8f0);
+    border-radius: 14px;
+    padding: 1.3rem;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow .18s, transform .18s;
+  }
+  .blog-card:hover {
+    box-shadow: 0 6px 22px rgba(0,0,0,.09);
+    transform: translateY(-2px);
+  }
+  .blog-card-cat {
+    display: inline-block;
+    border-radius: 999px;
+    padding: .2rem .75rem;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    margin-bottom: .6rem;
+    width: fit-content;
+  }
+  .blog-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0 0 .5rem;
+    flex: 1;
+  }
+  .blog-card-intro {
+    font-size: .87rem;
+    color: var(--color-muted, #64748b);
+    line-height: 1.55;
+    margin: 0 0 .9rem;
+    flex: 2;
+  }
+  .blog-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .78rem;
+    color: var(--color-muted, #94a3b8);
+    border-top: 1px solid var(--color-divider, #f1f5f9);
+    padding-top: .65rem;
+    margin-top: auto;
+  }
+  .blog-card-read { font-weight: 500; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="BranislavIT logo">
+          <rect width="16" height="16" rx="3" fill="#0078d4"/>
+          <rect x="20" width="16" height="16" rx="3" fill="#0078d4" opacity="0.75"/>
+          <rect y="20" width="16" height="16" rx="3" fill="#0078d4" opacity="0.55"/>
+          <rect x="20" y="20" width="16" height="16" rx="3" fill="#44c38a"/>
+        </svg>
+        <div class="nav-logo-text">BranislavIT<span>Licencie, Windows &amp; AI</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Domov</a></li>
+        <li><a href="licencie.html" class="nav-licencie">🔑 Licencie</a></li>
+        <li><a href="kozmetika.html" class="nav-kozmetika">🌿 Kozmetika</a></li>
+        <li><a href="it-pomoc.html">🛠️ IT pomoc</a></li>
+        <li class="nav-dropdown">
+          <a href="windows11.html" onclick="var m=this.nextElementSibling;m.classList.toggle('open');event.preventDefault();return false;">📝 Blog ▾</a>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li><a href="windows11.html#win10">⚠️ Koniec Win 10</a></li>
+            <li><a href="windows11.html#prechod">🔄 Prechod na Win 11</a></li>
+            <li><a href="windows11.html#funkcie">✨ Nové funkcie</a></li>
+            <li><a href="windows11.html#tipy">💡 Tipy &amp; Rady</a></li>
+            <li><a href="windows11.html#bezpecnost">🔐 Bezpečnosť</a></li>
+            <li><a href="windows11.html#it-zaujimavosti">💻 IT Zaujímavosti</a></li>
+          </ul>
+        </li>
+        <li><a href="ai.html">AI</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Prepnúť tému"></button>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <nav class="nav-mobile" aria-label="Mobilná navigácia">
+      <a href="index.html">Domov</a>
+      <a href="licencie.html" class="active-store">🔑 Licencie</a>
+      <a href="kozmetika.html">🌿 Kozmetika</a>
+      <a href="it-pomoc.html">🛠️ IT pomoc</a>
+      <a href="windows11.html" onclick="var s=this.nextElementSibling;s.classList.toggle('open');return false;" style="font-weight:600;">📝 Blog ▾</a>
+      <div class="nav-mobile-blog-links">
+        <a href="windows11.html#win10">⚠️ Koniec Win 10</a>
+        <a href="windows11.html#prechod">🔄 Prechod na Win 11</a>
+        <a href="windows11.html#funkcie">✨ Nové funkcie</a>
+        <a href="windows11.html#tipy">💡 Tipy &amp; Rady</a>
+        <a href="windows11.html#bezpecnost">🔐 Bezpečnosť</a>
+        <a href="windows11.html#it-zaujimavosti">💻 IT Zaujímavosti</a>
+      </div>
+      <a href="ai.html">AI</a>
+    </nav>
+  </header>
+
+<section class="blog-hero">
+  <div>
+    <h1>📝 IT Blog po slovensky</h1>
+    <p>Tipy, návody a novinky o Windows 11, Microsoft Office, ESET, AI nástrojoch a IT bezpečnosti</p>
+  </div>
+</section>
+
+<div class="blog-filters">
+  <button class="blog-filter-btn active" onclick="filterBlog('all',this)">Všetky</button>
+  <button class="blog-filter-btn" onclick="filterBlog('Windows 11',this)">🪟 Windows 11</button>
+  <button class="blog-filter-btn" onclick="filterBlog('AI Nástroje',this)">🤖 AI Nástroje</button>
+  <button class="blog-filter-btn" onclick="filterBlog('IT Bezpečnosť',this)">🔐 IT Bezpečnosť</button>
+  <button class="blog-filter-btn" onclick="filterBlog('IT Zaujímavosti',this)">💻 IT Zaujímavosti</button>
+</div>
+
+<div class="blog-grid-wrap">
+  
+        <a href="windows11.html#bezpecnost" class="blog-card blog-featured">
+          <div class="blog-card-cat" style="background:#ef444415;color:#ef4444;">IT Bezpečnosť</div>
+          <h2 class="blog-card-title">Bezpečnosť vo Windows 11: BitLocker, TPM 2.0 a ochrana dát</h2>
+          <p class="blog-card-intro">Windows 11 bol od základov navrhnutý s bezpečnosťou na prvom mieste. TPM 2.0 požiadavka, BitLocker šifrovanie a Windows Hello — zisti, ako chrániť svoje dáta.</p>
+          <div class="blog-card-meta">
+            <span>13. mája 2026</span>
+            <span class="blog-card-read">⏱ 5 min čítania</span>
+          </div>
+        </a>
+  <div class="blog-grid" id="blog-grid">
+
+        <a href="ai.html#kling" class="blog-card">
+          <div class="blog-card-cat" style="background:#8b5cf615;color:#8b5cf6;">AI Nástroje</div>
+          <h3 class="blog-card-title">Kling AI 2.0 vs Sora: Ktorý AI video nástroj je lepší?</h3>
+          <p class="blog-card-intro">Kling AI od Kuaishou vs Sora od OpenAI — porovnávame kvalitu videa, ceny, rýchlosť generovania a to, pre koho je každý nástroj vhodný.</p>
+          <div class="blog-card-meta">
+            <span>8. mája 2026</span>
+            <span class="blog-card-read">⏱ 6 min čítania</span>
+          </div>
+        </a>
+
+        <a href="ai.html#publer" class="blog-card">
+          <div class="blog-card-cat" style="background:#8b5cf615;color:#8b5cf6;">AI Nástroje</div>
+          <h3 class="blog-card-title">AI v advertising & Publer: Automatizácia sociálnych sietí</h3>
+          <p class="blog-card-intro">Ako AI mení tvorbu reklamy a ako Publer pomáha automatizovať publikovanie na sociálnych sieťach. Praktický prehľad pre malé firmy.</p>
+          <div class="blog-card-meta">
+            <span>1. mája 2026</span>
+            <span class="blog-card-read">⏱ 4 min čítania</span>
+          </div>
+        </a>
+
+        <a href="ai.html#prompty" class="blog-card">
+          <div class="blog-card-cat" style="background:#8b5cf615;color:#8b5cf6;">AI Nástroje</div>
+          <h3 class="blog-card-title">Umenie tvorby promptov — ako dostať od AI najlepšie výsledky</h3>
+          <p class="blog-card-intro">Prompt je inštrukcia pre AI. Naučíš sa, ako písať prompty pre ChatGPT, Midjourney a Kling AI, aby si dostal presne to, čo chceš.</p>
+          <div class="blog-card-meta">
+            <span>1. mája 2026</span>
+            <span class="blog-card-read">⏱ 5 min čítania</span>
+          </div>
+        </a>
+
+        <a href="ai.html#obrazky" class="blog-card">
+          <div class="blog-card-cat" style="background:#8b5cf615;color:#8b5cf6;">AI Nástroje</div>
+          <h3 class="blog-card-title">Tvorba AI obrázkov: Midjourney, DALL·E a Stable Diffusion</h3>
+          <p class="blog-card-intro">Porovnanie najlepších AI generátorov obrázkov. Každý nástroj má svoje silné stránky — vyber si podľa účelu a skúseností.</p>
+          <div class="blog-card-meta">
+            <span>1. mája 2026</span>
+            <span class="blog-card-read">⏱ 4 min čítania</span>
+          </div>
+        </a>
+
+        <a href="windows11.html#funkcie" class="blog-card">
+          <div class="blog-card-cat" style="background:#0078d415;color:#0078d4;">Windows 11</div>
+          <h3 class="blog-card-title">✨ Čo nové prináša Windows 11 — nové funkcie v roku 2026</h3>
+          <p class="blog-card-intro">Windows 11 prináša prepracovaný vizuál, zaoblené rohy, priehľadné efekty a nové AI funkcie od Microsoftu. Kompletný prehľad noviniek.</p>
+          <div class="blog-card-meta">
+            <span>6. mája 2026</span>
+            <span class="blog-card-read">⏱ 5 min čítania</span>
+          </div>
+        </a>
+
+        <a href="windows11.html#it-zaujimavosti" class="blog-card">
+          <div class="blog-card-cat" style="background:#0ea5e915;color:#0ea5e9;">IT Zaujímavosti</div>
+          <h3 class="blog-card-title">Zaujímavosti zo sveta IT — kvantové počítače a budúcnosť</h3>
+          <p class="blog-card-intro">Google a IBM predstavili kvantové procesory s tisíckami qubitov. Čo to znamená pre bežného používateľa a kedy sa to dotkne nás všetkých?</p>
+          <div class="blog-card-meta">
+            <span>17. apríla 2026</span>
+            <span class="blog-card-read">⏱ 4 min čítania</span>
+          </div>
+        </a>
+
+        <a href="ai.html#co-je-ai" class="blog-card">
+          <div class="blog-card-cat" style="background:#8b5cf615;color:#8b5cf6;">AI Nástroje</div>
+          <h3 class="blog-card-title">Čo je umelá inteligencia a na čo slúži v každodennom živote</h3>
+          <p class="blog-card-intro">Umelá inteligencia nie je len pre vedcov. Zisti, kde ti AI už dnes pomáha — od smartfónu cez vyhľadávanie až po odporúčania na Netflixe.</p>
+          <div class="blog-card-meta">
+            <span>17. apríla 2026</span>
+            <span class="blog-card-read">⏱ 4 min čítania</span>
+          </div>
+        </a>
+
+        <a href="windows11.html#tipy" class="blog-card">
+          <div class="blog-card-cat" style="background:#0078d415;color:#0078d4;">Windows 11</div>
+          <h3 class="blog-card-title">💡 Top tipy pre Windows 11 — skratky a triky, ktoré zmenia prácu</h3>
+          <p class="blog-card-intro">Zbierka najlepších klávesových skratiek, snap layoutov a skrytých nastavení Windows 11, ktoré ti ušetria desiatky minút denne.</p>
+          <div class="blog-card-meta">
+            <span>1. apríla 2026</span>
+            <span class="blog-card-read">⏱ 5 min čítania</span>
+          </div>
+        </a>
+
+        <a href="windows11.html#prechod" class="blog-card">
+          <div class="blog-card-cat" style="background:#0078d415;color:#0078d4;">Windows 11</div>
+          <h3 class="blog-card-title">🔄 Ako prejsť na Windows 11 — krok za krokom bez straty dát</h3>
+          <p class="blog-card-intro">Kompletný návod na upgrade z Windows 10 na Windows 11. Zálohovanie, kompatibilita hardvéru, inštalácia — všetko vysvetlené jednoducho.</p>
+          <div class="blog-card-meta">
+            <span>15. marca 2026</span>
+            <span class="blog-card-read">⏱ 6 min čítania</span>
+          </div>
+        </a>
+
+        <a href="windows11.html#win10" class="blog-card">
+          <div class="blog-card-cat" style="background:#0078d415;color:#0078d4;">Windows 11</div>
+          <h3 class="blog-card-title">Windows 10 je mŕtvy — čo teraz? Prechod na Windows 11</h3>
+          <p class="blog-card-intro">Microsoft ukončil podporu Windows 10 dňa 14. októbra 2025. Čo to znamená pre bezpečnosť tvojho PC a prečo je čas prejsť na Windows 11?</p>
+          <div class="blog-card-meta">
+            <span>14. októbra 2025</span>
+            <span class="blog-card-read">⏱ 4 min čítania</span>
+          </div>
+        </a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom: 0;">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:28px;height:28px;">
+            <rect width="16" height="16" rx="3" fill="#0078d4"/>
+            <rect x="20" width="16" height="16" rx="3" fill="#0078d4" opacity=".75"/>
+            <rect y="20" width="16" height="16" rx="3" fill="#0078d4" opacity=".55"/>
+            <rect x="20" y="20" width="16" height="16" rx="3" fill="#7c3aed"/>
+          </svg>
+          <span class="nav-logo-text">BranislavIT</span>
+        </a>
+        <p>Blog o Windows 11, AI nástrojoch a IT technológiách. Nové články každý týždeň po slovensky.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Windows 11</h4>
+        <ul role="list">
+          <li><a href="#tab-win10" onclick="document.querySelector('[data-tab=tab-win10]').click()">Koniec Windows 10</a></li>
+          <li><a href="#tab-prechod" onclick="document.querySelector('[data-tab=tab-prechod]').click()">Prechod na Win 11</a></li>
+          <li><a href="#tab-funkcie" onclick="document.querySelector('[data-tab=tab-funkcie]').click()">Nové funkcie</a></li>
+          <li><a href="#tab-tipy" onclick="document.querySelector('[data-tab=tab-tipy]').click()">Tipy a rady</a></li>
+          <li><a href="#tab-bezpecnost" onclick="document.querySelector('[data-tab=tab-bezpecnost]').click()">Bezpečnosť</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>AI Nástroje</h4>
+        <ul role="list">
+          <li><a href="ai.html#co-je-ai">Čo je AI?</a></li>
+          <li><a href="ai.html#prompty">Tvorba promptov</a></li>
+          <li><a href="ai.html#obrazky">AI obrázky</a></li>
+          <li><a href="ai.html#kling">Kling AI videá</a></li>
+          <li><a href="ai.html#publer">AI & Publer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Odporúčame</h4>
+        <ul role="list">
+          <li><a href="https://www.gamers-outlet.net/en?tracking=cZfxnjmBhNuS6JaYQco7JESCFtaOSTsiP3LDaichhBrY3t8kxBkCtdm9ec71AJWi" target="_blank" rel="sponsored noopener">Gamers Outlet 🎮</a></li>
+          <li><a href="https://pro.klingai.com/h5-app/invitation?code=7B6SBWEWKXVS" target="_blank" rel="sponsored noopener">Kling AI 🎬</a></li>
+          <li><a href="https://publer.com/Branislav" target="_blank" rel="sponsored noopener">Publer 📅</a></li>
+          <li><a href="https://go.dognet.com/?chid=Y9FA0bsH&url=https%3A%2F%2Fmobilego.sk" target="_blank" rel="sponsored noopener">Mobilego.sk 📱</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="current-year">2026</span> BranislavIT – branislav.website</p>
+      <p class="footer-disclaimer">Niektoré odkazy sú affiliate linky (Dognet, Gamers Outlet, Kling AI, Publer). Nákupom cez tieto odkazy podporíš tento blog bez extra nákladov pre teba.</p>
+    
+                <div class="footer-legal-links">
+          <a href="privacy-policy.html">Ochrana osobných údajov</a>
+          <a href="cookies.html">Cookies</a>
+          <a href="obchodne-podmienky.html">Obchodné podmienky</a>
+          <a href="disclaimer.html">Disclaimer</a>
+          <a href="contact.html">Kontakt</a>
+          <button type="button" onclick="window.openCookieSettings();return false;">Nastavenia cookies</button>
+        </div>
+        <div class="footer-bizinfo">
+          <span><strong>Ing. Branislav Németh – Generaltrade</strong></span>
+          <span>IČO: 51487446</span>
+          <span>Miesto podnikania: Armádna 777/4, 91101 Trenčín</span>
+          <span>Živnostenský register: Okresný úrad Trenčín, č. 840-24688</span>
+        </div>
+      </div>
+  </div>
+</footer>
+
+<script>
+function filterBlog(cat, btn) {
+  document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  var cards = document.querySelectorAll('#blog-grid .blog-card');
+  cards.forEach(function(card) {
+    var cardCat = card.querySelector('.blog-card-cat').textContent.trim();
+    card.style.display = (cat === 'all' || cardCat === cat) ? '' : 'none';
+  });
+  // Featured card
+  var featured = document.querySelector('.blog-featured');
+  if (featured) {
+    var featCat = featured.querySelector('.blog-card-cat').textContent.trim();
+    featured.style.display = (cat === 'all' || featCat === cat) ? '' : 'none';
+  }
+}
+</script>
+</body>
+</html>
