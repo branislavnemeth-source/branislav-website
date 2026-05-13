@@ -601,6 +601,45 @@
     [data-theme="dark"] .dognet-partner-badge { background: #0a3d0a; color: #57d39a; }
     @media(max-width:640px){ .dognet-partner-grid { grid-template-columns: 1fr 1fr; } .dognet-banner-card { flex-direction: column; align-items: flex-start; } }
 </style>
+
+<style>
+/* ── BLOG DROPDOWN NAV ── */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { display: flex; align-items: center; gap: .25rem; cursor: pointer; }
+.nav-dropdown > a::after { content: '▾'; font-size: .7em; opacity: .7; }
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + .5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-divider, #e2e8f0);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  padding: .4rem 0;
+  min-width: 220px;
+  z-index: 9999;
+  white-space: nowrap;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a {
+  display: block;
+  padding: .45rem 1.1rem;
+  color: var(--color-text, #1e293b);
+  font-size: .88rem;
+  text-decoration: none;
+  border-radius: 6px;
+  margin: .1rem .3rem;
+  transition: background .15s;
+}
+.nav-dropdown-menu a:hover { background: var(--color-surface-hover, #f1f5f9); }
+/* Mobile blog links */
+.nav-mobile .nav-mobile-blog-links { display: none; flex-direction: column; padding-left: 1rem; border-left: 2px solid var(--color-store, #0078d4); margin: .2rem 0 .4rem; }
+.nav-mobile .nav-mobile-blog-links.open { display: flex; }
+.nav-mobile .nav-mobile-blog-links a { font-size: .85rem; padding: .3rem 0; color: var(--color-text, #1e293b); }
+</style>
 </head>
 <body>
   <a class="sr-only" href="#main-content">Preskočiť na obsah</a>
@@ -627,7 +666,17 @@
         <li><a href="licencie.html" class="nav-licencie active">🔑 Licencie</a></li>
         <li><a href="kozmetika.html" class="nav-kozmetika">🌿 Kozmetika</a></li>
         <li><a href="it-pomoc.html">🛠️ IT pomoc</a></li>
-        <li><a href="windows11.html">Windows 11</a></li>
+        <li class="nav-dropdown">
+          <a href="windows11.html">📝 Blog</a>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li><a href="windows11.html#win10">⚠️ Koniec Win 10</a></li>
+            <li><a href="windows11.html#prechod">🔄 Prechod na Win 11</a></li>
+            <li><a href="windows11.html#funkcie">✨ Nové funkcie</a></li>
+            <li><a href="windows11.html#tipy">💡 Tipy &amp; Rady</a></li>
+            <li><a href="windows11.html#bezpecnost">🔐 Bezpečnosť</a></li>
+            <li><a href="windows11.html#it-zaujimavosti">💻 IT Zaujímavosti</a></li>
+          </ul>
+        </li>
         <li><a href="ai.html">AI</a></li>
       </ul>
       <div class="nav-actions">
@@ -642,7 +691,15 @@
       <a href="licencie.html" class="active-store active">🔑 Licencie</a>
       <a href="kozmetika.html">🌿 Kozmetika</a>
       <a href="it-pomoc.html">🛠️ IT pomoc</a>
-      <a href="windows11.html">Windows 11</a>
+      <a href="windows11.html" onclick="var s=this.nextElementSibling;s.classList.toggle('open');return false;" style="font-weight:600;">📝 Blog ▾</a>
+      <div class="nav-mobile-blog-links">
+        <a href="windows11.html#win10">⚠️ Koniec Win 10</a>
+        <a href="windows11.html#prechod">🔄 Prechod na Win 11</a>
+        <a href="windows11.html#funkcie">✨ Nové funkcie</a>
+        <a href="windows11.html#tipy">💡 Tipy &amp; Rady</a>
+        <a href="windows11.html#bezpecnost">🔐 Bezpečnosť</a>
+        <a href="windows11.html#it-zaujimavosti">💻 IT Zaujímavosti</a>
+      </div>
       <a href="ai.html">AI</a>
     </nav>
   </header>
