@@ -639,6 +639,7 @@
 .nav-mobile .nav-mobile-blog-links.open { display: flex; }
 .nav-mobile .nav-mobile-blog-links a { font-size: .85rem; padding: .3rem 0; color: var(--color-text, #1e293b); }
 </style>
+  <script src="https://www.paypal.com/sdk/js?client-id=AfygN7JFRxB-lHBvUL6DRNV16uQr7KGDaop9Yk62zyTM3k1XVRTQZmL6YKqRtV8S-3bRUyjr0DMY90PO&currency=EUR&intent=capture&locale=sk_SK&disable-funding=credit,card" data-namespace="paypal_sdk"></script>
 </head>
 <body>
   <a class="sr-only" href="#main-content">Preskočiť na obsah</a>
@@ -1336,8 +1337,8 @@ const VARIANT_QR_CODES = {
     <h2 class="pay-modal-heading">Platba za licenciu</h2>
     <p id="pay-modal-product" class="pay-modal-product"></p>
     <div class="pay-tabs">
-      <button class="pay-tab active" onclick="showPayTab('qr',this)">QR kod</button>
-      <button class="pay-tab" onclick="showPayTab('card',this)">Platba kartou</button>
+      <button class="pay-tab active" onclick="showPayTab('qr',this)">QR kód</button>
+      <button class="pay-tab" onclick="showPayTab('paypal',this)">PayPal</button>
     </div>
     <div id="pay-tab-qr" class="pay-tab-content active">
       <p class="pay-hint">Naskenujte QR kod v bankovej aplikacii (EPC/GiroCode standard &mdash; Tatra, SLSP, CSOB, Revolut a dalsie).</p>
@@ -1345,17 +1346,11 @@ const VARIANT_QR_CODES = {
       <div class="pay-ref-row"><span class="pay-label">Referencia:</span><span id="pay-ref" class="pay-ref-val"></span></div>
       <div class="pay-ref-row"><span class="pay-label">Suma (EUR):</span><span id="pay-amount-qr" class="pay-amount"></span></div>
     </div>
-    <div id="pay-tab-card" class="pay-tab-content">
-      <div class="pay-card-info">
-        <div class="pay-card-icon">&#x1F4B3;</div>
-        <p><strong>Platba kartou cez Revolut</strong> – rýchla a bezpečná platba priamo cez Revolut.</p>
-        <p id="pay-card-revolut-info" style="font-size:.85rem;color:var(--text-secondary,#64748b)">Suma: <strong id="pay-card-amount"></strong> &nbsp;|&nbsp; Ref: <strong id="pay-card-ref"></strong></p>
-        <a id="pay-revolut-btn" href="#" target="_blank" rel="noopener noreferrer"
-           style="display:inline-block;margin-top:1rem;padding:.7rem 1.6rem;background:#0075eb;color:#fff;border-radius:8px;font-weight:700;text-decoration:none;font-size:1rem;letter-spacing:.01em;">
-          💳 Zaplatiť cez Revolut
-        </a>
-        <p class="pay-hint" style="margin-top:.75rem">Po zaplatení zašlite potvrdenie na <a href="mailto:postmaster@generaltrade.sk">postmaster@generaltrade.sk</a> &mdash; licenčný kľúč dostanete obratom.</p>
-      </div>
+    <div id="pay-tab-paypal" class="pay-tab-content">
+      <p class="pay-hint" style="margin-bottom:.75rem">Bezpečná platba cez PayPal — kreditná karta, debetná karta alebo PayPal účet.</p>
+      <p id="pay-paypal-amount-info" style="font-size:.88rem;color:var(--text-secondary,#64748b);margin-bottom:1rem">Suma: <strong id="pay-paypal-amount-display"></strong></p>
+      <div id="pay-paypal-buttons-container"></div>
+      <p class="pay-hint" style="margin-top:.75rem">Po zaplatení dostanete licenčný kľúč na e-mail — zvyčajne do 24 hodín.</p>
     </div>
     <div style="margin-top:1.25rem;border-top:1px solid var(--border,#e2e8f0);padding-top:1rem">
       <button onclick="goBackToOrder()" style="background:var(--bg-secondary,#f1f5f9);color:var(--text-secondary,#64748b);border:1.5px solid var(--border,#e2e8f0);border-radius:10px;padding:.6rem 1.2rem;font-size:.92rem;font-weight:700;cursor:pointer;">← Späť na objednávku</button>
@@ -1381,15 +1376,12 @@ function openPayModal(idx, qty, variantIdx){
   document.getElementById('pay-ref').textContent=useRef;
   var amtStr=totalAmt+' EUR';
   document.getElementById('pay-amount-qr').textContent=amtStr;
-  // Revolut card tab
-  var revolutAmtCents=Math.round(parseFloat(totalAmt)*100);
-  var revolutUrl='https://revolut.me/branislavn74?amount='+revolutAmtCents+'&note='+encodeURIComponent(useRef);
-  var revBtn=document.getElementById('pay-revolut-btn');
-  if(revBtn)revBtn.href=revolutUrl;
-  var cardAmt=document.getElementById('pay-card-amount');
-  if(cardAmt)cardAmt.textContent=amtStr;
-  var cardRef=document.getElementById('pay-card-ref');
-  if(cardRef)cardRef.textContent=useRef;
+  // PayPal tab — nastav sumu a inicializuj buttons
+  var ppAmtDisplay=document.getElementById('pay-paypal-amount-display');
+  if(ppAmtDisplay)ppAmtDisplay.textContent=amtStr;
+  _paypalCurrentAmount=totalAmt;
+  _paypalCurrentRef=useRef;
+  _paypalCurrentProduct=p.name+(qty>1?' ('+qty+' ks)':'');
   document.querySelectorAll('.pay-tab').forEach(function(b){b.classList.remove('active');});
   document.querySelectorAll('.pay-tab-content').forEach(function(c){c.classList.remove('active');});
   document.querySelector('.pay-tab').classList.add('active');
@@ -1405,11 +1397,52 @@ function goBackToOrder(){
   document.getElementById('payModal').style.display='none';
   openOrderModal(_orderIdx);
 }
+var _paypalCurrentAmount='0';
+var _paypalCurrentRef='';
+var _paypalCurrentProduct='';
+var _paypalButtonsRendered=false;
+
+function renderPayPalButtons(){
+  if(_paypalButtonsRendered)return;
+  var container=document.getElementById('pay-paypal-buttons-container');
+  if(!container||typeof paypal_sdk==='undefined')return;
+  container.innerHTML='';
+  _paypalButtonsRendered=true;
+  paypal_sdk.Buttons({
+    style:{layout:'vertical',color:'gold',shape:'rect',label:'pay',height:45},
+    createOrder:function(data,actions){
+      return actions.order.create({
+        purchase_units:[{
+          amount:{value:_paypalCurrentAmount,currency_code:'EUR'},
+          description:_paypalCurrentProduct,
+          custom_id:_paypalCurrentRef
+        }]
+      });
+    },
+    onApprove:function(data,actions){
+      return actions.order.capture().then(function(details){
+        alert('Platba úspešná! Potvrdenie bolo odoslané na váš e-mail. Licenčný kľúč dostanete do 24 hodín.');
+        closePayModal();
+      });
+    },
+    onError:function(err){
+      console.error('PayPal error:',err);
+      alert('Chyba pri PayPal platbe. Skúste znovu alebo použite QR kód.');
+    }
+  }).render('#pay-paypal-buttons-container');
+}
+
 function showPayTab(name,btn){
   document.querySelectorAll('.pay-tab-content').forEach(function(el){el.classList.remove('active');});
   document.querySelectorAll('.pay-tab').forEach(function(el){el.classList.remove('active');});
   document.getElementById('pay-tab-'+name).classList.add('active');
   if(btn)btn.classList.add('active');
+  if(name==='paypal'){
+    _paypalButtonsRendered=false;
+    var c=document.getElementById('pay-paypal-buttons-container');
+    if(c)c.innerHTML='';
+    renderPayPalButtons();
+  }
 }
 var _orderIdx = 0;
 var _orderUnitPrice = 0;
