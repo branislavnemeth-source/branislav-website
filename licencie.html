@@ -1514,6 +1514,19 @@ function slugify(name) {
   return 'licencia-' + name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g,'') + '.html';
 }
 
+// Hash → filterCat (napr. #sekcia-antivirus → filterCat('antivirus'))
+(function(){
+  function handleHash(hash) {
+    if (!hash) return;
+    var m = hash.replace('#','').match(/^sekcia-(.+)$/);
+    if (m && typeof window.filterCat === 'function') {
+      window.filterCat(m[1]);
+    }
+  }
+  window.addEventListener('load', function(){ handleHash(window.location.hash); });
+  window.addEventListener('hashchange', function(){ handleHash(window.location.hash); });
+})();
+
 // Auto-open order form z URL parametra ?order=IDX&variant=VI
 (function(){
   var params = new URLSearchParams(window.location.search);
