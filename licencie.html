@@ -639,6 +639,7 @@
 .nav-mobile .nav-mobile-blog-links.open { display: flex; }
 .nav-mobile .nav-mobile-blog-links a { font-size: .85rem; padding: .3rem 0; color: var(--color-text, #1e293b); }
 </style>
+  <script src="https://www.paypal.com/sdk/js?client-id=AeU7kuo7CQELzHfFi7Onnyw3Lr4RCinfosQVKrdimtxYWAd7QxNzjCKaGnp7WfG3_dz9yCrjPQfI2Ni2&currency=EUR&locale=sk_SK&intent=capture" data-namespace="paypal_sdk"></script>
 </head>
 <body>
   <a class="sr-only" href="#main-content">Preskočiť na obsah</a>
@@ -1347,14 +1348,11 @@ const VARIANT_QR_CODES = {
     </div>
     <div id="pay-tab-paypal" class="pay-tab-content">
       <div style="text-align:center;padding:1rem 0;">
-        <p style="font-size:.9rem;color:var(--color-muted,#64748b);margin-bottom:1.2rem;">Rýchla platba cez PayPal. Karta alebo PayPal účet. Suma sa predvyplní automaticky.</p>
+        <p style="font-size:.9rem;color:var(--color-muted,#64748b);margin-bottom:.8rem;">Plaťte kartou alebo cez PayPal účet. Bezpečné a rýchle.</p>
         <div style="margin-bottom:1rem;font-size:.95rem;"><span style="color:var(--color-muted,#64748b)">Suma:</span> <strong id="pay-paypal-amount" style="font-size:1.1rem;"></strong></div>
-        <a id="pay-paypal-btn" href="#" target="_blank" rel="noopener noreferrer"
-           style="display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 2rem;background:#FFD140;color:#1a1a1a;border-radius:8px;font-weight:700;text-decoration:none;font-size:1rem;letter-spacing:.01em;border:1px solid #f0c000;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 21.75H4.65L6.75 8.25h5.25c2.25 0 4.5 1.125 4.5 3.75 0 3-2.25 4.875-5.25 4.875H9l-.75 4.875h-2.25" fill="#003087"/><path d="M9.75 13.5l.75-5.25h2.25c1.875 0 3 .75 3 2.625C15.75 13.125 14.25 13.5 12.75 13.5H9.75z" fill="#009cde"/></svg>
-          Zaplatiť cez PayPal
-        </a>
-        <p style="font-size:.78rem;color:var(--color-muted,#94a3b8);margin-top:1rem;">Po zaplatení zašlite potvrdenie na <a href="mailto:postmaster@generaltrade.sk" style="color:var(--color-store,#0078d4);">postmaster@generaltrade.sk</a> — licenciu dostanete do 24 hodín.</p>
+        <div id="paypal-button-container" style="max-width:300px;margin:0 auto;min-height:45px;"></div>
+        <div id="paypal-loading" style="color:var(--color-muted,#94a3b8);font-size:.85rem;padding:.5rem;">Načítavam PayPal...</div>
+        <p style="font-size:.78rem;color:var(--color-muted,#94a3b8);margin-top:1rem;">Po zaplatení zašleme licenciu na váš email automaticky.</p>
       </div>
     </div>
     <div id="pay-tab-card" class="pay-tab-content">
@@ -1402,13 +1400,18 @@ function openPayModal(idx, qty, variantIdx){
   if(cardAmt)cardAmt.textContent=amtStr;
   var cardRef=document.getElementById('pay-card-ref');
   if(cardRef)cardRef.textContent=useRef;
-  // PayPal link
-  var ppAmt = parseFloat(totalAmt).toFixed(2);
-  var ppName = encodeURIComponent((varData ? varData.name : p.name));
-  var ppBtn = document.getElementById('pay-paypal-btn');
-  if(ppBtn) ppBtn.href = 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=postmaster%40generaltrade.sk&item_name=' + ppName + '&amount=' + ppAmt + '&currency_code=EUR&no_shipping=1&no_note=0&bn=PP-BuyNowBF';
+  // PayPal SDK — nastav globálne premenné
+  _ppAmount = parseFloat(totalAmt).toFixed(2);
+  _ppProductName = (varData ? varData.name : p.name) + ' — licencia BranislavIT';
+  _ppOrderEmail = '';
+  _ppRendered = false;
   var ppAmtEl = document.getElementById('pay-paypal-amount');
-  if(ppAmtEl) ppAmtEl.textContent = ppAmt.replace('.',',') + ' €';
+  if(ppAmtEl) ppAmtEl.textContent = _ppAmount.replace('.',',') + ' €';
+  // Resetni PayPal container pre nový produkt
+  var ppContainer = document.getElementById('paypal-button-container');
+  if(ppContainer) ppContainer.innerHTML = '';
+  var ppLoading = document.getElementById('paypal-loading');
+  if(ppLoading) { ppLoading.style.display = 'block'; ppLoading.textContent = 'Načítavam PayPal...'; }
   document.querySelectorAll('.pay-tab').forEach(function(b){b.classList.remove('active');});
   document.querySelectorAll('.pay-tab-content').forEach(function(c){c.classList.remove('active');});
   document.querySelector('.pay-tab').classList.add('active');
@@ -1474,6 +1477,8 @@ function submitOrder() {
   if (!priezvisko) { document.getElementById('order-priezvisko').focus(); alert('Zadajte priezvisko.'); return; }
   if (!email || !email.includes('@')) { document.getElementById('order-email').focus(); alert('Zadajte platný e-mail.'); return; }
 
+  _ppOrderEmail = email;
+  _ppOrderName = meno + ' ' + priezvisko;
   closeOrderModal();
   openPayModal(_orderIdx, qty, _orderVariantIdx);
 }
@@ -1505,6 +1510,84 @@ window.addEventListener('load',function(){
   var m=document.getElementById('payModal');
   if(m)m.addEventListener('click',function(e){if(e.target===this)closePayModal();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closePayModal();});
+});
+</script>
+
+<script>
+// ── PayPal SDK Smart Buttons ──
+var _ppAmount = '0.00';
+var _ppProductName = '';
+var _ppOrderEmail = '';
+var _ppOrderName = '';
+var _ppRendered = false;
+
+function initPayPalButtons() {
+  var container = document.getElementById('paypal-button-container');
+  var loading = document.getElementById('paypal-loading');
+  if (!container) return;
+
+  // Vymaž predchádzajúce buttons
+  container.innerHTML = '';
+  _ppRendered = false;
+
+  if (typeof paypal_sdk === 'undefined') {
+    if (loading) loading.textContent = 'PayPal nie je dostupný.';
+    return;
+  }
+  if (loading) loading.style.display = 'none';
+
+  paypal_sdk.Buttons({
+    style: {
+      layout: 'vertical',
+      color:  'gold',
+      shape:  'rect',
+      label:  'pay',
+      height: 45
+    },
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: _ppAmount,
+            currency_code: 'EUR'
+          },
+          description: _ppProductName,
+          custom_id: _ppOrderEmail
+        }],
+        payer: {
+          email_address: _ppOrderEmail || undefined
+        }
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        closePayModal();
+        var msg = 'Platba prebehla úspešne!\n\nČíslo transakcie: ' + details.id + '\n\nLicenciu zašleme na ' + (_ppOrderEmail || 'váš email') + ' do 24 hodín.';
+        alert(msg);
+      });
+    },
+    onError: function(err) {
+      console.error('PayPal error:', err);
+      alert('Chyba pri PayPal platbe. Skúste znova alebo použite iný spôsob platby.');
+    },
+    onCancel: function() {
+      // používateľ zrušil — nič nerobíme
+    }
+  }).render('#paypal-button-container').then(function(){
+    _ppRendered = true;
+  });
+}
+
+// Zachytíme klik na PayPal záložku a inicializujeme buttons
+document.addEventListener('DOMContentLoaded', function() {
+  // Override showPayTab pre PayPal init
+  var _origShowPayTab = window.showPayTab;
+  window.showPayTab = function(tab, btn) {
+    if (_origShowPayTab) _origShowPayTab(tab, btn);
+    if (tab === 'paypal' && !_ppRendered) {
+      initPayPalButtons();
+    }
+  };
 });
 </script>
 </body>
