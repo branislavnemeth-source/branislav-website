@@ -270,13 +270,13 @@
 
 <div class="blog-grid-wrap">
   
-        <a href="windows11.html#bezpecnost" class="blog-card blog-featured">
-          <div class="blog-card-cat" style="background:#ef444415;color:#ef4444;">IT Bezpečnosť</div>
-          <h2 class="blog-card-title">Bezpečnosť vo Windows 11: BitLocker, TPM 2.0 a ochrana dát</h2>
-          <p class="blog-card-intro">Windows 11 bol od základov navrhnutý s bezpečnosťou na prvom mieste. TPM 2.0 požiadavka, BitLocker šifrovanie a Windows Hello — zisti, ako chrániť svoje dáta.</p>
+        <a id="blog-featured-card" href="#" class="blog-card blog-featured">
+          <div id="blog-featured-cat" class="blog-card-cat"></div>
+          <h2 id="blog-featured-title" class="blog-card-title"></h2>
+          <p id="blog-featured-intro" class="blog-card-intro"></p>
           <div class="blog-card-meta">
-            <span>13. mája 2026</span>
-            <span class="blog-card-read">⏱ 5 min čítania</span>
+            <span id="blog-featured-date"></span>
+            <span id="blog-featured-read" class="blog-card-read"></span>
           </div>
         </a>
   <div class="blog-grid" id="blog-grid">
@@ -475,6 +475,49 @@ function filterBlog(cat, btn) {
     featured.style.display = (cat === 'all' || featCat === cat) ? '' : 'none';
   }
 }
+</script>
+
+<script>
+(function(){
+  function initFeatured() {
+    var grid = document.getElementById('blog-grid');
+    if (!grid) return;
+    var first = grid.querySelector('a.blog-card');
+    if (!first) return;
+
+    var fc = document.getElementById('blog-featured-card');
+    var ft = document.getElementById('blog-featured-title');
+    var fi = document.getElementById('blog-featured-intro');
+    var fd = document.getElementById('blog-featured-date');
+    var fcat = document.getElementById('blog-featured-cat');
+    var fr = document.getElementById('blog-featured-read');
+
+    if (!fc) return;
+
+    fc.href = first.href;
+
+    var cat = first.querySelector('.blog-card-cat');
+    if (cat && fcat) { fcat.textContent = cat.textContent; fcat.style.cssText = cat.style.cssText; }
+
+    var title = first.querySelector('.blog-card-title');
+    if (title && ft) ft.textContent = title.textContent;
+
+    var intro = first.querySelector('.blog-card-intro');
+    if (intro && fi) fi.textContent = intro.textContent;
+
+    var meta = first.querySelectorAll('.blog-card-meta span');
+    if (meta[0] && fd) fd.textContent = meta[0].textContent;
+    if (meta[1] && fr) fr.textContent = meta[1].textContent;
+
+    // Skry prvú kartu z gridu (je už vo featured)
+    first.style.display = 'none';
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFeatured);
+  } else {
+    initFeatured();
+  }
+})();
 </script>
 </body>
 </html>
