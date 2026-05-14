@@ -136,6 +136,7 @@
 .nav-mobile .nav-mobile-blog-links.open { display: flex; }
 .nav-mobile .nav-mobile-blog-links a { font-size: .85rem; padding: .3rem 0; color: var(--color-text, #1e293b); }
 </style>
+  <script src="https://www.paypal.com/sdk/js?client-id=AeU7kuo7CQELzHfFi7Onnyw3Lr4RCinfosQVKrdimtxYWAd7QxNzjCKaGnp7WfG3_dz9yCrjPQfI2Ni2&currency=EUR&locale=sk_SK&intent=capture" data-namespace="paypal_sdk"></script>
 </head>
 <body>
   <a class="sr-only" href="#main-content">Preskočiť na obsah</a>
@@ -222,7 +223,14 @@
             <div class="var-qr-ref" id="var-qr-ref"></div>
             <div class="var-qr-note">Naskenuj pre platbu (IBAN/Revolut)</div>
           </div>
-        </div>
+        
+          <!-- PayPal Smart Buttons -->
+          <div id="paypal-section" style="margin-top:1rem;text-align:center;">
+            <div style="font-size:.82rem;color:var(--color-text-faint,#94a3b8);margin-bottom:.5rem;">alebo zaplatiť cez PayPal</div>
+            <div id="paypal-button-container" style="max-width:280px;margin:0 auto;min-height:45px;"></div>
+            <div id="paypal-loading" style="font-size:.8rem;color:var(--color-text-faint,#94a3b8);padding:.3rem;">Načítavam PayPal...</div>
+          </div>
+</div>
 
         <!-- Info + varianty -->
         <div style="flex:1;min-width:220px;">
@@ -326,5 +334,85 @@
     selectVariant(vi !== null ? parseInt(vi) : 0);
   })();
   </script>
+
+<script>
+// PayPal SDK — variant subpage
+(function(){
+  function getCurrentAmount(){
+    // Skús získať cenu z DOM
+    var el = document.getElementById('var-price') || document.querySelector('.var-price-display');
+    if(el){
+      var txt = el.textContent.replace(/[^0-9,\.]/g,'').replace(',','.');
+      var val = parseFloat(txt);
+      if(!isNaN(val)) return val.toFixed(2);
+    }
+    // Fallback: VARIANTS[selectedVariant]
+    if(typeof VARIANTS !== 'undefined' && typeof selectedVariant !== 'undefined'){
+      return VARIANTS[selectedVariant].price.toFixed(2);
+    }
+    return null;
+  }
+  function getProductName(){
+    var h1 = document.querySelector('h1');
+    return h1 ? h1.textContent.trim() : document.title;
+  }
+  function getVariantLabel(){
+    if(typeof VARIANTS !== 'undefined' && typeof selectedVariant !== 'undefined'){
+      return VARIANTS[selectedVariant].label || '';
+    }
+    return '';
+  }
+
+  var _ppRendered = false;
+
+  function renderPayPal(){
+    var container = document.getElementById('paypal-button-container');
+    var loading = document.getElementById('paypal-loading');
+    if(!container) return;
+    if(_ppRendered){ container.innerHTML = ''; _ppRendered = false; }
+
+    if(typeof paypal_sdk === 'undefined'){
+      if(loading) loading.textContent = 'PayPal nedostupný.';
+      return;
+    }
+    if(loading) loading.style.display = 'none';
+
+    paypal_sdk.Buttons({
+      style:{ layout:'vertical', color:'gold', shape:'rect', label:'pay', height:42 },
+      createOrder: function(data, actions){
+        var amt = getCurrentAmount();
+        var name = getProductName() + (getVariantLabel() ? ' — ' + getVariantLabel() : '');
+        return actions.order.create({
+          purchase_units:[{
+            amount:{ value: amt, currency_code:'EUR' },
+            description: name
+          }]
+        });
+      },
+      onApprove: function(data, actions){
+        return actions.order.capture().then(function(details){
+          alert('Platba prebehla úspešne!\nTransakcia: ' + details.id + '\nLicenciu zašleme na váš email do 24 hodín.');
+        });
+      },
+      onError: function(err){
+        console.error('PayPal error:',err);
+        alert('Chyba pri PayPal platbe. Skúste znova alebo použite QR platbu.');
+      }
+    }).render('#paypal-button-container').then(function(){ _ppRendered = true; });
+  }
+
+  // Renderuj po načítaní stránky
+  window.addEventListener('load', function(){
+    renderPayPal();
+    // Re-render pri zmene variantu
+    var varBtns = document.querySelectorAll('.var-btn,[data-var]');
+    varBtns.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        setTimeout(function(){ _ppRendered = false; renderPayPal(); }, 100);
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
