@@ -1335,14 +1335,27 @@ const VARIANT_QR_CODES = {
     <h2 class="pay-modal-heading">Platba za licenciu</h2>
     <p id="pay-modal-product" class="pay-modal-product"></p>
     <div class="pay-tabs">
-      <button class="pay-tab active" onclick="showPayTab('qr',this)">QR kod</button>
-      <button class="pay-tab" onclick="showPayTab('card',this)">Platba kartou</button>
+      <button class="pay-tab active" onclick="showPayTab('qr',this)">QR kód</button>
+      <button class="pay-tab" onclick="showPayTab('paypal',this)">PayPal</button>
+      <button class="pay-tab" onclick="showPayTab('card',this)">Revolut</button>
     </div>
     <div id="pay-tab-qr" class="pay-tab-content active">
       <p class="pay-hint">Naskenujte QR kod v bankovej aplikacii (EPC/GiroCode standard &mdash; Tatra, SLSP, CSOB, Revolut a dalsie).</p>
       <div class="pay-qr-wrap"><img id="pay-qr-img" src="" alt="QR platba" class="pay-qr-img" /></div>
       <div class="pay-ref-row"><span class="pay-label">Referencia:</span><span id="pay-ref" class="pay-ref-val"></span></div>
       <div class="pay-ref-row"><span class="pay-label">Suma (EUR):</span><span id="pay-amount-qr" class="pay-amount"></span></div>
+    </div>
+    <div id="pay-tab-paypal" class="pay-tab-content">
+      <div style="text-align:center;padding:1rem 0;">
+        <p style="font-size:.9rem;color:var(--color-muted,#64748b);margin-bottom:1.2rem;">Rýchla platba cez PayPal. Karta alebo PayPal účet. Suma sa predvyplní automaticky.</p>
+        <div style="margin-bottom:1rem;font-size:.95rem;"><span style="color:var(--color-muted,#64748b)">Suma:</span> <strong id="pay-paypal-amount" style="font-size:1.1rem;"></strong></div>
+        <a id="pay-paypal-btn" href="#" target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 2rem;background:#FFD140;color:#1a1a1a;border-radius:8px;font-weight:700;text-decoration:none;font-size:1rem;letter-spacing:.01em;border:1px solid #f0c000;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 21.75H4.65L6.75 8.25h5.25c2.25 0 4.5 1.125 4.5 3.75 0 3-2.25 4.875-5.25 4.875H9l-.75 4.875h-2.25" fill="#003087"/><path d="M9.75 13.5l.75-5.25h2.25c1.875 0 3 .75 3 2.625C15.75 13.125 14.25 13.5 12.75 13.5H9.75z" fill="#009cde"/></svg>
+          Zaplatiť cez PayPal
+        </a>
+        <p style="font-size:.78rem;color:var(--color-muted,#94a3b8);margin-top:1rem;">Po zaplatení zašlite potvrdenie na <a href="mailto:postmaster@generaltrade.sk" style="color:var(--color-store,#0078d4);">postmaster@generaltrade.sk</a> — licenciu dostanete do 24 hodín.</p>
+      </div>
     </div>
     <div id="pay-tab-card" class="pay-tab-content">
       <div class="pay-card-info">
@@ -1389,6 +1402,13 @@ function openPayModal(idx, qty, variantIdx){
   if(cardAmt)cardAmt.textContent=amtStr;
   var cardRef=document.getElementById('pay-card-ref');
   if(cardRef)cardRef.textContent=useRef;
+  // PayPal link
+  var ppAmt = parseFloat(totalAmt).toFixed(2);
+  var ppName = encodeURIComponent((varData ? varData.name : p.name));
+  var ppBtn = document.getElementById('pay-paypal-btn');
+  if(ppBtn) ppBtn.href = 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=postmaster%40generaltrade.sk&item_name=' + ppName + '&amount=' + ppAmt + '&currency_code=EUR&no_shipping=1&no_note=0&bn=PP-BuyNowBF';
+  var ppAmtEl = document.getElementById('pay-paypal-amount');
+  if(ppAmtEl) ppAmtEl.textContent = ppAmt.replace('.',',') + ' €';
   document.querySelectorAll('.pay-tab').forEach(function(b){b.classList.remove('active');});
   document.querySelectorAll('.pay-tab-content').forEach(function(c){c.classList.remove('active');});
   document.querySelector('.pay-tab').classList.add('active');
@@ -1404,25 +1424,12 @@ function goBackToOrder(){
   document.getElementById('payModal').style.display='none';
   openOrderModal(_orderIdx);
 }
-function showPayTab(name,btn){
-  document.querySelectorAll('.pay-tab-content').forEach(function(el){el.classList.remove('active');});
-  document.querySelectorAll('.pay-tab').forEach(function(el){el.classList.remove('active');});
-  document.getElementById('pay-tab-'+name).classList.add('active');
-  if(btn)btn.classList.add('active');
-}
-var _orderIdx = 0;
-var _orderUnitPrice = 0;
-
-var _orderVariantIdx = null;
-
-function openOrderModal(idx, variantIdx) {
-  _orderIdx = idx;
-  _orderVariantIdx = (variantIdx !== undefined && variantIdx !== null) ? variantIdx : null;
-  var p = PRODUCTS[idx];
-  // Nastav cenu: variant alebo základná
-  if (_orderVariantIdx !== null && VARIANT_QR_CODES[idx] && VARIANT_QR_CODES[idx][_orderVariantIdx]) {
-    var vv = VARIANT_QR_CODES[idx][_orderVariantIdx];
-    _orderUnitPrice = parseFloat(vv.price || vv.amount);
+function showPayTab(tab, btn) {
+    document.querySelectorAll('.pay-tab-content').forEach(function(el){ el.classList.remove('active'); });
+    document.querySelectorAll('.pay-tab').forEach(function(el){ el.classList.remove('active'); });
+    var el = document.getElementById('pay-tab-' + tab);
+    if (el) el.classList.add('active');
+    if (btn) btn.classList.add('active');
   } else {
     var d = QR_CODES[idx];
     _orderUnitPrice = parseFloat(d.amount);
