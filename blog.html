@@ -460,10 +460,30 @@
 </footer>
 
 <script>
+var SK_MONTHS = {
+  'januára':0,'februára':1,'marca':2,'apríla':3,'mája':4,'júna':5,
+  'júla':6,'augusta':7,'septembra':8,'októbra':9,'novembra':10,'decembra':11
+};
+function parseSKDate(str) {
+  var m = str.trim().match(/(\d+)\.\s*(\S+)\s*(\d{4})/);
+  if (!m) return 0;
+  var month = SK_MONTHS[m[2].toLowerCase()];
+  return new Date(parseInt(m[3]), month !== undefined ? month : 0, parseInt(m[1])).getTime();
+}
+function sortCards(grid) {
+  var cards = Array.from(grid.querySelectorAll('a.blog-card'));
+  cards.sort(function(a, b) {
+    var da = parseSKDate((a.querySelector('.blog-card-meta span') || {}).textContent || '');
+    var db = parseSKDate((b.querySelector('.blog-card-meta span') || {}).textContent || '');
+    return db - da;
+  });
+  cards.forEach(function(c) { grid.appendChild(c); });
+}
 function filterBlog(cat, btn) {
   document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  var cards = document.querySelectorAll('#blog-grid .blog-card');
+  var grid = document.getElementById('blog-grid');
+  var cards = grid.querySelectorAll('a.blog-card');
   cards.forEach(function(card) {
     var cardCat = card.querySelector('.blog-card-cat').textContent.trim();
     card.style.display = (cat === 'all' || cardCat === cat) ? '' : 'none';
@@ -471,10 +491,16 @@ function filterBlog(cat, btn) {
   // Featured card
   var featured = document.querySelector('.blog-featured');
   if (featured) {
-    var featCat = featured.querySelector('.blog-card-cat').textContent.trim();
-    featured.style.display = (cat === 'all' || featCat === cat) ? '' : 'none';
+    var featCat = featured.querySelector('#blog-featured-cat');
+    var featText = featCat ? featCat.textContent.trim() : '';
+    featured.style.display = (cat === 'all' || featText === cat) ? '' : 'none';
   }
 }
+// Inicializačné zoradenie
+document.addEventListener('DOMContentLoaded', function() {
+  var grid = document.getElementById('blog-grid');
+  if (grid) sortCards(grid);
+});
 </script>
 
 <script>
