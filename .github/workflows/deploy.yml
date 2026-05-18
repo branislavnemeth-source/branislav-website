@@ -15,6 +15,14 @@ jobs:
       - name: Checkout repozitára
         uses: actions/checkout@v4
 
+      - name: Nastavenie Pythonu
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Cenová poistka (porovnanie HTML s prices.json)
+        run: python3 scripts/check_prices.py
+
       - name: Deploy cez SFTP na Hostinger
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
