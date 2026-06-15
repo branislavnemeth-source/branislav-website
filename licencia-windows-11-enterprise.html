@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Windows 11 Enterprise – 16,52 € | BranislavIT</title>
+  <title>Windows 11 Enterprise – cenová ponuka na dopyt | BranislavIT</title>
   <meta name="description" content="Windows 11 Enterprise je navrhnutý pre stredné a veľké organizácie, ktoré potrebujú pokročilé bezpečnostné funkcie, správu zariadení a možnosť práce v">
   <link rel="stylesheet" href="../css/style.css">
   <style>
@@ -190,19 +190,18 @@
         <div class="prod-price-box">
           <div>
             <div class="prod-price-label">Cena s DPH</div>
-            <div class="prod-price">16,52 €</div>
+            <div class="prod-price" style="font-size:1.6rem">od 10,39 €</div>
+            <div class="prod-price-label" style="margin-top:.25rem">Orientačne — ponuka na mieru</div>
           </div>
+        </div>
         </div>
 
         <p class="prod-desc">Windows 11 Enterprise je navrhnutý pre stredné a veľké organizácie, ktoré potrebujú pokročilé bezpečnostné funkcie, správu zariadení a možnosť práce v hybridnom prostredí. BranislavIT</p>
 
-        <button class="prod-cta-btn" onclick="openOrderFromPage()">🛒 Objednať a zaplatiť</button>
+        <a class="prod-cta-btn" href="mailto:postmaster@generaltrade.sk?subject=Dopyt%3A%20Windows%2011%20Enterprise&body=Dobr%C3%BD%20de%C5%88%2C%0A%0Am%C3%A1m%20z%C3%A1ujem%20o%20cenov%C3%BA%20ponuku%20na%20produkt%3A%0AWindows%2011%20Enterprise%0A%0APros%C3%ADm%20o%20zaslanie%20ceny%20a%20podmienok%20dodania.%0A%0A%C4%8Eakujem%2C%0A" style="background:#0078d4">✉️ Zaslať dopyt</a>
 
-        <div class="qr-inline-wrap" id="qr-wrap" style="display:none">
-          <img id="qr-img" src="" alt="QR platba">
-          <div class="qr-inline-label">QR platba · LIC008</div>
         </div>
-      </div>
+    </div>
     </div>
 
     <!-- Popis -->
@@ -266,22 +265,7 @@ Kľúčové vlastnosti zahŕňajú pokročilé zabezpečenie (Windows Defender A
   </div>
 </footer>
 
-<script>
-// QR kód načítaný z licencie.html cez sessionStorage alebo priamo z EPC dát
-function openOrderFromPage() {
-  // Prejdi na licencie.html s parametrom pre otvorenie objednávky
-  window.location.href = 'licencie.html?order=7';
-}
 
-// Načítaj QR z licencie.html ak je dostupný
-(function() {
-  var stored = sessionStorage.getItem('qr_7');
-  if (stored) {
-    document.getElementById('qr-img').src = stored;
-    document.getElementById('qr-wrap').style.display = 'block';
-  }
-})();
-</script>
 <script src="../js/main.js" defer></script>
 <script src="../js/cookie-consent.js" defer></script>
 <script>
