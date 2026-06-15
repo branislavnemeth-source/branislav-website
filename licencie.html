@@ -1158,13 +1158,12 @@
         const badge = getBadge(p.cat);
         const desc = p.desc.length > 95 ? p.desc.slice(0, 93) + '\u2026' : p.desc;
         const priceHtml = `<span class="lic-card-price" style="font-size:1.05rem">${PRICE_RANGE[p.cat] || 'Cena na dopyt'}</span><br><span style="font-size:.72rem;color:var(--text-secondary,#64748b);font-weight:500">Orientačne — ponuka na mieru</span>`;
-        const pageUrl = 'licencia-' + p.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'') + '.html';
         const fallbackIcon = p.cat === 'windows' ? '🪟' : (p.cat === 'antivirus' ? '🛡️' : '📄');
-        const imgHtml = `<a href="${pageUrl}" class="lic-card-img-link" tabindex="-1"><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.lic-img-fallback').style.display='flex'"><span class="lic-img-fallback" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:3rem;">${fallbackIcon}</span></a>`;
+        const imgHtml = `<div class="lic-card-img-link"><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.lic-img-fallback').style.display='flex'"><span class="lic-img-fallback" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:3rem;">${fallbackIcon}</span></div>`;
         return `<article class="lic-card" role="listitem">
           <div class="lic-card-img">${imgHtml}${badge}</div>
           <div class="lic-card-body">
-            <a href="${pageUrl}" class="lic-card-name-link"><h3 class="lic-card-name">${p.name}</h3></a>
+            <h3 class="lic-card-name">${p.name}</h3>
             <p class="lic-card-desc">${desc}</p>
           </div>
           <div class="lic-card-footer" style="display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap">
