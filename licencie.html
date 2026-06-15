@@ -341,7 +341,7 @@
       font-weight: 500;
     }
     .lic-buy-btn {
-      background: #44c38a;
+              background: #0078d4;
       color: #fff;
       font-size: .78rem;
       font-weight: 700;
@@ -351,7 +351,7 @@
       transition: background .15s;
       white-space: nowrap;
     }
-    .lic-buy-btn:hover { background: #2da66e; }
+            .lic-buy-btn:hover { background: #005fa3; }
 
     /* ── No results ── */
     .no-results {
@@ -1242,7 +1242,7 @@ const VARIANT_QR_CODES = {
           </div>
           <div class="lic-card-footer">
             ${priceHtml}
-            ${p.price ? `<button class="lic-buy-btn" onclick="openOrderModal(${p.idx})" type="button">Objednať a zaplatiť →</button>` : ''}
+                  `<button class="lic-buy-btn" onclick="openInquiryModal(${p.idx})" type="button">&#128231; Zaslat dopyt →</button>` : ''
           </div>
         </article>`;
       }
@@ -1550,8 +1550,7 @@ function slugify(name) {
     var vi = params.get('variant');
     var variantIdx = (vi !== null && !isNaN(parseInt(vi))) ? parseInt(vi) : null;
     if (!isNaN(idx) && idx >= 0 && idx < PRODUCTS.length) {
-      setTimeout(function(){ openOrderModal(idx, variantIdx); }, 400);
-    }
+            setTimeout(function(){ openInquiryModal(idx); }, 400);
   }
 })();
 
@@ -1571,6 +1570,106 @@ document.addEventListener('click', function(e) {
 });
 </script>
 
+    <style>
+.inq-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:10000;display:none;align-items:center;justify-content:center;padding:1rem}
+.inq-overlay.open{display:flex}
+.inq-modal{background:var(--bg-primary,#fff);border-radius:16px;max-width:520px;width:100%;padding:2rem;position:relative;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.inq-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--text-secondary,#64748b);line-height:1;width:2rem;height:2rem}
+.inq-heading{font-size:1.2rem;font-weight:700;margin:0 0 .35rem;color:var(--text-primary,#0f172a)}
+.inq-product-label{font-size:.82rem;color:var(--text-secondary,#64748b);margin:0 0 1.25rem;padding:.5rem .75rem;background:var(--bg-secondary,#f8fafc);border-radius:8px;border-left:3px solid #0078d4}
+.inq-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.inq-full{grid-column:1/-1}
+.inq-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-secondary,#64748b);margin-bottom:.25rem;display:block}
+.inq-input{width:100%;padding:.55rem .75rem;border:1.5px solid var(--border,#e2e8f0);border-radius:8px;font-size:.9rem;color:var(--text-primary,#0f172a);background:var(--bg-primary,#fff);outline:none;box-sizing:border-box;transition:border-color .15s;font-family:inherit}
+.inq-input:focus{border-color:#0078d4}
+textarea.inq-input{resize:vertical;min-height:90px}
+.inq-send-btn{width:100%;padding:.8rem 1.5rem;background:#0078d4;color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;margin-top:.5rem}
+.inq-send-btn:hover{background:#005fa3}
+.inq-success{display:none;text-align:center;padding:1.5rem 0}
+.inq-success-icon{font-size:3rem;margin-bottom:.75rem}
+.inq-success h3{font-size:1.1rem;font-weight:700;margin:0 0 .5rem;color:var(--text-primary,#0f172a)}
+.inq-success p{font-size:.88rem;color:var(--text-secondary,#64748b);margin:0}
+</style>
+    <div id="inqModal" class="inq-overlay" role="dialog" aria-modal="true" aria-labelledby="inqHeading">
+  <div class="inq-modal">
+    <button class="inq-close" onclick="closeInquiryModal()" aria-label="Zavriet">&times;</button>
+    <div id="inqForm">
+      <h2 class="inq-heading" id="inqHeading">&#128231; Zaslat dopyt</h2>
+      <p class="inq-product-label" id="inqProductName"></p>
+      <div class="inq-grid">
+        <div>
+          <label class="inq-label" for="inqMeno">Meno</label>
+          <input class="inq-input" type="text" id="inqMeno" placeholder="Jan" autocomplete="given-name" required>
+        </div>
+        <div>
+          <label class="inq-label" for="inqPriezvisko">Priezvisko</label>
+          <input class="inq-input" type="text" id="inqPriezvisko" placeholder="Novak" autocomplete="family-name">
+        </div>
+        <div class="inq-full">
+          <label class="inq-label" for="inqEmail">E-mail *</label>
+          <input class="inq-input" type="email" id="inqEmail" placeholder="vas@email.sk" autocomplete="email" required>
+        </div>
+        <div class="inq-full">
+          <label class="inq-label" for="inqTel">Telefon (volitelne)</label>
+          <input class="inq-input" type="tel" id="inqTel" placeholder="+421 9xx xxx xxx" autocomplete="tel">
+        </div>
+        <div class="inq-full">
+          <label class="inq-label" for="inqSprava">Sprava / Poziadavka</label>
+          <textarea class="inq-input" id="inqSprava" placeholder="Napisite vasu otazku alebo poziadavku k produktu..."></textarea>
+        </div>
+      </div>
+      <button class="inq-send-btn" onclick="submitInquiry()">Odoslat dopyt &#10148;</button>
+    </div>
+    <div class="inq-success" id="inqSuccess">
+      <div class="inq-success-icon">&#9989;</div>
+      <h3>Dopyt bol odoslany!</h3>
+      <p>Odpiseme vam na zadany e-mail obvykle do 24 hodin.</p>
+    </div>
+  </div>
+</div>
+    <script>
+function openInquiryModal(idx){
+  var p=PRODUCTS[idx];
+  if(!p)return;
+  var modal=document.getElementById('inqModal');
+  document.getElementById('inqProductName').textContent=p.name+(p.price?' — '+p.price:'');
+  document.getElementById('inqMeno').value='';
+  document.getElementById('inqPriezvisko').value='';
+  document.getElementById('inqEmail').value='';
+  document.getElementById('inqTel').value='';
+  document.getElementById('inqSprava').value='';
+  document.getElementById('inqForm').style.display='';
+  document.getElementById('inqSuccess').style.display='none';
+  modal._product=p.name;
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+  document.getElementById('inqMeno').focus();
+}
+function closeInquiryModal(){
+  document.getElementById('inqModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function submitInquiry(){
+  var meno=document.getElementById('inqMeno').value.trim();
+  var email=document.getElementById('inqEmail').value.trim();
+  if(!meno){alert('Vyplnte prosim meno.');return;}
+  if(!email||!email.includes('@')){alert('Vyplnte prosim platny e-mail.');return;}
+  var priezvisko=document.getElementById('inqPriezvisko').value.trim();
+  var tel=document.getElementById('inqTel').value.trim();
+  var sprava=document.getElementById('inqSprava').value.trim();
+  var modal=document.getElementById('inqModal');
+  var product=modal._product||'';
+  var subject=encodeURIComponent('Dopyt: '+product);
+  var body=encodeURIComponent('Produkt: '+product+'\nMeno: '+meno+' '+priezvisko+'\nE-mail: '+email+'\nTelefon: '+(tel||'—')+'\nSprava: '+(sprava||'—'));
+  var mailtoLink='mailto:postmaster@generaltrade.sk?subject='+subject+'&body='+body;
+  window.location.href=mailtoLink;
+  document.getElementById('inqForm').style.display='none';
+  document.getElementById('inqSuccess').style.display='block';
+  setTimeout(closeInquiryModal,3500);
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeInquiryModal();});
+document.getElementById('inqModal').addEventListener('click',function(e){if(e.target===this)closeInquiryModal();});
+</script>
 </html>
 
 </body>
