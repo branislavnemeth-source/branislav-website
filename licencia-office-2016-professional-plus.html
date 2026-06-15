@@ -138,6 +138,79 @@
 .nav-mobile .nav-mobile-blog-links.open { display: flex; }
 .nav-mobile .nav-mobile-blog-links a { font-size: .85rem; padding: .3rem 0; color: var(--color-text, #1e293b); }
 </style>
+
+  <!-- Product tabs CSS -->
+  <style>
+    .prod-tabs-wrap { margin-top: 2rem; }
+    .prod-tabs-nav {
+      display: flex; gap: .25rem; flex-wrap: wrap;
+      border-bottom: 2px solid var(--color-border, #e2e8f0);
+      margin-bottom: 0;
+    }
+    .prod-tab-btn {
+      background: transparent; border: none; cursor: pointer;
+      padding: .8rem 1.25rem;
+      font-size: .92rem; font-weight: 600;
+      color: var(--color-text-muted, #64748b);
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all .15s;
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-family: inherit;
+    }
+    .prod-tab-btn:hover { color: var(--color-text, #1e293b); background: var(--color-surface-2, #f8f9fa); border-radius: 6px 6px 0 0; }
+    .prod-tab-btn.active {
+      color: #0078d4;
+      border-bottom-color: #0078d4;
+      background: transparent;
+    }
+    .prod-tab-panels {
+      background: var(--color-surface, #fff);
+      border: 1px solid var(--color-border, #e2e8f0);
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      padding: 1.5rem 1.75rem;
+    }
+    .prod-tab-panel { display: none; animation: fadeIn .2s ease; }
+    .prod-tab-panel.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+    .prod-tab-panel h3 { margin: 0 0 .75rem; font-size: 1rem; font-weight: 700; color: var(--color-text, #1e293b); }
+    .prod-tab-panel p { font-size: .92rem; line-height: 1.7; color: var(--color-text-muted, #64748b); margin: 0 0 .75rem; }
+    .prod-tab-panel ul.tab-features { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+    .prod-tab-panel ul.tab-features li {
+      font-size: .9rem; color: var(--color-text, #1e293b);
+      padding: .6rem .85rem;
+      background: var(--color-surface-2, #f8f9fa);
+      border-radius: 8px;
+      border-left: 3px solid #0078d4;
+      line-height: 1.5;
+    }
+    .prod-tab-panel .tab-meta-grid {
+      display: grid; gap: .75rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .prod-tab-panel .tab-meta-item {
+      background: var(--color-surface-2, #f8f9fa);
+      border-radius: 8px;
+      padding: .75rem 1rem;
+    }
+    .prod-tab-panel .tab-meta-label {
+      font-size: .72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .05em; color: var(--color-text-faint, #94a3b8);
+      margin-bottom: .3rem;
+    }
+    .prod-tab-panel .tab-meta-val {
+      font-size: .9rem; color: var(--color-text, #1e293b); line-height: 1.5;
+    }
+    .prod-tab-panel .tab-sysreq {
+      grid-column: 1 / -1;
+    }
+    @media (max-width: 600px) {
+      .prod-tabs-nav { gap: 0; }
+      .prod-tab-btn { padding: .65rem .85rem; font-size: .85rem; flex: 1 1 0; justify-content: center; }
+      .prod-tab-panels { padding: 1.25rem; }
+    }
+  </style>
 </head>
 <body>
   <a class="sr-only" href="#main-content">Preskočiť na obsah</a>
@@ -230,7 +303,7 @@
           <div class="var-price-display" id="var-price" style="font-size:1.5rem">od 8,83 €</div>
           <div class="var-price-note" id="var-price-note" style="font-size:.78rem;color:var(--color-text-muted,#64748b)">Orientačne — ponuka na mieru (cena podľa zvoleného variantu)</div>
 
-          <p style="font-size:.9rem;line-height:1.6;color:var(--color-text-muted,#64748b);margin:0 0 1.2rem;">Office 2016 Professional Plus je osvedčený kancelársky balík Microsoft s jednorazovou licenciou. Ideálna voľba pre používateľov so staršími systémami. Obsahuje Word, Excel, PowerPoint, Outlook a ďalšie aplikácie.</p>
+          
 
           <!-- Variant selector -->
           <div class="var-selector-wrap">
@@ -238,25 +311,30 @@
             <div class="var-grid" id="var-grid"></div>
           </div>
 
-          <!-- Vlastnosti -->
-          <h3 style="font-size:.95rem;margin:0 0 .5rem;">Vlastnosti:</h3>
-          <ul style="padding-left:1.2rem;font-size:.875rem;line-height:1.8;margin:0 0 1.5rem;">
-            <li>Microsoft Word, Excel, PowerPoint, Outlook</li>
-            <li>Microsoft Access, Publisher, OneNote</li>
-            <li>Jednorazová licencia — bez mesačného poplatku</li>
-            <li>Offline inštalácia na 1 PC</li>
-            <li>Plná verzia s aktivačným kľúčom</li>
-            <li>Kompatibilita s Windows 7/8/10/11</li>
-          </ul>
-
-          <!-- Systémové požiadavky -->
-          <h3 style="font-size:.95rem;margin:0 0 .4rem;">Systémové požiadavky:</h3>
-          <p style="font-size:.85rem;color:var(--color-text-muted,#64748b);margin:0 0 1.5rem;">Windows 7/8/10/11, 1 GHz procesor, 2 GB RAM, 3 GB voľného miesta</p>
-
           <!-- Tlačidlo: zaslať dopyt -->
           <a class="btn-order" href="mailto:postmaster@generaltrade.sk?subject=Dopyt%3A%20Office%202016%20Professional%20Plus&body=Dobr%C3%BD%20de%C5%88%2C%0A%0Am%C3%A1m%20z%C3%A1ujem%20o%20cenov%C3%BA%20ponuku%20na%20produkt%3A%0AOffice%202016%20Professional%20Plus%0A%28variant%20uvediem%20v%20spr%C3%A1ve%20alebo%20telefonicky%29%0A%0APros%C3%ADm%20o%20zaslanie%20ceny%20a%20podmienok%20dodania.%0A%0A%C4%8Eakujem%2C%0A" style="background:#0078d4;color:#fff;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.5rem;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;text-decoration:none;width:100%;box-sizing:border-box">✉️ Zaslať dopyt</a>
         </div>
       </div>
+    <!-- Tabs: Popis / Vlastnosti / Informácie -->
+    <div class="prod-tabs-wrap" role="region" aria-label="Detail produktu">
+      <div class="prod-tabs-nav" role="tablist">
+        <button class="prod-tab-btn active" data-tab="desc" role="tab" aria-selected="true" type="button">📄 Popis produktu</button>
+        <button class="prod-tab-btn" data-tab="feat" role="tab" aria-selected="false" type="button">⭐ Hlavné vlastnosti</button>
+        <button class="prod-tab-btn" data-tab="info" role="tab" aria-selected="false" type="button">ℹ️ Informácie o produkte</button>
+      </div>
+      <div class="prod-tab-panels">
+        <div class="prod-tab-panel active" data-tab="desc" role="tabpanel">
+          <p>Office 2016 Professional Plus je osvedčený kancelársky balík Microsoft s jednorazovou licenciou. Ideálna voľba pre používateľov so staršími systémami. Obsahuje Word, Excel, PowerPoint, Outlook a ďalšie aplikácie.</p>
+        </div>
+        <div class="prod-tab-panel" data-tab="feat" role="tabpanel">
+          <ul class="tab-features"><li>✓ Microsoft Word, Excel, PowerPoint, Outlook</li><li>✓ Microsoft Access, Publisher, OneNote</li><li>✓ Jednorazová licencia — bez mesačného poplatku</li><li>✓ Offline inštalácia na 1 PC</li><li>✓ Plná verzia s aktivačným kľúčom</li><li>✓ Kompatibilita s Windows 7/8/10/11</li></ul>
+        </div>
+        <div class="prod-tab-panel" data-tab="info" role="tabpanel">
+          <div class="tab-meta-grid"><div class="tab-meta-item"><div class="tab-meta-label">Typ</div><div class="tab-meta-val">Digitálna licencia</div></div><div class="tab-meta-item"><div class="tab-meta-label">Doručenie</div><div class="tab-meta-val">E-mail, do niekoľkých minút po platbe</div></div><div class="tab-meta-item"><div class="tab-meta-label">Aktivácia</div><div class="tab-meta-val">Online, podľa zvoleného variantu</div></div><div class="tab-meta-item tab-sysreq"><div class="tab-meta-label">Systémové požiadavky</div><div class="tab-meta-val">Windows 7/8/10/11, 1 GHz procesor, 2 GB RAM, 3 GB voľného miesta</div></div></div>
+        </div>
+      </div>
+    </div>
+
     <!-- Prečo nakupovať u nás -->
     <div class="info-block" style="margin-top:2.5rem;padding:1.5rem;background:var(--color-surface-2,#f8f9fa);border:1px solid var(--color-border,#e2e8f0);border-radius:12px;">
       <h2 style="font-size:1.1rem;font-weight:700;margin:0 0 1rem;color:var(--color-text,#1e293b);">✅ Prečo nakupovať u nás</h2>
@@ -390,4 +468,24 @@ document.addEventListener('click', function(e) {
 </script>
 
 </html>
+
+<script>
+(function() {
+  document.querySelectorAll('.prod-tabs-wrap').forEach(function(wrap) {
+    var btns = wrap.querySelectorAll('.prod-tab-btn');
+    var panels = wrap.querySelectorAll('.prod-tab-panel');
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var target = btn.getAttribute('data-tab');
+        btns.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        panels.forEach(function(p) { p.classList.remove('active'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        var panel = wrap.querySelector('.prod-tab-panel[data-tab="' + target + '"]');
+        if (panel) panel.classList.add('active');
+      });
+    });
+  });
+})();
+</script>
 </body>

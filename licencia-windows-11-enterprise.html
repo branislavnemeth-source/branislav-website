@@ -96,6 +96,79 @@
 .nav-mobile .nav-mobile-blog-links.open { display: flex; }
 .nav-mobile .nav-mobile-blog-links a { font-size: .85rem; padding: .3rem 0; color: var(--color-text, #1e293b); }
 </style>
+
+  <!-- Product tabs CSS -->
+  <style>
+    .prod-tabs-wrap { margin-top: 2rem; }
+    .prod-tabs-nav {
+      display: flex; gap: .25rem; flex-wrap: wrap;
+      border-bottom: 2px solid var(--color-border, #e2e8f0);
+      margin-bottom: 0;
+    }
+    .prod-tab-btn {
+      background: transparent; border: none; cursor: pointer;
+      padding: .8rem 1.25rem;
+      font-size: .92rem; font-weight: 600;
+      color: var(--color-text-muted, #64748b);
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all .15s;
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-family: inherit;
+    }
+    .prod-tab-btn:hover { color: var(--color-text, #1e293b); background: var(--color-surface-2, #f8f9fa); border-radius: 6px 6px 0 0; }
+    .prod-tab-btn.active {
+      color: #0078d4;
+      border-bottom-color: #0078d4;
+      background: transparent;
+    }
+    .prod-tab-panels {
+      background: var(--color-surface, #fff);
+      border: 1px solid var(--color-border, #e2e8f0);
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      padding: 1.5rem 1.75rem;
+    }
+    .prod-tab-panel { display: none; animation: fadeIn .2s ease; }
+    .prod-tab-panel.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+    .prod-tab-panel h3 { margin: 0 0 .75rem; font-size: 1rem; font-weight: 700; color: var(--color-text, #1e293b); }
+    .prod-tab-panel p { font-size: .92rem; line-height: 1.7; color: var(--color-text-muted, #64748b); margin: 0 0 .75rem; }
+    .prod-tab-panel ul.tab-features { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+    .prod-tab-panel ul.tab-features li {
+      font-size: .9rem; color: var(--color-text, #1e293b);
+      padding: .6rem .85rem;
+      background: var(--color-surface-2, #f8f9fa);
+      border-radius: 8px;
+      border-left: 3px solid #0078d4;
+      line-height: 1.5;
+    }
+    .prod-tab-panel .tab-meta-grid {
+      display: grid; gap: .75rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .prod-tab-panel .tab-meta-item {
+      background: var(--color-surface-2, #f8f9fa);
+      border-radius: 8px;
+      padding: .75rem 1rem;
+    }
+    .prod-tab-panel .tab-meta-label {
+      font-size: .72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .05em; color: var(--color-text-faint, #94a3b8);
+      margin-bottom: .3rem;
+    }
+    .prod-tab-panel .tab-meta-val {
+      font-size: .9rem; color: var(--color-text, #1e293b); line-height: 1.5;
+    }
+    .prod-tab-panel .tab-sysreq {
+      grid-column: 1 / -1;
+    }
+    @media (max-width: 600px) {
+      .prod-tabs-nav { gap: 0; }
+      .prod-tab-btn { padding: .65rem .85rem; font-size: .85rem; flex: 1 1 0; justify-content: center; }
+      .prod-tab-panels { padding: 1.25rem; }
+    }
+  </style>
 </head>
 <body>
   <a class="sr-only" href="#main-content">Preskočiť na obsah</a>
@@ -204,28 +277,27 @@
     </div>
     </div>
 
-    <!-- Popis -->
-    <div class="prod-section">
-      <h2>Popis produktu</h2>
-      <p style="font-size:.92rem;color:var(--color-text-muted);line-height:1.7">Windows 11 Enterprise je navrhnutý pre stredné a veľké organizácie, ktoré potrebujú pokročilé bezpečnostné funkcie, správu zariadení, možnosť práce v hybridnom prostredí. Oproti edíciám Home a Pro ponúka výrazne rozšírené možnosti pre podnikové použitie, centralizovanú správu a vyššiu úroveň ochrany firemných dát.
+    <!-- Tabs: Popis / Vlastnosti / Informácie -->
+    <div class="prod-tabs-wrap" role="region" aria-label="Detail produktu">
+      <div class="prod-tabs-nav" role="tablist">
+        <button class="prod-tab-btn active" data-tab="desc" role="tab" aria-selected="true" type="button">📄 Popis produktu</button>
+        <button class="prod-tab-btn" data-tab="feat" role="tab" aria-selected="false" type="button">⭐ Hlavné vlastnosti</button>
+        <button class="prod-tab-btn" data-tab="info" role="tab" aria-selected="false" type="button">ℹ️ Informácie o produkte</button>
+      </div>
+      <div class="prod-tab-panels">
+        <div class="prod-tab-panel active" data-tab="desc" role="tabpanel">
+          <p>Windows 11 Enterprise je navrhnutý pre stredné a veľké organizácie, ktoré potrebujú pokročilé bezpečnostné funkcie, správu zariadení, možnosť práce v hybridnom prostredí. Oproti edíciám Home a Pro ponúka výrazne rozšírené možnosti pre podnikové použitie, centralizovanú správu a vyššiu úroveň ochrany firemných dát.
 
 Windows 11 Enterprise predstavuje komplexné riešenie pre organizácie, ktoré nechcú robiť kompromisy medzi výkonom, bezpečnosťou a flexibilitou.
 
 Kľúčové vlastnosti zahŕňajú pokročilé zabezpečenie (Windows Defender ATP, BitLocker, Credential Guard), pripravenosť na hybridnú prácu (Remote Desktop, Azure AD), pokročilú správu (Intune, Autopilot) a optimalizáciu pre firemné aplikácie a virtualizáciu. BranislavIT</p>
-    </div>
-
-    <!-- Vlastnosti -->
-    <div class="prod-section"><h2>Hlavné vlastnosti</h2><ul class="prod-features"><li>✓ ['Windows Defender for Endpoint (ATP): Rozšírená ochrana pred modernými hrozbami – detekcia, prevencia, vyšetrovanie a reakcia na bezpečnostné incidenty.', 'BitLocker: Šifrovanie celého disku pre ochrana dát v prípade straty alebo krádeže zariadenia.', 'Credential Guard a Device Guard: Ochrana prihlasovacích údajov a možnosť spúšťať len dôveryhodný kód v systéme.', 'Smart App Control: Pomáha blokovať neautorizované aplikácie a skripty už počas inštalácie.', 'Remote Desktop (RDP): Prístup k firemnému zariadeniu odkiaľkoľvek, bez potreby VPN.', 'Pripojenie k Azure Active Directory a doméne: Jednoduché zapojenie do firemnej infraštruktúry.', 'Windows Hello for Business: Bezpečné prihlasovanie pomocou biometrie alebo PIN-u.', 'Microsoft Endpoint Manager / Intune: Centrálna správa zariadení a aplikácií (lokálne aj cloudovo).', 'Windows Autopilot: Automatizované nasadenie a konfigurácia zariadení bez potreby IT zásahu.', 'Group Policy a Active Directory: Plná kontrola nad správaním systému a používateľmi.', 'Podpora virtualizácie (Hyper-V): Možnosť behu viacerých virtuálnych strojov naraz.', 'Kompatibilita s profesionálnym softvérom: Ideálne pre aplikácie vyžadujúce stabilitu, bezpečnosť a vysoký výkon.', 'Podpora pre Windows Subsystem for Linux (WSL): Vhodné aj pre vývojárov a IT špecialistov.', 'Rozšírené možnosti aktualizácií: IT správcovia majú kontrolu nad načasovaním a typom aktualizácií.']</li></ul></div>
-
-    <!-- Meta info -->
-    <div class="prod-section">
-      <h2>Informácie o produkte</h2>
-      <div class="prod-meta-grid">
-        <div class="prod-meta-item"><div class="prod-meta-label">Typ</div><div class="prod-meta-val">Digitálna licencia</div></div>
-        <div class="prod-meta-item"><div class="prod-meta-label">Doručenie</div><div class="prod-meta-val">E-mail, do niekoľkých minút</div></div>
-        <div class="prod-meta-item"><div class="prod-meta-label">Jazyk</div><div class="prod-meta-val">Všetky svetové jazyky vrátane Slovenského BranislavIT</div></div>
-        <div class="prod-meta-item"><div class="prod-meta-label">Referencia</div><div class="prod-meta-val">LIC008</div></div>
-        <div class="prod-meta-item" style="grid-column:1/-1"><div class="prod-meta-label">Systémové požiadavky</div><div class="prod-meta-val">Procesor: 1 GHz alebo rýchlejší s 2 alebo viac jadrami, kompatibilný s 64-bit architektúrou a podporou TPM 2.0; Pamäť (RAM): 4 GB; Úložisko: 64 GB; Grafika: DirectX 12 / WDDM 2.0; Displej: Minimálne 9"; TPM: Trusted Platform Module verzie 2.0 (povinný). BranislavIT</div></div>
+        </div>
+        <div class="prod-tab-panel" data-tab="feat" role="tabpanel">
+          <ul class="tab-features"><li>✓ Windows Defender for Endpoint (ATP): Rozšírená ochrana pred modernými hrozbami – detekcia, prevencia, vyšetrovanie a reakcia na bezpečnostné incidenty.</li><li>✓ BitLocker: Šifrovanie celého disku pre ochrana dát v prípade straty alebo krádeže zariadenia.</li><li>✓ Credential Guard a Device Guard: Ochrana prihlasovacích údajov a možnosť spúšťať len dôveryhodný kód v systéme.</li><li>✓ Smart App Control: Pomáha blokovať neautorizované aplikácie a skripty už počas inštalácie.</li><li>✓ Remote Desktop (RDP): Prístup k firemnému zariadeniu odkiaľkoľvek, bez potreby VPN.</li><li>✓ Pripojenie k Azure Active Directory a doméne: Jednoduché zapojenie do firemnej infraštruktúry.</li><li>✓ Windows Hello for Business: Bezpečné prihlasovanie pomocou biometrie alebo PIN-u.</li><li>✓ Microsoft Endpoint Manager / Intune: Centrálna správa zariadení a aplikácií (lokálne aj cloudovo).</li><li>✓ Windows Autopilot: Automatizované nasadenie a konfigurácia zariadení bez potreby IT zásahu.</li><li>✓ Group Policy a Active Directory: Plná kontrola nad správaním systému a používateľmi.</li><li>✓ Podpora virtualizácie (Hyper-V): Možnosť behu viacerých virtuálnych strojov naraz.</li><li>✓ Kompatibilita s profesionálnym softvérom: Ideálne pre aplikácie vyžadujúce stabilitu, bezpečnosť a vysoký výkon.</li><li>✓ Podpora pre Windows Subsystem for Linux (WSL): Vhodné aj pre vývojárov a IT špecialistov.</li><li>✓ Rozšírené možnosti aktualizácií: IT správcovia majú kontrolu nad načasovaním a typom aktualizácií.</li></ul>
+        </div>
+        <div class="prod-tab-panel" data-tab="info" role="tabpanel">
+          <div class="tab-meta-grid"><div class="tab-meta-item"><div class="tab-meta-label">Typ</div><div class="tab-meta-val">Digitálna licencia</div></div><div class="tab-meta-item"><div class="tab-meta-label">Doručenie</div><div class="tab-meta-val">E-mail, do niekoľkých minút</div></div><div class="tab-meta-item"><div class="tab-meta-label">Jazyk</div><div class="tab-meta-val">Všetky svetové jazyky vrátane Slovenského BranislavIT</div></div><div class="tab-meta-item"><div class="tab-meta-label">Referencia</div><div class="tab-meta-val">LIC008</div></div><div class="tab-meta-item tab-sysreq"><div class="tab-meta-label">Systémové požiadavky</div><div class="tab-meta-val">Procesor: 1 GHz alebo rýchlejší s 2 alebo viac jadrami, kompatibilný s 64-bit architektúrou a podporou TPM 2.0; Pamäť (RAM): 4 GB; Úložisko: 64 GB; Grafika: DirectX 12 / WDDM 2.0; Displej: Minimálne 9"; TPM: Trusted Platform Module verzie 2.0 (povinný). BranislavIT</div></div></div>
+        </div>
       </div>
     </div>
     <!-- Prečo nakupovať u nás -->
@@ -341,4 +413,24 @@ document.addEventListener('click', function(e) {
 </script>
 
 </html>
+
+<script>
+(function() {
+  document.querySelectorAll('.prod-tabs-wrap').forEach(function(wrap) {
+    var btns = wrap.querySelectorAll('.prod-tab-btn');
+    var panels = wrap.querySelectorAll('.prod-tab-panel');
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var target = btn.getAttribute('data-tab');
+        btns.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        panels.forEach(function(p) { p.classList.remove('active'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        var panel = wrap.querySelector('.prod-tab-panel[data-tab="' + target + '"]');
+        if (panel) panel.classList.add('active');
+      });
+    });
+  });
+})();
+</script>
 </body>
