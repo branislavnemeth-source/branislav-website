@@ -292,7 +292,7 @@
 
         <!-- Fotka produktu -->
         <div style="flex:0 0 220px;display:flex;flex-direction:column;align-items:center;gap:.8rem;">
-          <img src="/images/licencie/eset-smart-security-premium.png" alt="ESET Smart Security Premium" style="width:100%;border-radius:12px;object-fit:contain;aspect-ratio:1/1;background:#f8f9fa;padding:.5rem;">
+          <img src="/images/licencie/eset-smart-security-premium.png" alt="ESET Smart Security Premium" style="width:100%;border-radius:12px;object-fit:contain;aspect-ratio:1/1;background:#f8f9fa;padding:.5rem;cursor:pointer" onclick="openInquiryModal()" title="Kliknite pre dopyt">
         </div>
 
         <!-- Info + varianty -->
@@ -312,7 +312,7 @@
           </div>
 
           <!-- Tlačidlo: zaslať dopyt -->
-          <a class="btn-order" href="mailto:postmaster@generaltrade.sk?subject=Dopyt%3A%20ESET%20Smart%20Security%20Premium&body=Dobr%C3%BD%20de%C5%88%2C%0A%0Am%C3%A1m%20z%C3%A1ujem%20o%20cenov%C3%BA%20ponuku%20na%20produkt%3A%0AESET%20Smart%20Security%20Premium%0A%28variant%20uvediem%20v%20spr%C3%A1ve%20alebo%20telefonicky%29%0A%0APros%C3%ADm%20o%20zaslanie%20ceny%20a%20podmienok%20dodania.%0A%0A%C4%8Eakujem%2C%0A" style="background:#0078d4;color:#fff;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.5rem;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;text-decoration:none;width:100%;box-sizing:border-box">✉️ Zaslať dopyt</a>
+          <a class="btn-order" href="#" onclick="event.preventDefault();openInquiryModal();return false;" style="background:#0078d4;color:#fff;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.5rem;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;text-decoration:none;width:100%;box-sizing:border-box">✉️ Zaslať dopyt</a>
         </div>
       </div>
     <!-- Tabs: Popis / Vlastnosti / Informácie -->
@@ -450,7 +450,7 @@
       renderGrid();
     }
 
-    window.goOrder = function() { window.location.href = 'mailto:postmaster@generaltrade.sk?subject=Dopyt%3A%20ESET%20Smart%20Security%20Premium&body=Dobr%C3%BD%20de%C5%88%2C%0A%0Am%C3%A1m%20z%C3%A1ujem%20o%20cenov%C3%BA%20ponuku%20na%20produkt%3A%0AESET%20Smart%20Security%20Premium%0A%28variant%20uvediem%20v%20spr%C3%A1ve%20alebo%20telefonicky%29%0A%0APros%C3%ADm%20o%20zaslanie%20ceny%20a%20podmienok%20dodania.%0A%0A%C4%8Eakujem%2C%0A'; };
+    window.goOrder = function() { openInquiryModal(); };
 
     // Init
     selectVariant(0);
@@ -487,4 +487,114 @@ document.addEventListener('click', function(e) {
   });
 })();
 </script>
+
+<!-- Inquiry Modal Begin -->
+<style>
+.inq-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:10000;display:none;align-items:center;justify-content:center;padding:1rem}
+.inq-overlay.open{display:flex}
+.inq-modal{background:#fff;border-radius:16px;max-width:520px;width:100%;padding:2rem;position:relative;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.inq-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#64748b;line-height:1;width:2rem;height:2rem}
+.inq-heading{font-size:1.2rem;font-weight:700;margin:0 0 .35rem;color:#0f172a}
+.inq-product-label{font-size:.82rem;color:#64748b;margin:0 0 1.25rem;padding:.5rem .75rem;background:#f8fafc;border-radius:8px;border-left:3px solid #0078d4}
+.inq-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.inq-full{grid-column:1/-1}
+.inq-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:.25rem;display:block}
+.inq-input{width:100%;padding:.55rem .75rem;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.9rem;color:#0f172a;background:#fff;outline:none;box-sizing:border-box;transition:border-color .15s;font-family:inherit}
+.inq-input:focus{border-color:#0078d4}
+textarea.inq-input{resize:vertical;min-height:90px}
+.inq-send-btn{width:100%;padding:.8rem 1.5rem;background:#0078d4;color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;margin-top:.5rem}
+.inq-send-btn:hover{background:#005fa3}
+.inq-success{display:none;text-align:center;padding:1.5rem 0}
+.inq-success-icon{font-size:3rem;margin-bottom:.75rem}
+.inq-success h3{font-size:1.1rem;font-weight:700;margin:0 0 .5rem;color:#0f172a}
+.inq-success p{font-size:.88rem;color:#64748b;margin:0}
+@media (prefers-color-scheme: dark){
+  .inq-modal{background:#1e293b;color:#f1f5f9}
+  .inq-heading,.inq-success h3{color:#f1f5f9}
+  .inq-product-label{background:#0f172a;color:#cbd5e1}
+  .inq-input{background:#0f172a;color:#f1f5f9;border-color:#334155}
+}
+</style>
+<div id="inqModal" class="inq-overlay" role="dialog" aria-modal="true" aria-labelledby="inqHeading">
+  <div class="inq-modal">
+    <button class="inq-close" onclick="closeInquiryModal()" aria-label="Zavrieť">&times;</button>
+    <div id="inqForm">
+      <h2 class="inq-heading" id="inqHeading">&#128231; Zaslať dopyt</h2>
+      <p class="inq-product-label" id="inqProductName"></p>
+      <div class="inq-grid">
+        <div>
+          <label class="inq-label" for="inqMeno">Meno</label>
+          <input class="inq-input" type="text" id="inqMeno" placeholder="Ján" autocomplete="given-name" required>
+        </div>
+        <div>
+          <label class="inq-label" for="inqPriezvisko">Priezvisko</label>
+          <input class="inq-input" type="text" id="inqPriezvisko" placeholder="Novák" autocomplete="family-name">
+        </div>
+        <div class="inq-full">
+          <label class="inq-label" for="inqEmail">E-mail *</label>
+          <input class="inq-input" type="email" id="inqEmail" placeholder="vas@email.sk" autocomplete="email" required>
+        </div>
+        <div class="inq-full">
+          <label class="inq-label" for="inqTel">Telefón (voliteľné)</label>
+          <input class="inq-input" type="tel" id="inqTel" placeholder="+421 9xx xxx xxx" autocomplete="tel">
+        </div>
+        <div class="inq-full">
+          <label class="inq-label" for="inqSprava">Správa / Požiadavka</label>
+          <textarea class="inq-input" id="inqSprava" placeholder="Napíšte vašu otázku alebo požiadavku k produktu..."></textarea>
+        </div>
+      </div>
+      <button class="inq-send-btn" onclick="submitInquiry()">Odoslať dopyt &#10148;</button>
+    </div>
+    <div class="inq-success" id="inqSuccess">
+      <div class="inq-success-icon">&#9989;</div>
+      <h3>Dopyt bol odoslaný</h3>
+      <p>Odpíšeme vám na zadaný e-mail obvykle do 24 hodín.</p>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var INQ_PRODUCT = 'ESET Smart Security Premium';
+  var INQ_CAT = 'antivirus';
+  var rangeMap = {windows:'od 10,39 €', office:'od 8,83 €', antivirus:'od 35,09 €'};
+  window.openInquiryModal = function(){
+    var modal = document.getElementById('inqModal');
+    document.getElementById('inqProductName').textContent = INQ_PRODUCT + (rangeMap[INQ_CAT] ? ' — ' + rangeMap[INQ_CAT] + ' (orientačne)' : '');
+    document.getElementById('inqMeno').value = '';
+    document.getElementById('inqPriezvisko').value = '';
+    document.getElementById('inqEmail').value = '';
+    document.getElementById('inqTel').value = '';
+    document.getElementById('inqSprava').value = '';
+    document.getElementById('inqForm').style.display = '';
+    document.getElementById('inqSuccess').style.display = 'none';
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){document.getElementById('inqMeno').focus();}, 50);
+  };
+  window.closeInquiryModal = function(){
+    document.getElementById('inqModal').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  window.submitInquiry = function(){
+    var meno = document.getElementById('inqMeno').value.trim();
+    var email = document.getElementById('inqEmail').value.trim();
+    if(!meno){alert('Vyplňte prosím meno.'); return;}
+    if(!email || !email.includes('@')){alert('Vyplňte prosím platný e-mail.'); return;}
+    var priezvisko = document.getElementById('inqPriezvisko').value.trim();
+    var tel = document.getElementById('inqTel').value.trim();
+    var sprava = document.getElementById('inqSprava').value.trim();
+    var subject = encodeURIComponent('Dopyt: ' + INQ_PRODUCT);
+    var body = encodeURIComponent('Produkt: ' + INQ_PRODUCT + '\nMeno: ' + meno + ' ' + priezvisko + '\nE-mail: ' + email + '\nTelefón: ' + (tel || '—') + '\nSpráva: ' + (sprava || '—'));
+    window.location.href = 'mailto:postmaster@generaltrade.sk?subject=' + subject + '&body=' + body;
+    document.getElementById('inqForm').style.display = 'none';
+    document.getElementById('inqSuccess').style.display = 'block';
+    setTimeout(window.closeInquiryModal, 3500);
+  };
+  document.addEventListener('keydown', function(e){if(e.key === 'Escape') window.closeInquiryModal();});
+  var modalEl = document.getElementById('inqModal');
+  if(modalEl){modalEl.addEventListener('click', function(e){if(e.target === this) window.closeInquiryModal();});}
+})();
+</script>
+<!-- Inquiry Modal End -->
+
 </body>
